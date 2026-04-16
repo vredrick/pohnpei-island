@@ -1,0 +1,212 @@
+---
+
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-10 h-20 bg-sand/90 backdrop-blur-xl border-b border-basalt/10 tapa-pattern"
+>
+  <a href="/" class="flex items-center gap-4">
+    <div
+      class="w-11 h-11 bg-basalt flex items-center justify-center text-sand font-headline text-2xl font-semibold"
+    >
+      P
+    </div>
+    <div class="hidden sm:block leading-tight">
+      <div class="font-headline text-lg tracking-wide">Pohnpei Island</div>
+      <div
+        class="font-label text-[9px] tracking-[0.28em] uppercase text-basalt/60"
+      >
+        The Garden Island · Micronesia
+      </div>
+    </div>
+  </a>
+
+  <div class="menu-desktop flex items-center gap-10">
+    <div class="menu-top">
+      <button type="button" aria-haspopup="true" aria-expanded="false"
+        >The Island <span class="chev"></span></button
+      >
+      <div class="menu-panel" role="menu">
+        <a href="/#about"
+          ><span>About Pohnpei</span><span class="sub"
+            >The Garden Island</span
+          ></a
+        >
+        <a href="/#culture"
+          ><span>The Culture</span><span class="sub"
+            >Tiahk · Sakau · Nahnmwarki</span
+          ></a
+        >
+        <a href="/#nan-madol"
+          ><span>History</span><span class="sub"
+            >Saudeleur · Nan Madol</span
+          ></a
+        >
+        <a href="/#atolls"
+          ><span>Outer Atolls</span><span class="sub"
+            >Ahnd · Pakin · Pingelap</span
+          ></a
+        >
+      </div>
+    </div>
+
+    <div class="menu-top">
+      <button type="button" aria-haspopup="true" aria-expanded="false"
+        >Experiences <span class="chev"></span></button
+      >
+      <div class="menu-panel" role="menu">
+        <a href="/#nan-madol"
+          ><span>Nan Madol</span><span class="sub"
+            >UNESCO · 12th Century</span
+          ></a
+        >
+        <a href="/#adventures"
+          ><span>Adventures</span><span class="sub"
+            >Hike · Dive · Surf · Waterfalls</span
+          ></a
+        >
+      </div>
+    </div>
+
+    <div class="menu-top">
+      <button type="button" aria-haspopup="true" aria-expanded="false"
+        >Plan <span class="chev"></span></button
+      >
+      <div class="menu-panel" role="menu">
+        <a href="/getting-here"
+          ><span>Getting Here</span><span class="sub"
+            >Air Hubs · Island Hopper</span
+          ></a
+        >
+        <a href="/places-to-stay"
+          ><span>Places to Stay</span><span class="sub"
+            >Hotels · Homestays</span
+          ></a
+        >
+        <a href="/plan-your-trip"
+          ><span>Plan Your Trip</span><span class="sub"
+            >Build Your Itinerary</span
+          ></a
+        >
+        <a href="/travel-info"
+          ><span>Travel Info</span><span class="sub"
+            >Visas · Weather · Etiquette</span
+          ></a
+        >
+      </div>
+    </div>
+
+    <div class="menu-top">
+      <a href="/#dispatch">Dispatch</a>
+    </div>
+  </div>
+
+  <button
+    class="menu-mobile-toggle w-11 h-11 bg-basalt text-sand items-center justify-center"
+    aria-label="Open menu"
+    aria-expanded="false"
+    id="mobileToggle"
+  >
+    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" class="toggle-open"
+      ><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5"
+      /></svg
+    >
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      class="toggle-close hidden"
+      ><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.5"
+      /></svg
+    >
+  </button>
+
+  <a
+    href="/#dispatch"
+    class="menu-cta-desktop bg-ochre text-white px-6 py-3 font-label uppercase tracking-[0.15em] text-[11px] font-semibold hover:bg-ochre-deep transition-all active:scale-95"
+  >
+    Join the Dispatch
+  </a>
+</nav>
+
+<!-- Mobile nav sheet -->
+<div
+  id="mobileSheet"
+  class="menu-mobile-sheet fixed top-[116px] left-0 right-0 bg-sand-bright border-b border-basalt/10 z-40 tapa-pattern max-h-[calc(100vh-116px)] overflow-y-auto"
+>
+  <div class="flex flex-col divide-y divide-basalt/10">
+    <a href="/#about" class="mobile-link px-6 py-4 font-headline text-lg"
+      >About Pohnpei <span
+        class="text-[10px] font-body tracking-widest uppercase text-basalt/50 ml-2"
+        >The Garden Island</span
+      ></a
+    >
+    <a href="/#culture" class="mobile-link px-6 py-4 font-headline text-lg"
+      >The Culture</a
+    >
+    <a href="/#nan-madol" class="mobile-link px-6 py-4 font-headline text-lg"
+      >Nan Madol</a
+    >
+    <a href="/#adventures" class="mobile-link px-6 py-4 font-headline text-lg"
+      >Adventures</a
+    >
+    <a href="/#atolls" class="mobile-link px-6 py-4 font-headline text-lg"
+      >Outer Atolls</a
+    >
+    <a href="/getting-here" class="mobile-link px-6 py-4 font-headline text-lg"
+      >Getting Here</a
+    >
+    <a href="/places-to-stay" class="mobile-link px-6 py-4 font-headline text-lg"
+      >Places to Stay</a
+    >
+    <a href="/travel-info" class="mobile-link px-6 py-4 font-headline text-lg"
+      >Travel Info</a
+    >
+    <a href="/#dispatch" class="mobile-link px-6 py-4 font-headline text-lg"
+      >Dispatch</a
+    >
+    <a
+      href="/#dispatch"
+      class="mobile-link px-6 py-5 bg-ochre text-white font-label uppercase tracking-widest text-xs font-semibold text-center"
+      >Join the Dispatch</a
+    >
+  </div>
+</div>
+
+<script>
+  function toggleMobileMenu() {
+    const sheet = document.getElementById('mobileSheet');
+    const toggle = document.getElementById('mobileToggle');
+    if (!sheet || !toggle) return;
+    const isOpen = sheet.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    toggle.querySelector('.toggle-open')?.classList.toggle('hidden', isOpen);
+    toggle.querySelector('.toggle-close')?.classList.toggle('hidden', !isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  function closeMobileMenu() {
+    const sheet = document.getElementById('mobileSheet');
+    const toggle = document.getElementById('mobileToggle');
+    if (sheet) sheet.classList.remove('open');
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.querySelector('.toggle-open')?.classList.remove('hidden');
+      toggle.querySelector('.toggle-close')?.classList.add('hidden');
+    }
+    document.body.style.overflow = '';
+  }
+
+  document
+    .getElementById('mobileToggle')
+    ?.addEventListener('click', toggleMobileMenu);
+
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMobileMenu();
+  });
+</script>

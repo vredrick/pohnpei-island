@@ -1,0 +1,76 @@
+---
+
+---
+
+<section id="dispatch" class="py-28 md:py-36 px-6 flex justify-center bg-sand">
+  <div
+    class="max-w-3xl w-full bg-sand-bright p-10 md:p-20 border border-basalt/10 relative"
+  >
+    <div
+      class="absolute inset-2 border border-basalt/5 pointer-events-none tapa-pattern opacity-40"
+    >
+    </div>
+    <div class="relative z-10 text-center flex flex-col items-center">
+      <span
+        class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-5"
+      >
+        The Kaselehlie Dispatch
+      </span>
+      <p
+        class="font-body text-basalt/65 mb-4 max-w-md leading-relaxed text-[15px]"
+      >
+        Stories, maps, and field notes from the Garden Island. Written for
+        people who want to understand Pohnpei — not just visit it.
+      </p>
+      <p
+        class="font-headline italic text-basalt/50 text-lg mb-10"
+      >
+        One email per issue. That's it.
+      </p>
+      <form
+        id="dispatchForm"
+        class="w-full max-w-md flex flex-col md:flex-row gap-4 items-stretch"
+      >
+        <input
+          type="email"
+          required
+          aria-label="Email address"
+          placeholder="your.email@ocean.pac"
+          class="flex-grow bg-transparent border-b-2 border-basalt/25 focus:border-ochre focus:ring-0 outline-none px-0 py-3 font-body text-base transition-all placeholder:text-basalt/30"
+        />
+        <button
+          type="submit"
+          class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all whitespace-nowrap"
+        >
+          Join the Dispatch
+        </button>
+      </form>
+      <div
+        id="formNote"
+        class="font-label text-[10px] tracking-[0.2em] uppercase text-basalt/45 mt-8 font-medium transition-colors"
+      >
+        No spam. Unsubscribe anytime.
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('dispatchForm');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const note = document.getElementById('formNote');
+    const input = form.querySelector('input');
+    if (note) {
+      note.textContent = "You're in. First dispatch is on its way.";
+      note.style.color = '#B8642B';
+    }
+    if (input instanceof HTMLInputElement) input.value = '';
+    setTimeout(() => {
+      if (note) {
+        note.textContent = 'No spam. Unsubscribe anytime.';
+        note.style.color = '';
+      }
+    }, 5000);
+  });
+</script>

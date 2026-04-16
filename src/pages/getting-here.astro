@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import StatusStrip from '../components/StatusStrip.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Getting to Pohnpei — The Garden Island of Micronesia"
+  description="How to get to Pohnpei Island, FSM. Flights via United Airlines Island Hopper from Honolulu and Guam, plus Nauru Airlines from Brisbane."
+>
+  <Nav />
+  <StatusStrip />
+
+  <main class="pt-[116px]">
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <span
+          class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-8 block"
+        >
+          Plan Your Visit
+        </span>
+        <h1
+          class="font-headline text-basalt text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight mb-10"
+        >
+          Getting to <em class="italic text-ochre">Pohnpei</em>.
+        </h1>
+
+        <div class="space-y-8 font-body text-basalt/75 text-[16px] leading-relaxed">
+          <p>
+            Pohnpei International Airport (PNI) sits just outside Kolonia, the
+            island's main town. It's small, unhurried, and exactly what you'd
+            expect from a place this far from everything.
+          </p>
+
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">By Air</h2>
+            <p class="mb-4">
+              <strong class="text-basalt">United Airlines Island Hopper</strong> — the
+              primary route. Flies between Honolulu and Guam with stops across
+              Micronesia, including Pohnpei. Runs several times per week. Most
+              visitors connect through Guam or Honolulu.
+            </p>
+            <p>
+              <strong class="text-basalt">Nauru Airlines</strong> — operates a
+              Brisbane–Pohnpei route via Nauru. A good option if you're coming
+              from Australia or the South Pacific.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Common Routes</h2>
+            <ul class="space-y-2 list-none">
+              <li class="flex items-start gap-3">
+                <span class="text-ochre mt-1">→</span>
+                <span><strong class="text-basalt">From the US West Coast:</strong> Fly to Honolulu or Guam, then connect to PNI via Island Hopper.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-ochre mt-1">→</span>
+                <span><strong class="text-basalt">From Australia:</strong> Brisbane to Pohnpei via Nauru Airlines.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-ochre mt-1">→</span>
+                <span><strong class="text-basalt">From Asia:</strong> Fly to Guam from Manila, Tokyo, Seoul, or Taipei, then connect to PNI.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Tips</h2>
+            <ul class="space-y-2 list-none">
+              <li class="flex items-start gap-3">
+                <span class="text-ochre mt-1">•</span>
+                <span>Always reconfirm flight schedules — routes change seasonally and delays are part of island travel.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-ochre mt-1">•</span>
+                <span>Build in a buffer day on either side of your trip. Connections through Guam or Honolulu don't always line up neatly.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-ochre mt-1">•</span>
+                <span>Passport must be valid for at least 6 months beyond your travel dates.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-ochre mt-1">•</span>
+                <span>Notify your bank before you go. ATMs exist but aren't everywhere.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-10 border-t border-basalt/10">
+          <p class="font-body text-basalt/55 text-sm mb-6">
+            More detailed travel info coming soon — routes, packing lists, and what to expect on arrival.
+          </p>
+          <a
+            href="/#dispatch"
+            class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+          >
+            Join the Dispatch for Updates
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

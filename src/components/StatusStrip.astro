@@ -1,0 +1,32 @@
+---
+
+---
+
+<div
+  class="fixed top-20 left-0 right-0 z-40 h-9 px-4 bg-basalt flex justify-center items-center"
+>
+  <div
+    class="flex items-center gap-4 md:gap-8 font-label text-[10px] tracking-[0.22em] uppercase font-medium text-sand/70"
+  >
+    <span class="flex items-center gap-2 text-ochre">
+      <span class="w-1.5 h-1.5 bg-ochre pulse-dot"></span>
+      The Garden Island · MMXXVI
+    </span>
+    <span class="hidden sm:inline">6.8542°N · 158.2336°E</span>
+    <span id="clock" class="hidden sm:inline">PONT 00:00</span>
+  </div>
+</div>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    const pont = new Date(utc + 11 * 3600000);
+    const hh = String(pont.getHours()).padStart(2, '0');
+    const mm = String(pont.getMinutes()).padStart(2, '0');
+    const el = document.getElementById('clock');
+    if (el) el.textContent = `PONT ${hh}:${mm}`;
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+</script>

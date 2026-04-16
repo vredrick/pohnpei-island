@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import StatusStrip from '../components/StatusStrip.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Travel Information — Pohnpei, Micronesia"
+  description="Essential travel information for Pohnpei Island. Weather, visa and entry requirements, COFA for US citizens, currency, language, and health tips."
+>
+  <Nav />
+  <StatusStrip />
+
+  <main class="pt-[116px]">
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <span
+          class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-8 block"
+        >
+          Plan Your Visit
+        </span>
+        <h1
+          class="font-headline text-basalt text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight mb-10"
+        >
+          Travel <em class="italic text-ochre">info</em>.
+        </h1>
+
+        <div class="space-y-12 font-body text-basalt/75 text-[16px] leading-relaxed">
+
+          <!-- Weather -->
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Weather &amp; Climate</h2>
+            <p class="mb-3">
+              Pohnpei is warm and wet year-round. Temperatures sit between 80–88°F
+              (27–31°C) with high humidity. December through March is slightly
+              drier, but rain is part of the deal — this is the wettest place in
+              the Pacific.
+            </p>
+            <p>
+              Dive conditions are good all year. Visibility varies with rainfall
+              but the reef is always accessible. The island never gets crowded
+              regardless of season.
+            </p>
+          </div>
+
+          <!-- US Visitors / COFA -->
+          <div id="us-visitors">
+            <h2 class="font-headline text-2xl text-basalt mb-4">For US Visitors</h2>
+            <p class="mb-3">
+              The Federated States of Micronesia has a special relationship with
+              the United States through the Compact of Free Association (COFA).
+              This means US citizens can live, work, and travel freely in the FSM
+              — no visa required, no special permits, no time limits.
+            </p>
+            <p>
+              Pohnpei is closer to the US than most people think. Under COFA,
+              it's one of the easiest Pacific islands for Americans to visit.
+              Just bring your passport (valid for 6+ months) and go.
+            </p>
+          </div>
+
+          <!-- Entry for non-US -->
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Visa &amp; Entry</h2>
+            <p class="mb-3">
+              Citizens of most countries can enter the FSM visa-free for stays
+              up to 30 days. Extensions may be available. Passport must be valid
+              for at least 6 months beyond your travel dates.
+            </p>
+            <p>
+              There is no tourist visa application process for short stays —
+              entry is granted on arrival.
+            </p>
+          </div>
+
+          <!-- Currency -->
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Currency</h2>
+            <p>
+              Pohnpei uses the US dollar. ATMs exist in Kolonia but aren't
+              everywhere — bring some cash. Credit cards are accepted at hotels
+              and some restaurants, but smaller shops and markets are cash-only.
+              Notify your bank before traveling.
+            </p>
+          </div>
+
+          <!-- Language -->
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Language</h2>
+            <p>
+              Pohnpeian is the local language. English is widely spoken and is
+              one of the official languages of the FSM. You'll get by fine with
+              English, but learning "Kaselehlie" (hello) goes a long way.
+            </p>
+          </div>
+
+          <!-- Health -->
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Health &amp; Safety</h2>
+            <p class="mb-3">
+              Pohnpei has a public hospital in Kolonia. For serious medical
+              issues, evacuation to Guam or Honolulu may be necessary — travel
+              insurance with medical evacuation coverage is strongly recommended.
+            </p>
+            <p>
+              Mosquito-borne illness is present. Bring repellent. Tap water is
+              generally safe in Kolonia but bottled water is widely available.
+              Pohnpei is a safe, low-crime destination.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="mt-16 pt-10 border-t border-basalt/10">
+          <p class="font-body text-basalt/55 text-sm mb-6">
+            This page will expand with packing lists, etiquette guides, and
+            more practical details. Stay connected.
+          </p>
+          <a
+            href="/#dispatch"
+            class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+          >
+            Join the Dispatch for Updates
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

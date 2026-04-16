@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import StatusStrip from '../components/StatusStrip.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Plan Your Trip to Pohnpei — The Garden Island of Micronesia"
+  description="Start planning your trip to Pohnpei Island, Micronesia. Flights, accommodation, tours, and everything you need to know before you go."
+>
+  <Nav />
+  <StatusStrip />
+
+  <main class="pt-[116px]">
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <span
+          class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-8 block"
+        >
+          Plan Your Visit
+        </span>
+        <h1
+          class="font-headline text-basalt text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight mb-10"
+        >
+          Plan your <em class="italic text-ochre">trip</em>.
+        </h1>
+
+        <div class="space-y-8 font-body text-basalt/75 text-[16px] leading-relaxed">
+          <p>
+            Pohnpei isn't a place you can wing entirely — but that's part of
+            what makes it worth the effort. Flights are limited, accommodation
+            books up, and the best experiences happen when someone local is
+            showing you around.
+          </p>
+        </div>
+
+        <!-- Trip planner placeholder -->
+        <div class="mt-12 bg-sand-bright border border-basalt/10 p-8 md:p-10">
+          <h2 class="font-headline text-2xl text-basalt mb-2">Build your itinerary</h2>
+          <p class="font-body text-basalt/50 text-sm mb-6">
+            A trip planning tool is coming soon. Tell us what you're interested in and we'll help shape your visit.
+          </p>
+          <textarea
+            disabled
+            placeholder="Tell us what you want to do in Pohnpei..."
+            rows="4"
+            class="w-full bg-transparent border-2 border-basalt/15 px-4 py-3 font-body text-base placeholder:text-basalt/25 cursor-not-allowed resize-none"
+          ></textarea>
+          <button
+            disabled
+            class="mt-4 bg-basalt/20 text-basalt/40 px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold cursor-not-allowed"
+          >
+            Plan My Trip
+          </button>
+        </div>
+
+        <div class="mt-12 space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed">
+          <h2 class="font-headline text-2xl text-basalt">In the Meantime</h2>
+          <p>Start with these:</p>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">→</span>
+              <a href="/getting-here" class="underline decoration-dotted underline-offset-4 hover:text-ochre transition-colors">Getting to Pohnpei</a>
+              <span class="text-basalt/50">— flights, airports, routes</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">→</span>
+              <a href="/places-to-stay" class="underline decoration-dotted underline-offset-4 hover:text-ochre transition-colors">Places to Stay</a>
+              <span class="text-basalt/50">— hotels, guesthouses, Airbnb</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">→</span>
+              <a href="/travel-info" class="underline decoration-dotted underline-offset-4 hover:text-ochre transition-colors">Travel Info</a>
+              <span class="text-basalt/50">— visas, weather, health, currency</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-16 pt-10 border-t border-basalt/10">
+          <p class="font-body text-basalt/55 text-sm mb-6">
+            The trip planner is being built. Join the Dispatch to be the first to use it.
+          </p>
+          <a
+            href="/#dispatch"
+            class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+          >
+            Join the Dispatch
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

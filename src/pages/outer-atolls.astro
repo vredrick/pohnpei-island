@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import StatusStrip from '../components/StatusStrip.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Outer Atolls of Pohnpei — The Garden Island of Micronesia"
+  description="Pohnpei's outer atolls: Ahnd, Pakin, Mwoakilloa, Pingelap, Nukuoro, and Kapingamarangi. Remote coral islands scattered across the Pacific."
+>
+  <Nav />
+  <StatusStrip />
+
+  <main class="pt-[116px]">
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <span
+          class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-8 block"
+        >
+          The Island
+        </span>
+        <h1
+          class="font-headline text-basalt text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight mb-10"
+        >
+          Outer <em class="italic text-ochre">atolls</em>.
+        </h1>
+
+        <div class="space-y-8 font-body text-basalt/75 text-[16px] leading-relaxed">
+          <p>
+            Remote low-lying coral islands scattered across the Pacific. Some
+            are a day trip by boat. Others take planning. All of them feel like
+            arriving somewhere that time decided to leave alone.
+          </p>
+        </div>
+
+        <div class="mt-12">
+          <div class="aspect-[16/9] overflow-hidden bg-sand-deep mb-10">
+            <img
+              class="w-full h-full object-cover"
+              src="https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,c_fill,g_auto,w_1200,h_675/chapter-03-outer-atolls.jpg"
+              alt="Aerial view of Pohnpei's outer atolls"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-12 font-body text-basalt/75 text-[16px] leading-relaxed">
+
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Ahnd Atoll</h2>
+            <p>
+              The closest atoll to Pohnpei proper. Uninhabited, pristine, and
+              reachable by boat in a few hours. A common day trip for visitors
+              looking for empty beaches and clear water.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Pakin Atoll</h2>
+            <p>
+              A small community lives here year-round. The lagoon is shallow and
+              warm, the reef healthy. Visitors are rare but welcome.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-headline text-2xl text-basalt mb-4">Mwoakilloa, Pingelap, Nukuoro &amp; Kapingamarangi</h2>
+            <p>
+              Further out and harder to reach. Each atoll has its own language,
+              culture, and character. Pingelap is known for its high rate of
+              complete color blindness. Kapingamarangi and Nukuoro are Polynesian
+              outliers — culturally distinct from the rest of Pohnpei State.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="mt-16 pt-10 border-t border-basalt/10">
+          <p class="font-body text-basalt/55 text-sm mb-6">
+            This page will expand with travel logistics, photos, and
+            first-hand accounts from the outer atolls.
+          </p>
+          <a
+            href="/#dispatch"
+            class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+          >
+            Join the Dispatch for Updates
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

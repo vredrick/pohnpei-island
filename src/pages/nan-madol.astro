@@ -1,0 +1,439 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import StatusStrip from '../components/StatusStrip.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Nan Madol — A Lost City in the Sea | Pohnpei Island"
+  description="Nan Madol is a UNESCO World Heritage Site off the southeast coast of Pohnpei — 92 artificial islets of stacked basalt built between 1180 and 1628 CE. Here's how to visit."
+>
+  <Nav />
+  <StatusStrip />
+
+  <main class="pt-[116px]">
+
+    <!-- 1. HERO -->
+    <section class="relative overflow-hidden bg-basalt">
+      <div class="relative aspect-[16/9] md:aspect-[21/9] min-h-[480px] md:min-h-[560px]">
+        <img
+          class="w-full h-full object-cover opacity-60"
+          src="https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,c_fill,g_auto,w_2000,h_900/feature-nan-madol-step-into.jpg"
+          alt="Nan Madol — basalt ruins rising from the lagoon"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-basalt/80 via-basalt/30 to-transparent"></div>
+        <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-16 lg:p-24 max-w-4xl">
+          <span
+            class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-4 block"
+          >
+            A UNESCO World Heritage Site
+          </span>
+          <h1
+            class="font-headline text-sand text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-3"
+          >
+            Nan Madol
+          </h1>
+          <p class="font-headline text-sand/80 text-2xl md:text-3xl italic mb-8">
+            A lost city <em class="text-ochre">in the sea</em>.
+          </p>
+          <div>
+            <a
+              href="/plan-your-trip"
+              class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+            >
+              Plan your visit →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. WHAT IT IS -->
+    <section class="py-20 md:py-28 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto reveal">
+        <p class="font-body text-basalt/80 text-lg md:text-xl leading-relaxed">
+          92 artificial islets, built of stacked basalt logs, set across a lagoon
+          off the southeast coast of Pohnpei. Construction began around 1180 CE
+          and continued for more than 400 years. It's the only ancient city on
+          Earth built on a coral reef — and the only UNESCO World Heritage Site
+          in Micronesia.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. AMONG THE WORLD'S WONDERS -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-bright tapa-pattern">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          Built at the same time as <em class="italic text-ochre">Machu Picchu</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            When the first basalt stones were laid at Nan Madol, Angkor Wat was a
+            few decades old. Notre-Dame de Paris wasn't finished yet. The Incas
+            hadn't yet built Machu Picchu. Easter Island's moai were still being
+            carved. This was the medieval world — and out in the middle of the
+            Pacific, Pohnpeians were building something no one else on Earth
+            would ever attempt.
+          </p>
+
+          <p class="font-headline text-basalt text-lg italic">
+            The numbers don't quite land until you see them in person:
+          </p>
+
+          <ul class="space-y-4 list-none">
+            <li class="flex items-start gap-4">
+              <span class="text-ochre font-headline text-xl mt-0.5">—</span>
+              <span><strong class="text-basalt">92 artificial islets</strong>, laid out across 1.5 kilometers of lagoon</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-ochre font-headline text-xl mt-0.5">—</span>
+              <span><strong class="text-basalt">Basalt stones up to 50 tons each</strong>, moved from quarries on the far side of the island</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-ochre font-headline text-xl mt-0.5">—</span>
+              <span><strong class="text-basalt">Walls rising up to 25 feet high</strong>, stacked like log cabins in cross-hatched courses</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-ochre font-headline text-xl mt-0.5">—</span>
+              <span><strong class="text-basalt">Built over 400+ years</strong> by a society without metal tools, wheels, or draft animals</span>
+            </li>
+          </ul>
+
+          <p>
+            How the stones were transported is still debated. How they were
+            stacked is still debated. What's not debated is the scale. Nan Madol
+            sits in the same conversation as Machu Picchu, Angkor Wat, and the
+            great Egyptian tombs — megalithic feats built by pre-industrial
+            societies that shouldn't, by any logic, have been possible.
+          </p>
+        </div>
+
+        <p
+          class="reveal font-headline text-basalt text-xl md:text-2xl leading-snug mt-12 border-l-4 border-ochre pl-6"
+          style="transition-delay: 0.2s;"
+        >
+          The difference: Machu Picchu gets a million visitors a year.
+          Nan Madol gets a few hundred.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. MID-PAGE CTA -->
+    <section class="py-20 md:py-28 px-6 bg-basalt text-center">
+      <div class="max-w-2xl mx-auto">
+        <h2
+          class="font-headline text-sand text-3xl md:text-4xl leading-[1.08] tracking-tight mb-4"
+        >
+          Start planning your trip to <em class="italic text-ochre">Pohnpei</em>.
+        </h2>
+        <p class="font-body text-sand/60 text-[15px] mb-8">
+          A few days is enough to see the ruins. A week gets you the island.
+        </p>
+        <a
+          href="/plan-your-trip"
+          class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+        >
+          Plan your visit →
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. WHAT YOU'LL SEE -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          The main islet is <em class="italic text-ochre">Nandauwas</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            It's the one in all the photos. A royal tomb complex, the most
+            dramatic structure on the site, with outer walls 16 to 26 feet high.
+            The stones are laid as crossed beams — long basalt columns stacked in
+            alternating courses, held in place by their own weight. No mortar. No
+            binding. Just the geometry of the stones.
+          </p>
+
+          <p>
+            Walking through Nandauwas takes 30 to 45 minutes if you're moving
+            steadily. An hour or more if you're taking photos.
+          </p>
+
+          <p>
+            The rest of the 92 islets are spread across the lagoon, connected by
+            tidal canals. Some you can reach on foot at low tide. Others are only
+            accessible by boat, or by swimming. Much of the site sits
+            underwater — the reef has risen (or the ocean has) over the last four
+            centuries, and divers report seeing walls and platforms below the
+            surface that never made it onto the maps.
+          </p>
+
+          <p class="italic text-basalt/60">
+            Come expecting ruins in a living lagoon, not ruins behind velvet
+            ropes. Mangrove roots grow through the walls. The tide comes in and
+            goes out. It's a place, not an exhibit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. HOW TO GET THERE -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-deep">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-12"
+        >
+          Two ways in. Neither is <em class="italic text-ochre">effortless</em>.
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div class="reveal bg-sand-bright border border-basalt/10 p-8" style="transition-delay: 0.1s;">
+            <h3 class="font-headline text-xl text-basalt mb-1">By land</h3>
+            <span class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-4 block">Low Tide</span>
+            <p class="font-body text-basalt/75 text-[15px] leading-relaxed">
+              Nan Madol is about 90 minutes by car from Kolonia, in the
+              Madolenihmw district on the southeast side of the island. Your
+              hotel or a local taxi can arrange the drive — budget around
+              $70–$80 for a round-trip taxi if you're not on a tour. From
+              the parking area, a rough 10–15 minute footpath leads to the
+              site. At the end of the path, you cross a shallow sea channel
+              on foot. At low tide, the water is knee-deep. At high tide, it
+              can reach your chest. Plan around the tides.
+            </p>
+          </div>
+          <div class="reveal bg-sand-bright border border-basalt/10 p-8" style="transition-delay: 0.2s;">
+            <h3 class="font-headline text-xl text-basalt mb-1">By boat</h3>
+            <span class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-4 block">High Tide</span>
+            <p class="font-body text-basalt/75 text-[15px] leading-relaxed">
+              A boat approach lets you enter the site the way the Saudeleur
+              rulers did — through the canals, with the basalt walls rising
+              from the water on either side. Boat tours can be arranged
+              through the <strong class="text-basalt">Pohnpei Surf Club</strong>
+              or through most hotels in Kolonia. Expect to pay $70–$100 per
+              person for a guided tour.
+            </p>
+          </div>
+        </div>
+
+        <p class="reveal font-body text-basalt/65 text-[15px] leading-relaxed max-w-3xl" style="transition-delay: 0.25s;">
+          Both approaches are good. Most visitors prefer the boat for the view,
+          and the walk for the cost. If you have the time, do both.
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. WHAT TO BRING -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <div class="reveal bg-sand-bright border-2 border-basalt/10 p-8 md:p-12">
+          <h2
+            class="font-headline text-basalt text-2xl md:text-3xl leading-[1.08] tracking-tight mb-8"
+          >
+            Come prepared to get <em class="italic text-ochre">wet</em>.
+          </h2>
+
+          <ul class="space-y-5 font-body text-basalt/75 text-[15px] leading-relaxed list-none">
+            <li class="flex items-start gap-4">
+              <span class="text-ochre mt-0.5 font-semibold">✓</span>
+              <span><strong class="text-basalt">Water shoes or sturdy sandals</strong> — you will wade through water and walk on wet rock</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-ochre mt-0.5 font-semibold">✓</span>
+              <span><strong class="text-basalt">Clothes you don't mind soaking</strong> — swim shorts or quick-dry pants work</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-ochre mt-0.5 font-semibold">✓</span>
+              <span><strong class="text-basalt">Cash in small bills</strong> — you'll pay small entry fees ($1–$5) in cash to the local landholders along the path. These are owed to the families who hold traditional rights to the land.</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-ochre mt-0.5 font-semibold">✓</span>
+              <span><strong class="text-basalt">Water and sunscreen</strong> — no shops at the site</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-ochre mt-0.5 font-semibold">✓</span>
+              <span><strong class="text-basalt">Insect repellent</strong> — mangroves mean mosquitoes</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-ochre mt-0.5 font-semibold">✓</span>
+              <span><strong class="text-basalt">A waterproof bag</strong> — for your phone, camera, and anything else that shouldn't be swimming with you</span>
+            </li>
+          </ul>
+
+          <p class="font-body text-basalt/60 italic text-sm mt-8 leading-relaxed">
+            A tide chart for Pohnpei is worth checking the morning of your visit.
+            Low tide for walking, high tide for boat. Mid-tide can leave you
+            splitting the difference.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. RESPECT -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-deep">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          Nan Madol is still <em class="italic text-ochre">sacred</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            It's not a ruin in the abstract. The site is still managed under
+            traditional Pohnpeian governance, and the families who live along the
+            path are the ones who care for the land. The small entry fees go to
+            them. A few things to keep in mind while you're there:
+          </p>
+
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">•</span>
+              <span>Don't climb on the walls. Some of the stones shift.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">•</span>
+              <span>Don't remove anything. Stones, coral, artifacts — all stay.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">•</span>
+              <span>Some islets are off-limits. Your guide will tell you which. Follow their lead.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">•</span>
+              <span>Keep your voice down around the mortuary areas.</span>
+            </li>
+          </ul>
+
+          <p class="italic text-basalt/60">
+            Respect the site the way you would any sacred place — because that's
+            what it is.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. IT'S ENDANGERED -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          Listed on the World Heritage List <em class="italic text-ochre">in Danger</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            UNESCO inscribed Nan Madol in 2016 — and placed it on the World
+            Heritage List in Danger the same day. Mangrove roots are dislodging
+            stones. Canals are silting up. Typhoons move walls that have stood
+            for 800 years. Sea level rise is slow but real.
+          </p>
+
+          <p class="italic text-basalt/60">
+            Preservation efforts are underway. But the site is fragile, and it's
+            the kind of fragile that can't be undone. If you're coming, come
+            soon, and come carefully.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. PAIR THIS WITH -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-bright">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-4"
+        >
+          Make a <em class="italic text-ochre">day</em> of it.
+        </h2>
+        <p class="reveal font-body text-basalt/65 text-[15px] leading-relaxed mb-12" style="transition-delay: 0.08s;">
+          Nan Madol is on the southeast side of the island. A few things to
+          consider adding to the trip:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a
+            href="/waterfalls-and-jungle"
+            class="reveal group bg-sand border border-basalt/10 p-6 flex flex-col transition-colors hover:border-ochre/30"
+            style="transition-delay: 0.12s;"
+          >
+            <span class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-3 block">
+              Kepirohi Falls
+            </span>
+            <p class="font-body text-basalt/70 text-sm leading-relaxed flex-grow">
+              A short detour on the way back to Kolonia. An easy hike to a wide
+              waterfall with a swimmable pool at the base. Cleans the salt off
+              after Nan Madol.
+            </p>
+            <span class="text-ochre font-body text-sm mt-4 group-hover:translate-x-1 transition-transform inline-block">→</span>
+          </a>
+
+          <a
+            href="/diving-and-surfing"
+            class="reveal group bg-sand border border-basalt/10 p-6 flex flex-col transition-colors hover:border-ochre/30"
+            style="transition-delay: 0.2s;"
+          >
+            <span class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-3 block">
+              Dive the submerged portions
+            </span>
+            <p class="font-body text-basalt/70 text-sm leading-relaxed flex-grow">
+              Experienced divers can arrange access to the underwater sections
+              of the site. Walls, platforms, and structures that never made it
+              into guidebooks.
+            </p>
+            <span class="text-ochre font-body text-sm mt-4 group-hover:translate-x-1 transition-transform inline-block">→</span>
+          </a>
+
+          <a
+            href="/waterfalls-and-jungle"
+            class="reveal group bg-sand border border-basalt/10 p-6 flex flex-col transition-colors hover:border-ochre/30"
+            style="transition-delay: 0.28s;"
+          >
+            <span class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-3 block">
+              Madolenihmw Bay
+            </span>
+            <p class="font-body text-basalt/70 text-sm leading-relaxed flex-grow">
+              The wider area around Nan Madol is worth exploring. Paddling,
+              snorkeling, and the towering Takaiuh ("standing rock") across
+              the bay.
+            </p>
+            <span class="text-ochre font-body text-sm mt-4 group-hover:translate-x-1 transition-transform inline-block">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FINAL CTA -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-6"
+        >
+          Ready to <em class="italic text-ochre">go</em>?
+        </h2>
+        <p class="reveal font-body text-basalt/70 text-[16px] leading-relaxed mb-10 max-w-xl mx-auto" style="transition-delay: 0.1s;">
+          Nan Madol is one of the most extraordinary sites you'll ever visit.
+          It's also one of the least crowded. Plan your trip and we'll help you
+          put the days together.
+        </p>
+        <a
+          href="/plan-your-trip"
+          class="reveal bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+          style="transition-delay: 0.15s;"
+        >
+          Start planning your trip →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

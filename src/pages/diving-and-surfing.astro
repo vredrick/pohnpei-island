@@ -1,0 +1,571 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import StatusStrip from '../components/StatusStrip.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Diving & Surfing in Pohnpei — P-Pass, Manta Road & World-Class Reefs | Pohnpei Island"
+  description="Pohnpei is home to P-Pass — one of the world's best right-hand reef breaks — and uncrowded dive sites with resident manta rays, walls, and drift channels. Here's what's here and how to plan it."
+>
+  <Nav />
+  <StatusStrip />
+
+  <main class="pt-[116px]">
+
+    <!-- 1. HERO -->
+    <section class="relative overflow-hidden bg-basalt">
+      <div class="relative aspect-[16/9] md:aspect-[21/9] min-h-[480px] md:min-h-[560px]">
+        <img
+          class="w-full h-full object-cover opacity-60"
+          src="https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,c_fill,g_auto,w_2000,h_900/diving-surfing-hero.jpg"
+          alt="Surfing and diving at Palikir Pass, Pohnpei"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-basalt/80 via-basalt/30 to-transparent"></div>
+        <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-16 lg:p-24 max-w-4xl">
+          <span
+            class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-4 block"
+          >
+            World-Class Reef Breaks · Untouched Dive Sites
+          </span>
+          <h1
+            class="font-headline text-sand text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-3"
+          >
+            Diving & Surfing
+          </h1>
+          <p class="font-headline text-sand/80 text-xl md:text-2xl italic mb-8 max-w-lg">
+            The Pacific surfers know. The reefs everyone else <em class="text-ochre">missed</em>.
+          </p>
+          <div>
+            <a
+              href="/plan-your-trip"
+              class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+            >
+              Plan your visit →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. THE PITCH -->
+    <section class="py-20 md:py-28 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto reveal">
+        <p class="font-body text-basalt/80 text-lg md:text-xl leading-relaxed">
+          Pohnpei has been on the global surf map since the early 2000s. P-Pass
+          — short for Palikir Pass — is one of the most consistent right-hand
+          reef breaks in the world. Below the surface, the diving rivals Yap and
+          Palau: resident manta rays, vertical coral walls, and drift channels
+          that move at five knots. Both are reached by short boat ride from
+          Kolonia. Both are uncrowded. Both are why people who know, come.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. SURFING -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-bright tapa-pattern">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          P-Pass is why you <em class="italic text-ochre">fly here</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            Palikir Pass — known everywhere as P-Pass — is a fast, hollow
+            right-hander that breaks on the outer reef on the north side of the
+            island. It put Pohnpei on the surf world's radar when professional
+            surfers started showing up on magazine covers in the early 2000s. Two
+            decades later, the lineup is still uncrowded.
+          </p>
+          <p>
+            The reef here is friendlier than what you'd find in Indo, Tahiti, or
+            Fiji. No reef walking unless you've lost your board. The trade
+            winds — predominant from December through July — blow offshore or
+            side-shore, which means clean conditions more often than not. Most
+            swells in the season range from shoulder to double-overhead, with
+            occasional bigger days.
+          </p>
+          <p>
+            P-Pass works on most days, most tides. North swells are best. Trade
+            winds are usually offshore. On head-high days at high tide, it's a
+            friendly, makeable wave even for advanced-intermediate surfers. On
+            bigger days, it's a serious right-hander that demands experience.
+          </p>
+        </div>
+
+        <!-- Other passes -->
+        <h2
+          class="reveal font-headline text-basalt text-2xl md:text-3xl leading-[1.08] tracking-tight mt-16 mb-8"
+        >
+          There are about <em class="italic text-ochre">15 other passes</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            P-Pass is the famous one, but it's not the only one. Pohnpei has
+            roughly 15 reef passes around the island, and most of them have
+            surfable waves under the right conditions.
+          </p>
+          <p>
+            <strong class="text-basalt">Main Pass (Sokehs)</strong> — A solid
+            right-hander on the east corner of the channel ships use to reach
+            the commercial harbor. Allois Malfitani at Pohnpei Surf Club
+            describes it as "Sunset Beach on a 10-foot day." It's bigger, more
+            powerful, and more challenging than P-Pass. Best on a north swell
+            with light trade winds and high tide.
+          </p>
+          <p>
+            <strong class="text-basalt">Middle Pass, Lighthouse, Pehleng,
+            Nahpali</strong> — Lesser-known breaks with their own moods. All
+            accessed only by boat. All worth a session when conditions line up.
+          </p>
+        </div>
+
+        <!-- The season -->
+        <h2
+          class="reveal font-headline text-basalt text-2xl md:text-3xl leading-[1.08] tracking-tight mt-16 mb-8"
+        >
+          The <em class="italic text-ochre">season</em>.
+        </h2>
+
+        <div class="reveal font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            The surf season runs <strong class="text-basalt">October through
+            April</strong>. December, January, and February are the peak —
+            long-period swells from the North Pacific, light variable winds, and
+            the highest chance of perfect conditions stacking up. September and
+            May see occasional swells. The off-season is unpredictable but not
+            empty.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MID-PAGE CTA -->
+    <section class="py-20 md:py-28 px-6 bg-basalt text-center">
+      <div class="max-w-2xl mx-auto">
+        <h2
+          class="font-headline text-sand text-3xl md:text-4xl leading-[1.08] tracking-tight mb-4"
+        >
+          Stop dreaming. Start <em class="italic text-ochre">planning</em>.
+        </h2>
+        <p class="font-body text-sand/60 text-[15px] mb-8">
+          Most surf trips here are 7–10 days. Pair the surf with a Nan Madol
+          day on a flat morning, or a dive on a wind day.
+        </p>
+        <a
+          href="/plan-your-trip"
+          class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+        >
+          Plan your visit →
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. DIVING -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          The quiet sibling of Chuuk and <em class="italic text-ochre">Yap</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            Chuuk has the wrecks. Yap has the mantas. Pohnpei has both — at a
+            fraction of the dive boat traffic.
+          </p>
+          <p>
+            The water is warm year-round, averaging 27°C / 81°F. Visibility on
+            the outer reef can hit 50 meters. Currents are predictable and
+            tide-dependent, which makes drift dives some of the best in
+            Micronesia. The reef system around Pohnpei is wide and varied —
+            coral walls, deep passes, shallow gardens, manta cleaning stations,
+            and the submerged portions of Nan Madol itself.
+          </p>
+          <p class="italic text-basalt/60">
+            Most divers who visit Micronesia head to Chuuk or Yap. The ones who
+            add Pohnpei tend to be the ones who come back.
+          </p>
+        </div>
+
+        <!-- Manta Road -->
+        <h2
+          class="reveal font-headline text-basalt text-2xl md:text-3xl leading-[1.08] tracking-tight mt-16 mb-8"
+        >
+          Manta <em class="italic text-ochre">Road</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            The headline dive site in Pohnpei. A narrow channel between Mwahnd
+            Peidak Island and a long strip of fringing reef, where resident
+            manta rays cruise back and forth on the tides. Including — if
+            you're lucky — the rare all-black "Black Morph" manta. Genetic
+            anomaly. Otherworldly to see.
+          </p>
+          <p>
+            Mantas mate <strong class="text-basalt">January through
+            April</strong>, which is the best window to dive Manta Road. Aim
+            for the last hour of the outgoing tide, near a full moon. The
+            current can hit 7 knots — the mantas love it, but it makes diving
+            tricky. Avoid flood tides entirely.
+          </p>
+        </div>
+
+        <!-- Other top sites -->
+        <h2
+          class="reveal font-headline text-basalt text-2xl md:text-3xl leading-[1.08] tracking-tight mt-16 mb-8"
+        >
+          The other <em class="italic text-ochre">top sites</em>.
+        </h2>
+
+        <div class="reveal space-y-5 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            <strong class="text-basalt">Poahlong Pass</strong> — Pohnpei's
+            answer to Palau's Blue Corner. Strong currents bring sharks, schools
+            of barracuda, and walls of pelagic fish.
+          </p>
+          <p>
+            <strong class="text-basalt">Kehpara Wall</strong> — A vertical wall
+            on the outer reef. Coral heads, gorgonians, reef sharks at the
+            bend. Starts shallow at 10 meters and drops into the blue.
+          </p>
+          <p>
+            <strong class="text-basalt">Mwand Wall & Pass</strong> — Manta
+            cleaning stations plus exceptional coral diversity. Branching
+            tubastrea, red whip coral, soft coral trees.
+          </p>
+          <p>
+            <strong class="text-basalt">Areu Wall</strong> — Outer reef site
+            east of Joy Island. Schools of tuna, drift conditions.
+          </p>
+          <p>
+            <strong class="text-basalt">Ant Atoll (Ahnd) and Pakin
+            Atoll</strong> — The outer atolls, 16–20 km southwest of Pohnpei.
+            Advanced diving — currents up to 7 knots in the passes, walls
+            dropping to extreme depth, visibility on the outer west wall
+            exceeding 70 meters. Ant Atoll is a UNESCO marine biosphere reserve
+            and is privately owned by the Nanpei family — your operator handles
+            permission.
+          </p>
+        </div>
+
+        <!-- What you'll see -->
+        <h2
+          class="reveal font-headline text-basalt text-2xl md:text-3xl leading-[1.08] tracking-tight mt-16 mb-8"
+        >
+          What you'll <em class="italic text-ochre">see</em>.
+        </h2>
+
+        <p class="reveal font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          Manta rays (including the Black Morph). White-tip and grey reef
+          sharks. Eagle rays. Spotted stingrays. Schools of barracuda, jacks,
+          tuna, and wahoo. Napoleon wrasse. Bumphead parrotfish. Moray eels in
+          the coral heads. Fusiliers and anthias in clouds you'll fly through.
+        </p>
+
+        <!-- Dive season -->
+        <h2
+          class="reveal font-headline text-basalt text-2xl md:text-3xl leading-[1.08] tracking-tight mt-16 mb-8"
+        >
+          The dive <em class="italic text-ochre">season</em>.
+        </h2>
+
+        <p class="reveal font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          Diving is good year-round — the underwater world doesn't care about
+          rainy season. But <strong class="text-basalt">November through
+          April</strong> brings calmer seas and the best surface conditions.
+          Manta season specifically peaks <strong class="text-basalt">January
+          through April</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. SUBMERGED NAN MADOL -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-deep">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          Dive the parts you <em class="italic text-ochre">can't walk to</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            Most of Nan Madol is above water. A meaningful portion is not. The
+            reef has risen — or the ocean has — over the last four centuries,
+            and walls and platforms now sit below the surface that never made it
+            into guidebooks.
+          </p>
+          <p class="italic text-basalt/60">
+            Experienced divers can arrange access through local operators. It's
+            not a standard dive — it's an archaeological site that happens to be
+            underwater. Treat it accordingly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. OPERATORS -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          Pohnpei Surf Club is the name to <em class="italic text-ochre">know</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            <strong class="text-basalt">Pohnpei Surf Club</strong> is the
+            longest-running surf and dive operation on the island. They handle
+            both — guided boat access to all the surf breaks, and dive trips to
+            every site mentioned above. They're based at Mangrove Bay Hotel in
+            Kolonia, about 15 minutes by boat from P-Pass.
+          </p>
+          <p>
+            Allois Malfitani has been the lead surf guide for years. The
+            operation is small, the boats are comfortable, and the local
+            knowledge is the kind you can't get from a website.
+          </p>
+          <p class="italic text-basalt/60">
+            Other operators exist, but Pohnpei Surf Club is the dominant name
+            and the one most travelers book through. Your hotel can also help
+            arrange day trips if you'd rather book à la carte.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. HOW TO GET THERE -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-bright">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          Fly in. <em class="italic text-ochre">Boat out</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            Pohnpei International Airport (PNI) is served exclusively by United
+            Airlines' Island Hopper route. Most surfers and divers connect
+            through <strong class="text-basalt">Honolulu</strong> (via Majuro
+            and Kosrae) or <strong class="text-basalt">Guam</strong> (via
+            Chuuk). It's a long trip — and that's part of why the lineups are
+            empty when you arrive.
+          </p>
+          <p>
+            United allows up to <strong class="text-basalt">four surfboards in
+            a single board bag</strong>, which simplifies the gear logistics
+            significantly.
+          </p>
+          <p class="italic text-basalt/60">
+            Once you land, every break and every dive site requires a boat from
+            Kolonia. There are no beach breaks. No shore dives. The trade-off is
+            uncrowded waves and uncrowded reefs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. WHAT TO BRING -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto">
+        <div class="reveal bg-sand-bright border-2 border-basalt/10 p-8 md:p-12">
+          <h2
+            class="font-headline text-basalt text-2xl md:text-3xl leading-[1.08] tracking-tight mb-8"
+          >
+            Pack light. The reef does the <em class="italic text-ochre">work</em>.
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-4">For Surfers</h3>
+              <ul class="space-y-3 font-body text-basalt/75 text-[15px] leading-relaxed list-none">
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>Most days at P-Pass call for boards in the <strong class="text-basalt">6'0" to 6'6"</strong> range</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>A step-up for the bigger days</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>Reef booties — optional, but useful on low-tide days</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>Rashguard, zinc-based sunscreen, ear protection</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>A spare leash. Always.</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-4">For Divers</h3>
+              <ul class="space-y-3 font-body text-basalt/75 text-[15px] leading-relaxed list-none">
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>A 3mm wetsuit or skin (warm water year-round, but you'll be in it for hours)</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>Reef-safe sunscreen — the marine reserves enforce it</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>Most operators rent tanks, weights, and basic kit; bring your own mask, fins, and regulator if you have them</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-ochre mt-0.5 font-semibold">✓</span>
+                  <span>Dive computer, surface marker buoy, and dive insurance (DAN or equivalent)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="font-body text-basalt/60 italic text-sm mt-8 leading-relaxed">
+            Cash for tips. Patience for tides. The rest, the boat handles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. RESPECT -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-deep">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-10"
+        >
+          13 marine protected areas. Treat them <em class="italic text-ochre">like it</em>.
+        </h2>
+
+        <div class="reveal space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed" style="transition-delay: 0.1s;">
+          <p>
+            Pohnpei has 13 marine protected areas, including stingray
+            sanctuaries and mangrove forest reserves. Some of the best dive
+            sites — Ant Atoll especially — are privately owned by Pohnpeian
+            families, and access is granted through traditional permission your
+            operator arranges in advance.
+          </p>
+          <p>A few things to keep in mind:</p>
+
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">•</span>
+              <span>Don't touch coral. Don't stand on coral. Don't kick coral with your fins.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">•</span>
+              <span>Don't feed wildlife. Don't chase the mantas. They'll come to you.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">•</span>
+              <span>Reef-safe sunscreen only. The marine reserves take this seriously.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ochre mt-1">•</span>
+              <span>Tip your guides and boat crew. They live here. Their knowledge is the trip.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. PAIR THIS WITH -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand-bright">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-4"
+        >
+          Make the trip <em class="italic text-ochre">count</em>.
+        </h2>
+        <p class="reveal font-body text-basalt/65 text-[15px] leading-relaxed mb-12" style="transition-delay: 0.08s;">
+          Most people who fly this far don't come for a long weekend. A few
+          things to fold into the trip:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a
+            href="/nan-madol"
+            class="reveal group bg-sand border border-basalt/10 p-6 flex flex-col transition-colors hover:border-ochre/30"
+            style="transition-delay: 0.12s;"
+          >
+            <span class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-3 block">
+              Nan Madol
+            </span>
+            <p class="font-body text-basalt/70 text-sm leading-relaxed flex-grow">
+              Pair a flat surf day or a no-dive day with the UNESCO ruins on the
+              southeast side.
+            </p>
+            <span class="text-ochre font-body text-sm mt-4 group-hover:translate-x-1 transition-transform inline-block">→</span>
+          </a>
+
+          <a
+            href="/outer-atolls"
+            class="reveal group bg-sand border border-basalt/10 p-6 flex flex-col transition-colors hover:border-ochre/30"
+            style="transition-delay: 0.2s;"
+          >
+            <span class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-3 block">
+              Outer atolls overnight
+            </span>
+            <p class="font-body text-basalt/70 text-sm leading-relaxed flex-grow">
+              Camp at Ant or Pakin, dive the outer walls, and surf the breaks no
+              one else gets to.
+            </p>
+            <span class="text-ochre font-body text-sm mt-4 group-hover:translate-x-1 transition-transform inline-block">→</span>
+          </a>
+
+          <a
+            href="/waterfalls-and-jungle"
+            class="reveal group bg-sand border border-basalt/10 p-6 flex flex-col transition-colors hover:border-ochre/30"
+            style="transition-delay: 0.28s;"
+          >
+            <span class="font-label text-ochre tracking-[0.2em] uppercase text-[10px] font-semibold mb-3 block">
+              Waterfalls & Jungle
+            </span>
+            <p class="font-body text-basalt/70 text-sm leading-relaxed flex-grow">
+              A recovery day after a heavy session. Kepirohi, Sokehs Ridge,
+              jungle hikes.
+            </p>
+            <span class="text-ochre font-body text-sm mt-4 group-hover:translate-x-1 transition-transform inline-block">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. FINAL CTA -->
+    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2
+          class="reveal font-headline text-basalt text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-6"
+        >
+          Ready to <em class="italic text-ochre">go</em>?
+        </h2>
+        <p class="reveal font-body text-basalt/70 text-[16px] leading-relaxed mb-10 max-w-xl mx-auto" style="transition-delay: 0.1s;">
+          Pohnpei is a long way from anywhere. That's the feature, not the bug.
+          Plan your trip and we'll help you put the days together.
+        </p>
+        <a
+          href="/plan-your-trip"
+          class="reveal bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
+          style="transition-delay: 0.15s;"
+        >
+          Start planning your trip →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -136,36 +136,84 @@
   class="menu-mobile-sheet fixed top-[116px] left-0 right-0 bg-sand-bright border-b border-basalt/10 z-40 tapa-pattern max-h-[calc(100vh-116px)] overflow-y-auto"
 >
   <div class="flex flex-col divide-y divide-basalt/10">
-    <a href="/#about" class="mobile-link px-6 py-4 font-headline text-lg"
-      >About Pohnpei <span
-        class="text-[10px] font-body tracking-widest uppercase text-basalt/50 ml-2"
-        >The Garden Island</span
-      ></a
-    >
-    <a href="/#culture" class="mobile-link px-6 py-4 font-headline text-lg"
-      >The Culture</a
-    >
-    <a href="/#nan-madol" class="mobile-link px-6 py-4 font-headline text-lg"
-      >Nan Madol</a
-    >
-    <a href="/#adventures" class="mobile-link px-6 py-4 font-headline text-lg"
-      >Adventures</a
-    >
-    <a href="/#atolls" class="mobile-link px-6 py-4 font-headline text-lg"
-      >Outer Atolls</a
-    >
-    <a href="/getting-here" class="mobile-link px-6 py-4 font-headline text-lg"
-      >Getting Here</a
-    >
-    <a href="/places-to-stay" class="mobile-link px-6 py-4 font-headline text-lg"
-      >Places to Stay</a
-    >
-    <a href="/travel-info" class="mobile-link px-6 py-4 font-headline text-lg"
-      >Travel Info</a
-    >
+    <!-- The Island group -->
+    <div class="mobile-group">
+      <button
+        type="button"
+        class="mobile-group-toggle w-full flex items-center justify-between px-6 py-4 font-headline text-lg text-basalt"
+        aria-expanded="false"
+      >
+        The Island
+        <span class="mobile-chev w-2 h-2 border-r border-b border-basalt/50 transform rotate-45 transition-transform duration-200"></span>
+      </button>
+      <div class="mobile-group-panel hidden">
+        <a href="/#about" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors"
+          >About Pohnpei</a
+        >
+        <a href="/#culture" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors"
+          >The Culture</a
+        >
+        <a href="/#nan-madol" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors"
+          >History &amp; Nan Madol</a
+        >
+        <a href="/#atolls" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors pb-4"
+          >Outer Atolls</a
+        >
+      </div>
+    </div>
+
+    <!-- Experiences group -->
+    <div class="mobile-group">
+      <button
+        type="button"
+        class="mobile-group-toggle w-full flex items-center justify-between px-6 py-4 font-headline text-lg text-basalt"
+        aria-expanded="false"
+      >
+        Experiences
+        <span class="mobile-chev w-2 h-2 border-r border-b border-basalt/50 transform rotate-45 transition-transform duration-200"></span>
+      </button>
+      <div class="mobile-group-panel hidden">
+        <a href="/#nan-madol" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors"
+          >Nan Madol</a
+        >
+        <a href="/#adventures" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors pb-4"
+          >Adventures</a
+        >
+      </div>
+    </div>
+
+    <!-- Plan group -->
+    <div class="mobile-group">
+      <button
+        type="button"
+        class="mobile-group-toggle w-full flex items-center justify-between px-6 py-4 font-headline text-lg text-basalt"
+        aria-expanded="false"
+      >
+        Plan
+        <span class="mobile-chev w-2 h-2 border-r border-b border-basalt/50 transform rotate-45 transition-transform duration-200"></span>
+      </button>
+      <div class="mobile-group-panel hidden">
+        <a href="/getting-here" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors"
+          >Getting Here</a
+        >
+        <a href="/places-to-stay" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors"
+          >Places to Stay</a
+        >
+        <a href="/plan-your-trip" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors"
+          >Plan Your Trip</a
+        >
+        <a href="/travel-info" class="mobile-link block px-6 pl-10 py-3 font-body text-[15px] text-basalt/75 hover:text-ochre transition-colors pb-4"
+          >Travel Info</a
+        >
+      </div>
+    </div>
+
+    <!-- Dispatch direct link -->
     <a href="/#dispatch" class="mobile-link px-6 py-4 font-headline text-lg"
       >Dispatch</a
     >
+
+    <!-- CTA -->
     <a
       href="/#dispatch"
       class="mobile-link px-6 py-5 bg-ochre text-white font-label uppercase tracking-widest text-xs font-semibold text-center"
@@ -198,15 +246,48 @@
     document.body.style.overflow = '';
   }
 
+  function closeAllGroups() {
+    document.querySelectorAll('.mobile-group').forEach((group) => {
+      const panel = group.querySelector('.mobile-group-panel');
+      const btn = group.querySelector('.mobile-group-toggle');
+      const chev = group.querySelector('.mobile-chev');
+      if (panel) panel.classList.add('hidden');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      if (chev) chev.style.transform = 'rotate(45deg)';
+    });
+  }
+
   document
     .getElementById('mobileToggle')
     ?.addEventListener('click', toggleMobileMenu);
 
+  document.querySelectorAll('.mobile-group-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.mobile-group');
+      const panel = group?.querySelector('.mobile-group-panel');
+      const chev = btn.querySelector('.mobile-chev');
+      if (!panel) return;
+      const isOpen = !panel.classList.contains('hidden');
+      closeAllGroups();
+      if (!isOpen) {
+        panel.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        if (chev) chev.style.transform = 'rotate(225deg)';
+      }
+    });
+  });
+
   document.querySelectorAll('.mobile-link').forEach((link) => {
-    link.addEventListener('click', closeMobileMenu);
+    link.addEventListener('click', () => {
+      closeAllGroups();
+      closeMobileMenu();
+    });
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) closeMobileMenu();
+    if (window.innerWidth > 900) {
+      closeAllGroups();
+      closeMobileMenu();
+    }
   });
 </script>

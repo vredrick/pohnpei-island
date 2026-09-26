@@ -3,98 +3,80 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import StatusStrip from '../components/StatusStrip.astro';
 import Footer from '../components/Footer.astro';
+import AccommodationDirectory from '../components/AccommodationDirectory.astro';
+import { staySources } from '../data/accommodations';
 ---
-
-<BaseLayout
-  title="Places to Stay in Pohnpei — The Garden Island of Micronesia"
-  description="Where to stay in Pohnpei. Small hotels in Kolonia, guesthouses, and Airbnbs — no chain resorts, that's the point."
->
-  <Nav />
-  <StatusStrip />
-
-  <main class="pt-[116px]">
-    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
-      <div class="max-w-3xl mx-auto">
-        <span
-          class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-8 block"
-        >
-          Plan Your Visit
-        </span>
-        <h1
-          class="font-headline text-basalt text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight mb-10"
-        >
-          Places to <em class="italic text-ochre">stay</em>.
-        </h1>
-
-        <div class="space-y-8 font-body text-basalt/75 text-[16px] leading-relaxed">
-          <p>
-            Pohnpei doesn't have chain resorts — that's the point. What it has
-            are small hotels in Kolonia, a handful of guesthouses closer to
-            the water, and a few Airbnb listings that come and go. Book early.
-            Options are limited, and the good ones fill up fast.
-          </p>
+<BaseLayout title="Places to Stay in Pohnpei | Hotels & Direct Contacts"
+  description="Compare ten Pohnpei hotels by area and published amenities. Find direct phone and email contacts, questions to ask before booking, and official tourism resources."
+  canonical="https://pohnpeiisland.com/places-to-stay">
+  <a href="#stay-guide" class="skip-link">Skip to accommodation guide</a>
+  <Nav /><StatusStrip />
+  <main id="stay-guide" tabindex="-1" class="pt-[116px]">
+    <section class="px-6 pt-16 pb-14 md:pt-24 md:pb-20 bg-sand">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-[1.5fr_1fr] gap-12 md:gap-20 items-end">
+        <div>
+          <p class="eyebrow">Pohnpei / Plan your stay</p>
+          <h1 class="font-headline text-6xl md:text-7xl lg:text-8xl leading-[.98] tracking-tight mb-7">A place to stay.<br /><em class="text-ochre-deep">An island to know.</em></h1>
+          <p class="text-basalt/80 leading-relaxed max-w-lg">Find a base for your time in Pohnpei. Explore the places, compare the practical details, and start a conversation with the people who’ll welcome you.</p>
+          <a href="#stays" class="guide-button bg-basalt text-sand hover:bg-lagoon mt-8">Explore places to stay ↓</a>
         </div>
-
-        <!-- Search placeholder -->
-        <div class="mt-12 bg-sand-bright border border-basalt/10 p-8 md:p-10">
-          <h2 class="font-headline text-2xl text-basalt mb-2">Find a stay</h2>
-          <p class="font-body text-basalt/50 text-sm mb-6">
-            An accommodation finder is coming soon.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3">
-            <input
-              type="text"
-              disabled
-              placeholder="Search hotels, guesthouses, Airbnbs..."
-              class="flex-grow bg-transparent border-b-2 border-basalt/15 px-0 py-3 font-body text-base placeholder:text-basalt/25 cursor-not-allowed"
-            />
-            <button
-              disabled
-              class="bg-basalt/20 text-basalt/40 px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold cursor-not-allowed whitespace-nowrap"
-            >
-              Search
-            </button>
-          </div>
-        </div>
-
-        <div class="mt-12 space-y-8 font-body text-basalt/75 text-[16px] leading-relaxed">
-          <div>
-            <h2 class="font-headline text-2xl text-basalt mb-4">What to Expect</h2>
-            <ul class="space-y-2 list-none">
-              <li class="flex items-start gap-3">
-                <span class="text-ochre mt-1">→</span>
-                <span><strong class="text-basalt">Hotels in Kolonia</strong> — a few mid-range options within walking distance of shops and restaurants. Air conditioning, hot water, Wi-Fi.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-ochre mt-1">→</span>
-                <span><strong class="text-basalt">Guesthouses</strong> — simpler, often family-run. Closer to the coast or in quieter parts of the island. More character, fewer amenities.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-ochre mt-1">→</span>
-                <span><strong class="text-basalt">Airbnb</strong> — availability varies. Some listings are apartments in Kolonia, others are houses further out. Check recent reviews.</span>
-              </li>
-            </ul>
-          </div>
-
-          <p class="italic text-basalt/55">
-            This page will grow into a full accommodation directory with
-            listings, photos, and availability. For now, the best approach is
-            to ask a local tour operator — they know what's open and what's
-            worth it.
-          </p>
-        </div>
-
-        <div class="mt-16 pt-10 border-t border-basalt/10">
-          <a
-            href="/#dispatch"
-            class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
-          >
-            Join the Dispatch for Updates
-          </a>
+        <aside class="border-t-2 border-ochre-deep pt-6 pb-1">
+          <p class="eyebrow">Before you choose</p>
+          <h2 class="font-headline text-3xl mb-4">Start with your days.</h2>
+          <p class="text-sm text-basalt/80 leading-relaxed mb-5">Think about the trips you want to take, where you’ll eat, and how you’ll get around. Then ask a property how it can support your plans.</p>
+          <div class="flex gap-8 border-t border-basalt/20 pt-5"><p><strong class="font-headline text-4xl font-normal">10</strong><span class="block text-xs mt-1">Places listed</span></p><p><strong class="font-headline text-4xl font-normal">2</strong><span class="block text-xs mt-1">Areas: Kolonia &amp; Nett</span></p></div>
+        </aside>
+      </div>
+    </section>
+    <div class="px-6 py-5 bg-sand-bright border-y border-basalt/15">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-3 text-xs text-basalt/80 leading-relaxed">
+        <p>Independent guide · <a href={staySources.tourism} class="text-link">Official tourism accommodation directory ↗</a></p>
+      </div>
+    </div>
+    <nav aria-label="On this page" class="px-6 border-b border-basalt/15"><div class="max-w-6xl mx-auto flex flex-wrap gap-x-8 py-2 text-sm"><a href="#stays" class="page-link">01 / Compare stays</a><a href="#booking-checklist" class="page-link">02 / Before you book</a><a href="#island-days" class="page-link">03 / Plan your days</a><a href="#stay-sources" class="page-link">About this guide</a></div></nav>
+    <AccommodationDirectory />
+    <section id="booking-checklist" class="guide-section bg-sand tapa-pattern">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20">
+        <div><p class="eyebrow">02 / Before you book</p><h2 class="section-title mb-6">A good stay starts<br />with <em>a few questions.</em></h2><p class="text-basalt/80 leading-relaxed">Send your dates, number of guests, and room requirements. Ask for written confirmation of the room and terms before making your arrangements.</p></div>
+        <dl class="bg-sand-bright px-6 md:px-8 divide-y divide-basalt/15">
+          <div class="py-6"><dt class="font-headline text-2xl mb-2">The full price</dt><dd>What is the total for your stay, including taxes, extra guests, meals, and transfers? What deposit, payment method, and cancellation terms apply?</dd></div>
+          <div class="py-6"><dt class="font-headline text-2xl mb-2">Arrival &amp; getting around</dt><dd>Share your flight details. Confirm pickup, its cost, a meeting point, and a contact if your arrival changes. Ask for the property’s exact location and how to arrange daily transport.</dd></div>
+          <div class="py-6"><dt class="font-headline text-2xl mb-2">The room you need</dt><dd>Confirm beds, hot water, air conditioning, internet coverage, and cooking facilities for the actual room offered. Mention children’s ages and any access needs; ask about steps, bathrooms, and assistance.</dd></div>
+          <div class="py-6"><dt class="font-headline text-2xl mb-2">Meals &amp; days out</dt><dd>Ask which meals are served during your dates and how to reach other dining options. Agree on tour pickup and return arrangements separately.</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section id="island-days" class="guide-section bg-basalt text-sand">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-20 items-center">
+        <div><p class="text-xs tracking-[.18em] uppercase mb-5 text-sand/75">03 / Beyond your room</p><h2 class="font-headline text-4xl md:text-5xl leading-tight mb-5">Make room for<br /><em>Nan Madol.</em></h2><p class="text-sand/85 leading-relaxed">Once you’ve shortlisted a stay, share its location with a local guide. Work out the route, pickup, tide timing, and return trip together.</p><a href="/nan-madol" class="guide-button bg-sand text-basalt hover:bg-sand-bright mt-7">Explore the Nan Madol guide ↗</a></div>
+        <div class="border-t border-sand/30 pt-7"><h3 class="font-headline text-3xl mb-4">Make the next connection.</h3><div class="divide-y divide-sand/25"><a class="block py-5 text-sm underline underline-offset-4" href="/nan-madol#local-guides">Contact local Nan Madol guides →</a><a class="block py-5 text-sm underline underline-offset-4" href="/getting-here">Plan your journey to Pohnpei →</a><a class="block py-5 text-sm underline underline-offset-4" href={staySources.contact}>Ask the Pohnpei Tourism Office ↗</a></div></div>
+      </div>
+    </section>
+    <section id="stay-sources" class="guide-section bg-sand-bright">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-20">
+        <div><p class="eyebrow">About the guide</p><h2 class="section-title mb-6">Useful details.<br /><em>Clear sources.</em></h2><p class="text-sm text-basalt/80 leading-relaxed mb-5">PohnpeiIsland.com is independent and has no formal tourism-office affiliation. This guide covers the ten main-island properties in the official accommodation directory. It is a starting point, not a list of every possible stay.</p><p class="text-sm text-basalt/80 leading-relaxed">For homestays, vacation rentals, or outer-island arrangements, <a href={staySources.contact} class="text-link">ask the tourism office</a> about current options and local contacts.</p></div>
+        <div class="text-sm leading-relaxed text-basalt/80">
+          <h3 class="font-headline text-2xl text-basalt mb-4">How to read the listings</h3>
+          <p class="mb-4">Names, areas, and primary contacts follow the <a class="text-link" href={staySources.tourism}>Pohnpei Tourism Office directory</a>. Property websites supply additional details where available.</p>
+          <p class="mb-4">Some room and amenity information comes from <a class="text-link" href={staySources.wcpfc}>WCPFC’s June 2025 accommodation sheet (PDF)</a>. Those listings carry a dated note. Reviewing a source today does not make its older information newly confirmed.</p>
+          <p class="mb-4">We have not inspected the properties or confirmed room availability. Contact links open your phone or email app, or take you to a property website. Bookings and payments are arranged directly with the property.</p>
+          <p>See something that needs checking? The source links are included with each listing; confirm changes with the property or <a class="text-link" href={staySources.contact}>the tourism office</a>.</p>
         </div>
       </div>
     </section>
   </main>
-
   <Footer />
 </BaseLayout>
+<style>
+  section { scroll-margin-top: 0; }
+  .guide-section { padding: 4rem 1.5rem; }
+  .eyebrow { color: #8F4C1E; font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 1rem; }
+  .section-title { font-family: 'Newsreader', Georgia, serif; font-size: 2.5rem; line-height: 1.1; letter-spacing: -.025em; }
+  .section-title em { color: #8F4C1E; }
+  .text-link { text-decoration: underline; text-underline-offset: 4px; }
+  .text-link:hover, .page-link:hover { color: #8F4C1E; }
+  .page-link { display: inline-flex; align-items: center; min-height: 48px; }
+  .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 1rem 1.5rem; font-size: .8rem; font-weight: 500; }
+  dd { font-size: .9rem; color: #52443C; line-height: 1.8; }
+  @media (min-width: 768px) { .guide-section { padding: 6rem 1.5rem; } .section-title { font-size: 3rem; } }
+</style>

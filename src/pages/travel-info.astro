@@ -1,132 +1,84 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
-import StatusStrip from '../components/StatusStrip.astro';
-import Footer from '../components/Footer.astro';
+import TravelGuideLayout from '../layouts/TravelGuideLayout.astro';
+import { travelSources as s } from '../data/travel';
+const sections = [
+  { id: 'entry', label: '01 / Entry & documents' },
+  { id: 'daily-essentials', label: '02 / Daily essentials' },
+  { id: 'packing', label: '03 / What to pack' },
+  { id: 'local-customs', label: '04 / Local customs' },
+  { id: 'health-weather', label: '05 / Health & weather' },
+];
 ---
+<TravelGuideLayout page="travel-info" title="Pohnpei Travel Essentials | Entry, Transport & Packing"
+  description="Prepare for Pohnpei with entry-information links, local transport advice, cash and connectivity guidance, a packing list, and respectful travel tips."
+  heading="Come prepared." emphasis="Feel at home."
+  intro="Sort out the practical details before you leave, then give yourself time to listen, look around, and get to know Pohnpei. Start here for the everyday questions behind a good visit."
+  sections={sections}>
+  <div slot="aside"><p class="tg-eyebrow">Before you leave</p><h2 class="font-headline text-3xl mb-3">A few things to settle.</h2><p class="text-sm text-basalt/80 leading-relaxed">Your entry documents, first night, airport pickup, and a way to reach your host. Keep a copy of those details available offline.</p><a href="/getting-here" class="tg-page-link tg-link text-sm mt-2">Still planning the journey? Start here →</a></div>
 
-<BaseLayout
-  title="Travel Information — Pohnpei, Micronesia"
-  description="Essential travel information for Pohnpei Island. Weather, visa and entry requirements, COFA for US citizens, currency, language, and health tips."
->
-  <Nav />
-  <StatusStrip />
-
-  <main class="pt-[116px]">
-    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
-      <div class="max-w-3xl mx-auto">
-        <span
-          class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-8 block"
-        >
-          Plan Your Visit
-        </span>
-        <h1
-          class="font-headline text-basalt text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight mb-10"
-        >
-          Travel <em class="italic text-ochre">info</em>.
-        </h1>
-
-        <div class="space-y-12 font-body text-basalt/75 text-[16px] leading-relaxed">
-
-          <!-- Weather -->
-          <div>
-            <h2 class="font-headline text-2xl text-basalt mb-4">Weather &amp; Climate</h2>
-            <p class="mb-3">
-              Pohnpei is warm and wet year-round. Temperatures sit between 80–88°F
-              (27–31°C) with high humidity. December through March is slightly
-              drier, but rain is part of the deal — this is the wettest place in
-              the Pacific.
-            </p>
-            <p>
-              Dive conditions are good all year. Visibility varies with rainfall
-              but the reef is always accessible. The island never gets crowded
-              regardless of season.
-            </p>
-          </div>
-
-          <!-- US Visitors / COFA -->
-          <div id="us-visitors">
-            <h2 class="font-headline text-2xl text-basalt mb-4">For US Visitors</h2>
-            <p class="mb-3">
-              The Federated States of Micronesia has a special relationship with
-              the United States through the Compact of Free Association (COFA).
-              This means US citizens can live, work, and travel freely in the FSM
-              — no visa required, no special permits, no time limits.
-            </p>
-            <p>
-              Pohnpei is closer to the US than most people think. Under COFA,
-              it's one of the easiest Pacific islands for Americans to visit.
-              Just bring your passport (valid for 6+ months) and go.
-            </p>
-          </div>
-
-          <!-- Entry for non-US -->
-          <div>
-            <h2 class="font-headline text-2xl text-basalt mb-4">Visa &amp; Entry</h2>
-            <p class="mb-3">
-              Citizens of most countries can enter the FSM visa-free for stays
-              up to 30 days. Extensions may be available. Passport must be valid
-              for at least 6 months beyond your travel dates.
-            </p>
-            <p>
-              There is no tourist visa application process for short stays —
-              entry is granted on arrival.
-            </p>
-          </div>
-
-          <!-- Currency -->
-          <div>
-            <h2 class="font-headline text-2xl text-basalt mb-4">Currency</h2>
-            <p>
-              Pohnpei uses the US dollar. ATMs exist in Kolonia but aren't
-              everywhere — bring some cash. Credit cards are accepted at hotels
-              and some restaurants, but smaller shops and markets are cash-only.
-              Notify your bank before traveling.
-            </p>
-          </div>
-
-          <!-- Language -->
-          <div>
-            <h2 class="font-headline text-2xl text-basalt mb-4">Language</h2>
-            <p>
-              Pohnpeian is the local language. English is widely spoken and is
-              one of the official languages of the FSM. You'll get by fine with
-              English, but learning "Kaselehlie" (hello) goes a long way.
-            </p>
-          </div>
-
-          <!-- Health -->
-          <div>
-            <h2 class="font-headline text-2xl text-basalt mb-4">Health &amp; Safety</h2>
-            <p class="mb-3">
-              Pohnpei has a public hospital in Kolonia. For serious medical
-              issues, evacuation to Guam or Honolulu may be necessary — travel
-              insurance with medical evacuation coverage is strongly recommended.
-            </p>
-            <p>
-              Mosquito-borne illness is present. Bring repellent. Tap water is
-              generally safe in Kolonia but bottled water is widely available.
-              Pohnpei is a safe, low-crime destination.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="mt-16 pt-10 border-t border-basalt/10">
-          <p class="font-body text-basalt/55 text-sm mb-6">
-            This page will expand with packing lists, etiquette guides, and
-            more practical details. Stay connected.
-          </p>
-          <a
-            href="/#dispatch"
-            class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
-          >
-            Join the Dispatch for Updates
-          </a>
-        </div>
+  <section id="entry" class="tg-section bg-sand-bright">
+    <div class="tg-wrap tg-split">
+      <div><p class="tg-eyebrow">01 / Entry &amp; documents</p><h2 class="tg-title">Start with<br /><em>your passport.</em></h2><p class="tg-copy">Pohnpei is part of the Federated States of Micronesia (FSM). Check the rules for your citizenship, reason for travel, and every transit stop before purchasing tickets.</p><a href={s.entry} class="tg-button bg-basalt text-sand hover:bg-lagoon mt-6">FSM entry guidance &amp; immigration contacts ↗</a></div>
+      <div class="tg-copy">
+        <p>FSM tourism guidance describes short visitor stays of up to 30 days without an entry permit, with onward-travel evidence. Longer visits and other purposes need separate checking; U.S. citizens have different provisions under the Compact.</p>
+        <ul class="tg-list mt-5">
+          <li>Check passport validity for the entire itinerary. Published FSM and U.S. guidance differs; confirm the requirement with FSM Immigration and your airline.</li>
+          <li>Keep your return or onward itinerary and accommodation contact details with your travel documents.</li>
+          <li>Check entry or transit permission at each connection, as well as any documents required for children traveling with you.</li>
+          <li>Read customs and quarantine instructions before packing food, plants, or animal products. Plants and animals require prior approval.</li>
+        </ul>
+        <p class="tg-source"><a class="tg-link" href={s.entry}>FSM tourism entry information</a> · <a class="tg-link" href={s.usTravel}>U.S. State Department country guidance</a> · <a class="tg-link" href={s.usTransit}>U.S. transit guidance</a></p>
+        <div id="us-visitors" class="border-t border-basalt/20 mt-7 pt-6"><h3 class="font-headline text-2xl text-basalt mb-3">For U.S. citizens</h3><p>The U.S. State Department says U.S. citizens do not need a visa and may remain in the FSM indefinitely under the Compact of Free Association. Carry a valid passport and check its <a class="tg-link" href={s.usTravel}>current travel requirements</a>. If you intend to work or run a business, ask the relevant authorities about any professional or business permissions.</p></div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <Footer />
-</BaseLayout>
+  <section id="daily-essentials" class="tg-section bg-sand">
+    <div class="tg-wrap tg-split">
+      <div><p class="tg-eyebrow">02 / Daily essentials</p><h2 class="tg-title">The details that<br /><em>make a day work.</em></h2><p class="tg-copy">Tell your host what you plan to do and what you need. A short conversation before arrival can answer more than a long list of assumptions.</p></div>
+      <div class="tg-rows tg-copy">
+        <article><h3>Getting around</h3><p>Taxis, rental cars, and transport arranged by hotels or tour operators are options. Agree on pickup, destination, fare, and return arrangements. For a rental, ask about licence requirements, insurance, road restrictions, and support if the vehicle breaks down.</p><p>If you have mobility needs, ask about the actual vehicle, steps, and help available. For a day out, confirm whether your guide’s price includes transport.</p><p class="tg-source"><a class="tg-link" href={s.operators}>Official guides &amp; transport directory ↗</a></p></article>
+        <article><h3>Money &amp; payments</h3><p>Use U.S. dollars. Cards are accepted by some businesses, but keep cash for places that cannot take them. ATMs are available, though machines can be out of service and fees may apply.</p><p>Ask your host which payment methods work for your booking. Plan enough cash for transfers and days out; check your bank’s overseas withdrawal limits before leaving.</p><p class="tg-source"><a class="tg-link" href={s.usTravel}>Country guidance on currency &amp; ATMs ↗</a></p></article>
+        <article><h3>Phone &amp; internet</h3><p>FSM Telecom provides mobile service in Pohnpei and publishes plans and coverage information. Ask about a compatible SIM, phone requirements, activation, and top-ups; confirm international roaming with your home carrier separately.</p><p>Check Wi-Fi coverage for your actual room. Download maps, confirmations, and contact numbers before heading out, especially if you plan to visit more remote areas.</p><p class="tg-source"><a class="tg-link" href={s.telecom}>FSM Telecom plans &amp; coverage</a> · <a class="tg-link" href={s.telecomSupport}>Customer support</a></p></article>
+        <article><h3>Time, language &amp; power</h3><p>Pohnpei uses UTC +11 year-round. Pohnpeian is the main local language; English is widely used. Electricity is 110 volts with U.S.-style outlets. Check your device’s voltage rating and pack the appropriate adapter.</p><p class="tg-source"><a class="tg-link" href={s.tourismEssentials}>Official visitor information ↗</a></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="packing" class="tg-section bg-basalt text-sand">
+    <div class="tg-wrap">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-20 mb-10"><div><p class="text-xs tracking-[.18em] uppercase text-sand/75 mb-5">03 / What to pack</p><h2 class="font-headline text-4xl md:text-5xl leading-tight">Pack for the rain.<br /><em>And the day ahead.</em></h2></div><p class="leading-relaxed text-sand/85">Warm, wet weather calls for light clothing and a way to keep essentials dry. Adapt this list to your plans, and ask your operator what equipment is supplied before carrying your own.</p></div>
+      <div class="grid md:grid-cols-3 gap-8 md:gap-10">
+        <div class="border-t border-sand/30 pt-6"><h3 class="font-headline text-3xl mb-5">In your carry-on</h3><ul class="tg-list text-sm text-sand/85 leading-relaxed"><li>Passport, itinerary, accommodation details, and copies you can read offline.</li><li>Personal medicines and prescriptions; check import rules before departure.</li><li>A change of clothes, essential toiletries, and chargers.</li><li>Your host’s contact, travel-cover details, and an emergency contact.</li></ul></div>
+        <div class="border-t border-sand/30 pt-6"><h3 class="font-headline text-3xl mb-5">For island days</h3><ul class="tg-list text-sm text-sand/85 leading-relaxed"><li>Light clothing, a rain layer, and a dry bag or waterproof pouch.</li><li>Comfortable footwear with grip for the activities you’ve arranged.</li><li>A hat, sun protection, insect repellent, and a reusable water bottle.</li><li>Clothing suitable for village visits and invitations from local hosts.</li></ul></div>
+        <div class="border-t border-sand/30 pt-6"><h3 class="font-headline text-3xl mb-5">Before adding gear</h3><ul class="tg-list text-sm text-sand/85 leading-relaxed"><li>Ask your guide about footwear and equipment for your specific route.</li><li>Check airline limits for boards, dive equipment, and batteries.</li><li>Confirm electricity compatibility for anything you need to charge.</li><li>Leave space to keep wet clothing separate on the return journey.</li></ul></div>
+      </div>
+      <p class="text-xs text-sand/80 leading-relaxed mt-8">Further preparation: <a class="underline underline-offset-4" href={s.tourismArrival}>tourism office’s journey tips</a> · <a class="underline underline-offset-4" href={s.health}>CDC health &amp; packing guidance</a>.</p>
+    </div>
+  </section>
+
+  <section id="local-customs" class="tg-section bg-sand-bright">
+    <div class="tg-wrap tg-split">
+      <div><p class="tg-eyebrow">04 / Local customs</p><h2 class="tg-title">Be a thoughtful<br /><em>guest.</em></h2><p class="tg-copy">Let the people welcoming you set the pace. Ask when you are unsure, and leave room for a different way of doing things.</p></div>
+      <div class="tg-copy">
+        <ul class="tg-list"><li>Dress modestly in villages: a shirt and longer shorts or a skirt are a useful starting point.</li><li>Ask before photographing people or private gatherings. Accept a declined invitation to take a photo.</li><li>At a sakau ceremony or other gathering, observe and follow your host’s guidance.</li><li>Ask your host or guide about permission and local rules before entering a cultural site or crossing land.</li><li>Tipping is voluntary, not an expected part of hospitality. Agree on service charges separately.</li></ul>
+        <p class="tg-source"><a class="tg-link" href={s.tourismEssentials}>Pohnpei Tourism Office’s etiquette guidance ↗</a></p>
+        <a class="tg-button border border-basalt/30 hover:bg-sand mt-6" href="/nan-madol#visiting">Read the Nan Madol visitor guide →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="health-weather" class="tg-section bg-sand">
+    <div class="tg-wrap tg-split">
+      <div><p class="tg-eyebrow">05 / Health &amp; weather</p><h2 class="tg-title">Prepare well.<br /><em>Stay flexible.</em></h2><p class="tg-copy">Plan around the conditions of the day with people who know the place. Leave space in your itinerary for a change of plan.</p><a href={s.weather} class="tg-button bg-basalt text-sand hover:bg-lagoon mt-6">Pohnpei weather &amp; marine forecasts ↗</a></div>
+      <div class="tg-copy">
+        <details open><summary>Health, medicine &amp; drinking water</summary><p>Review the <a class="tg-link" href={s.health}>CDC’s FSM travel-health guidance</a> with your clinician before departure. Bring your medicines, use insect repellent as directed, and plan safe drinking water for your days out. Do not assume that untreated tap, river, or waterfall water is safe to drink.</p></details>
+        <details><summary>Medical care &amp; travel cover</summary><p>Ask your insurer about medical evacuation and coverage for the activities you plan. The <a class="tg-link" href={s.usTravel}>U.S. State Department’s country guidance</a> describes limits to local medical care and emergency response. Keep your insurer’s assistance number and ask your host how to reach local help.</p></details>
+        <details><summary>Rain, trails &amp; the ocean</summary><p>Check the <a class="tg-link" href={s.weather}>Pohnpei weather and marine forecasts</a> with your guide before setting out. Discuss tides, currents, recent rainfall, and a fallback plan. A season or a clear morning is not a guarantee of safe access to a reef, trail, or waterfall.</p></details>
+      </div>
+    </div>
+  </section>
+  <section class="tg-section bg-sand-bright border-t border-basalt/15">
+    <div class="tg-wrap grid md:grid-cols-2 gap-10 md:gap-20"><div><p class="tg-eyebrow">Make the next arrangement</p><h2 class="tg-title">A host.<br /><em>A local connection.</em></h2><div class="flex flex-wrap gap-4"><a href="/places-to-stay" class="tg-button bg-basalt text-sand hover:bg-lagoon">Compare places to stay →</a><a href="/nan-madol#local-guides" class="tg-button border border-basalt/30 hover:bg-sand">Find a Nan Madol guide →</a></div></div><div class="tg-copy"><h3 class="font-headline text-2xl text-basalt mb-3">About this guide</h3><p>PohnpeiIsland.com is independent, with no formal tourism-office affiliation. This guide focuses on the main island; outer-island visits need their own local arrangements.</p><p>Sources are linked beside the relevant details. For current destination advice and introductions, <a class="tg-link" href={s.tourismContact}>contact the Pohnpei Tourism Office</a>. Entry decisions belong to the responsible authorities; confirm your own circumstances with them before travel.</p></div></div>
+  </section>
+</TravelGuideLayout>

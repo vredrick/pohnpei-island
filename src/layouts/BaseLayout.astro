@@ -4,11 +4,15 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  image?: string;
 }
 
 const {
   title = 'Pohnpei Island — The Garden Island of Micronesia',
   description = 'Pohnpei Island, Micronesia — rainforest, reef, waterfalls, and a living culture that hasn\'t been packaged for anyone. Plan your trip to the Garden Island.',
+  canonical,
+  image,
 } = Astro.props;
 ---
 
@@ -22,9 +26,12 @@ const {
     <meta property="og:title" content={title} />
     <meta
       property="og:description"
-      content="Pohnpei Island, Micronesia — rainforest, reef, waterfalls, and a living culture. Plan your trip to the Garden Island."
+      content={description}
     />
     <meta property="og:type" content="website" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {image && <meta property="og:image" content={image} />}
     <meta name="theme-color" content="#B8642B" />
     <link
       rel="icon"
@@ -40,6 +47,7 @@ const {
     />
   </head>
   <body class="bg-sand text-basalt font-body antialiased">
+    <noscript><style is:inline>.reveal { opacity: 1; transform: none; }</style></noscript>
     <slot />
 
     <script>

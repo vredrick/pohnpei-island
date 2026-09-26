@@ -1,0 +1,40 @@
+---
+import { operators, sources, formatPhone } from '../data/nan-madol';
+---
+<section id="local-guides" aria-labelledby="guides-title" class="bg-sand-deep px-6 py-16 md:py-24">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8 mb-10">
+      <div>
+        <p class="text-ochre-deep text-xs uppercase tracking-[0.2em] font-semibold mb-4">04 / Your next step</p>
+        <h2 id="guides-title" class="font-headline text-4xl md:text-5xl leading-tight">Go with a <em class="text-ochre-deep">local guide.</em></h2>
+      </div>
+      <div class="text-sm leading-relaxed text-basalt/80 space-y-3">
+        <p>These six businesses list Nan Madol services in the <a href={sources.operators} class="underline underline-offset-4">Pohnpei Tourism Office directory</a>. Listed alphabetically; contact operators directly to discuss your visit.</p>
+        <p>We have not contacted these businesses to confirm availability. PohnpeiIsland.com is an independent guide; listings are not endorsements or bookings.</p>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-5">
+      {operators.map((operator, index) => (
+        <article id={operator.id} aria-labelledby={`${operator.id}-title`} class="bg-sand-bright border border-basalt/15 p-6 md:p-8 min-w-0 flex flex-col">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <h3 id={`${operator.id}-title`} class="font-headline text-2xl md:text-3xl">{operator.name}</h3>
+            <span aria-hidden="true" class="font-headline text-xl text-basalt/50">0{index + 1}</span>
+          </div>
+          <p class="text-sm text-basalt/80 mb-5">{operator.services}</p>
+          {operator.paused && <p class="border-l-2 border-ochre-deep pl-4 text-sm leading-relaxed mb-5"><strong>Tours temporarily suspended.</strong> The operator’s website says tours and new bookings are paused. Check its website for reopening news; the contacts below are for updates.</p>}
+          <div class="space-y-1 mb-6">
+            {operator.phones.map(phone => <a href={`tel:${phone}`} class="flex items-center min-h-11 w-fit text-sm underline underline-offset-4 hover:text-ochre-deep" aria-label={`Call ${operator.name} at ${formatPhone(phone)}`}>{formatPhone(phone)}</a>)}
+            <a href={`mailto:${operator.email}`} class="flex items-center min-h-11 text-sm underline underline-offset-4 break-all hover:text-ochre-deep" aria-label={`Email ${operator.name}: ${operator.email}`}>{operator.email}</a>
+          </div>
+          <div class="mt-auto flex flex-wrap gap-3">
+            {operator.whatsapp && <a href={`https://wa.me/${operator.whatsapp.replace('+', '')}`} class="inline-flex items-center min-h-11 px-5 py-3 bg-lagoon text-white text-xs font-semibold tracking-wide hover:bg-basalt" aria-label={`WhatsApp ${operator.name}`}>WhatsApp ↗</a>}
+            {operator.website && <a href={operator.website} class="inline-flex items-center min-h-11 px-5 py-3 border border-basalt/30 text-xs font-semibold tracking-wide hover:bg-sand" aria-label={`${operator.paused ? 'Reopening updates' : 'Website'} for ${operator.name}`}>{operator.paused ? 'Reopening updates' : 'Visit website'} ↗</a>}
+          </div>
+          <p class="text-xs text-basalt/70 mt-6 pt-4 border-t border-basalt/10"><a href={operator.source} class="underline underline-offset-4">{operator.paused ? 'Operator’s own website' : 'Tourism office listing'}</a></p>
+        </article>
+      ))}
+    </div>
+    <p class="mt-8 text-sm leading-relaxed text-basalt/80">Need help finding another option? <a href={sources.contact} class="underline underline-offset-4">Contact the Pohnpei Tourism Office ↗</a></p>
+  </div>
+</section>
+<style>section { scroll-margin-top: 0; }</style>

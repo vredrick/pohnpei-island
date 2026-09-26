@@ -56,6 +56,27 @@ body {
   transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  transform: translateY(-150%);
+  background: #FFF8F1;
+  color: #2A1F18;
+  padding: 12px 20px;
+}
+.skip-link:focus { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal, .anim-fadeUp, .anim-fadeDown { opacity: 1; transform: none; }
+}
+
 .reveal.in {
   opacity: 1;
   transform: translateY(0);

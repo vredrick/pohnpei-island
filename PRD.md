@@ -1,6 +1,6 @@
 # PohnpeiIsland.com — Independent Pohnpei Guide
 
-Status: Implementation in progress; completed milestones are available locally for owner review. No deployment of these milestones has been performed.
+Status: Implementation in progress; completed guide milestones were deployed to pohnpeiisland.com on 26 September 2026. The wider first release remains incomplete.
 
 Date: September 25, 2026
 
@@ -18,13 +18,20 @@ This snapshot supersedes the original baseline and current-state labels below, w
 | Phase 3: accommodation | Implemented: ten source-listed properties, usable contact actions, search and filters, and planning links. |
 | Phase 3: getting here and essentials | Implemented: expanded arrival and practical guides, shared source records, and internal conflict notes. Previous milestone checks passed the production build and responsive, keyboard, and no-JavaScript browser checks. |
 | Phase 3: guides and planning | Implemented: all nine official operator entries, shared Nan Madol contacts and stable anchors, service filters with a complete no-JavaScript directory, paused-service notices, five practical planning steps, and contextual navigation. Sources and unresolved contact differences are recorded in `docs/operator-sources.md`. |
-| Phase 3: adventure guides | Implemented: Waterfalls & Jungle, audited Diving & Surfing and Outer Islands, source-supported shared operator connections, and homepage/navigation/planning entry points. Sources and removed/qualified claims are recorded in `docs/adventure-sources.md`. Existing diving hero asset returns 404; image references preserved per owner direction. |
+| Phase 3: adventure guides | Implemented: Waterfalls & Jungle, audited Diving & Surfing and Outer Islands, source-supported shared operator connections, and homepage/navigation/planning entry points. Sources and removed/qualified claims are recorded in `docs/adventure-sources.md`. Diving hero repaired in the separately authorized image follow-up by reusing the site’s existing manta-ray asset. |
 | Phase 3: remaining release work | Dining and shopping directories; missing destination/culture/history/about pages; remaining existing-page audits; newsletter cleanup; site-wide links and search metadata. |
 | Phases 4 and 5 | Deferred: photography improvements, interactive guide, and partnership exploration. |
 
-The disabled `/plan-your-trip` tool has been replaced. The `/waterfalls-and-jungle` route now exists and all audited internal destinations resolve. Remaining release issues include the homepage newsletter's simulated success and a preexisting diving hero image URL returning 404. The first-release checklist below remains a release-wide gate, not a declaration that local milestones are unfinished.
+The disabled `/plan-your-trip` tool has been replaced. The `/waterfalls-and-jungle` route now exists and all audited internal destinations resolve. Remaining release issues include the homepage newsletter's simulated success and a missing homepage Diving & Surfing card image (the guide hero is repaired). The first-release checklist below remains a release-wide gate, not a declaration that local milestones are unfinished.
 
-**Recommended next milestone:** build sourced Dining and Shopping & Crafts directories, with direct business contacts and useful navigation. Remaining release work also includes about-Pohnpei/culture/history/About this Guide pages, publisher identity and corrections contact, newsletter cleanup, the broken diving hero asset, and site-wide accessibility/search metadata. The completed local Guides & Transport / Plan Your Visit brief remains in [docs/next-goal.md](docs/next-goal.md); completion of that goal is not completion of the whole first release.
+**Recommended next milestone:** build sourced Dining and Shopping & Crafts directories, with direct business contacts and useful navigation. Remaining release work also includes about-Pohnpei/culture/history/About this Guide pages, publisher identity and corrections contact, newsletter cleanup, the broken homepage Diving & Surfing card asset, and site-wide accessibility/search metadata. The completed local Guides & Transport / Plan Your Visit brief remains in [docs/next-goal.md](docs/next-goal.md); completion of that goal is not completion of the whole first release.
+
+### Diving hero repair — 26 September 2026
+
+- Owner authorized fixing the diving hero after deployment. Replaced the missing `diving-surfing-hero.jpg` reference with the existing Cloudinary `hero-right-manta-road-pass.jpg` asset already used on the homepage; alt text describes the visible manta ray without asserting a dive location.
+- The image fills the hero container on mobile and desktop, with explicit source dimensions and high fetch priority. No new imagery was generated or uploaded.
+- Local validation: ten-route production build and diff check passed. Playwright/Chromium at 390 and 1440 px confirmed the image decodes at 2000 × 900, fills its container without overflow, and retains the working hero-to-surfing anchor. No page errors, console warnings/errors or framework overlays appeared. Screenshots were visually reviewed.
+- A separate check found that the homepage card’s `chapter-03-diving-surfing.jpg` also returns 404. That card remains outside this hero-only fix.
 
 ### Adventure guides validation — 26 September 2026
 
@@ -34,7 +41,7 @@ The disabled `/plan-your-trip` tool has been replaced. The `/waterfalls-and-jung
 - Browser journeys passed: Home → Waterfalls & Jungle → hiking-filtered directory; Plan Your Visit → Diving & Surfing → Surf Club → Ahnd guide → flight contact; conflicting service filter/business fragment → visible Surf Club → surfing guide. Paused operators remain labeled. At 320 and 1440 px with JavaScript disabled, all three guides and their directory contact paths remain usable.
 - All 20 distinct external web destinations across the activity pages and directory returned HTTP 200 with matching titles in Chromium. This includes all 11 Eco-Adventure source articles. No contact messages, calls or form submissions were made.
 - Shared-data checks retain nine operators, six Nan Madol relationships and matching contact links. New specific relationships are limited to the explicit Surf Club surfing/P-Pass and Ahnd references; no named hiking route, Pakin operator or airline/island route is inferred.
-- **Open asset finding:** the existing `diving-surfing-hero.jpg` Cloudinary URL returns HTTP 404. This is the sole observed console resource error on the guide pages; no application runtime errors or other console warnings occurred. The outer-atoll image loads. All existing tracked image tags, URLs and CSS image references match the prior commit; the waterfall page adds no image. Restore or replace the diving asset in a separately authorized image task.
+- **Historical asset finding (hero repaired in the authorized follow-up below):** the existing `diving-surfing-hero.jpg` Cloudinary URL returns HTTP 404. This is the sole observed console resource error on the guide pages; no application runtime errors or other console warnings occurred. The outer-atoll image loads. All existing tracked image tags, URLs and CSS image references match the prior commit; the waterfall page adds no image. Restore or replace the diving asset in a separately authorized image task.
 - Screenshot evidence and temporary QA scripts/results are outside the repo under `/tmp/adventures-*`. Desktop and mobile screenshots were visually reviewed. Two temporary-script issues (serializing a locator and checking navigation before it completed) were fixed; the final browser run passed with the documented asset exception.
 - Preview continues on server port 4322; use Codex/SSH forwarding as described below. Validation was completed locally; the owner subsequently authorized committing and pushing this milestone. No deployment was performed during validation. Existing untracked archives/drafts remain untouched. Testing covers Chromium and the stated widths, not physical devices or field conditions.
 

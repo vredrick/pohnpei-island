@@ -6,9 +6,12 @@ const sections = [{ id: 'surfing', label: 'Surfing' }, { id: 'diving', label: 'D
 <ActivityGuideLayout page="diving-and-surfing" title="Diving & Surfing in Pohnpei | P-Pass, Manta Road & Local Contacts" description="Explore Pohnpei’s reef breaks and dive sites, understand the conditions to discuss, and find published surf and dive contacts." sections={sections}>
   <section slot="hero" class="relative overflow-hidden bg-basalt"><div class="relative w-full aspect-[16/9] md:aspect-[21/9] min-h-[480px] md:min-h-[560px]">
     <img
-          class="w-full h-full object-cover opacity-60"
-          src="https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,c_fill,g_auto,w_2000,h_900/diving-surfing-hero.jpg"
-          alt="Surfing and diving at Palikir Pass, Pohnpei"
+          class="absolute inset-0 w-full h-full object-cover opacity-60"
+          src="https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,c_fill,g_auto,w_2000,h_900/hero-right-manta-road-pass.jpg"
+          alt="Manta ray swimming through blue water"
+          width="2000"
+          height="900"
+          fetchpriority="high"
         />
     <div class="absolute inset-0 bg-gradient-to-t from-basalt/80 via-basalt/30 to-transparent"></div><div class="absolute inset-0 flex flex-col justify-end p-6 md:p-16 lg:p-24 max-w-4xl"><p class="text-xs tracking-[.2em] uppercase text-sand/90 mb-4">Pohnpei / Beyond the shore</p><h1 class="font-headline text-sand text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-5">Diving &amp; <em>surfing.</em></h1><p class="font-headline text-sand/90 text-xl md:text-2xl mb-7 max-w-lg">Reef breaks above. A different landscape below.</p><div><a href="#surfing" class="tg-button bg-sand text-basalt hover:bg-sand-bright">Explore the ocean guide ↓</a></div></div>
   </div></section>

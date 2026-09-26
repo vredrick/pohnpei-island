@@ -76,4 +76,9 @@ Before publication, recheck cited practical warnings and operator service status
 
 Production build: ten routes. Internal destinations: 65/65 resolve. External web links: 20/20 returned HTTP 200 in Chromium, including all eleven cited Eco-Adventure articles. Responsive/keyboard/anchor checks pass at five widths from 320 to 1440 px; no-JavaScript guide-to-directory paths pass at 320 and 1440 px. Full environment and journey details are in the PRD.
 
-The existing diving hero URL returns 404. Its exact image tag is unchanged from HEAD, as are all other tracked image references. This remains a release asset issue under the owner's image-preservation constraint. The browser checks found mobile clipping in the hero's aspect-ratio wrapper; adding an explicit full width fixed the clipping without altering the image. No other relevant console errors/warnings or framework overlays remain.
+At the original audit, the existing diving hero URL returned 404. Its exact image tag is unchanged from HEAD, as are all other tracked image references. It was retained under the owner's image-preservation constraint until the separately authorized repair below. The browser checks found mobile clipping in the hero's aspect-ratio wrapper; adding an explicit full width fixed the clipping without altering the image. No other relevant console errors/warnings or framework overlays remain.
+
+
+## Authorized diving hero repair — 26 September 2026
+
+Following deployment, the owner requested the hero fix. The missing Cloudinary `diving-surfing-hero.jpg` reference was replaced with the existing site asset `hero-right-manta-road-pass.jpg`, verified as an HTTP 200 image and visually inspected as a manta ray in blue water. The alt text describes that content without inferring a specific location from the filename. The hero image fills its existing container; no image was generated, uploaded or taken from the research archive. The homepage card’s separate `chapter-03-diving-surfing.jpg` reference also returns 404 and remains unchanged outside this fix.

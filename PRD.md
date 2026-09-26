@@ -12,17 +12,39 @@ This snapshot supersedes the original baseline and current-state labels below, w
 
 | Workstream | Local status |
 | --- | --- |
-| Phase 0: scope | Owner authorized the Nan Madol, accommodation, and travel-guide milestones. Publisher identity and corrections contact remain open. |
-| Phase 1: inventory | Completed for those milestones in `docs/nan-madol-sources.md`, `docs/accommodation-sources.md`, and `docs/travel-sources.md`; the site-wide inventory remains incomplete. |
+| Phase 0: scope | Owner authorized the Nan Madol, accommodation, travel-guide, and Guides & Transport / Plan Your Visit milestones. Publisher identity and corrections contact remain open. |
+| Phase 1: inventory | Completed for those milestones in `docs/nan-madol-sources.md`, `docs/accommodation-sources.md`, `docs/travel-sources.md`, and `docs/operator-sources.md`; the site-wide inventory remains incomplete. |
 | Phase 2: Nan Madol visitor path | Implemented: rewritten guide, six related operator listings, published contact actions, independent-site wording, official tourism referral, and navigation/accessibility improvements. |
 | Phase 3: accommodation | Implemented: ten source-listed properties, usable contact actions, search and filters, and planning links. |
 | Phase 3: getting here and essentials | Implemented: expanded arrival and practical guides, shared source records, and internal conflict notes. Previous milestone checks passed the production build and responsive, keyboard, and no-JavaScript browser checks. |
-| Phase 3: remaining release work | Full operator, dining, and shopping directories; useful trip-planning page; missing destination/culture/history/about pages; remaining existing-page audits; newsletter cleanup; site-wide links and search metadata. |
+| Phase 3: guides and planning | Implemented: all nine official operator entries, shared Nan Madol contacts and stable anchors, service filters with a complete no-JavaScript directory, paused-service notices, five practical planning steps, and contextual navigation. Sources and unresolved contact differences are recorded in `docs/operator-sources.md`. |
+| Phase 3: remaining release work | Dining and shopping directories; missing destination/culture/history/about pages; remaining existing-page audits; newsletter cleanup; site-wide links and search metadata. |
 | Phases 4 and 5 | Deferred: photography improvements, interactive guide, and partnership exploration. |
 
-Release blockers still visible in the source include the disabled `/plan-your-trip` tool, the homepage newsletter's simulated success, and a `/waterfalls-and-jungle` link on the diving/surfing page without a corresponding route. The first-release checklist below remains a release-wide gate, not a declaration that local milestones are unfinished.
+The disabled `/plan-your-trip` tool has been replaced. Release blockers still visible in the source include the homepage newsletter's simulated success, and a `/waterfalls-and-jungle` link on the diving/surfing page without a corresponding route. The first-release checklist below remains a release-wide gate, not a declaration that local milestones are unfinished.
 
-**Recommended next milestone:** build the full Guides & Transport directory at `/tour-operators` and replace `/plan-your-trip` with an actionable planning guide. Reuse the Nan Madol operator records, reconcile the full current official directory, and connect the existing arrival, accommodation, and destination guides. The executable goal brief is in [docs/next-goal.md](docs/next-goal.md). After that milestone, prioritize the missing waterfall guide and remaining experience-page audits.
+**Recommended next milestone:** build Waterfalls & Jungle at `/waterfalls-and-jungle` and audit the remaining diving/surfing and outer-island content. Connect only source-supported destinations to shared operator records. The completed local Guides & Transport / Plan Your Visit brief remains in [docs/next-goal.md](docs/next-goal.md); completion of that goal is not completion of the whole first release.
+
+### Guides & Transport / Plan Your Visit validation — 26 September 2026
+
+- `npm run build` passed for all nine routes; `git diff --check` passed. No dependencies changed.
+- Data checks passed for all nine distinct official entries, alphabetical order, field provenance/review dates, seven service categories, six explicit Nan Madol relationships, paused status and omitted ambiguous contacts. Phone/email/WhatsApp URL syntax passed; the six Nan Madol contact sets exactly match the full directory.
+- Playwright 1.58.2 with installed Chromium tested both new pages at 320, 390, 768, 901, 1024 and 1440 px (1000 px height). Page identity, meaningful content, no error overlay, no relevant console errors/warnings, screenshots, no horizontal overflow, header overlap, all service filters, combined search, empty/reset states, hash recovery, keyboard skip links/menu/Escape and planning anchors passed. The Browser plugin was unavailable; no browser dependencies were installed.
+- Browser journey passed: Plan Your Visit → hiking service filter → Nan Madol visiting guide → existing operator contacts → JADESA's actual tours website. No communication or booking action was submitted.
+- JavaScript-disabled checks at 320 and 1440 px passed: all nine directory businesses, all six Nan Madol listings, contact links, planning content and quick navigation remain available.
+- All 46 unique local route/fragment destinations were audited across nine built pages: 45 valid; the sole missing destination is the preexisting `/waterfalls-and-jungle` link on the diving page. New page paths and preserved Nan Madol anchors all pass. This known release blocker is the next milestone.
+- All eight distinct external web destinations on the two new pages loaded with HTTP 200 and matching content in Chromium. Research-only Surf Club website requests timed out, and two Facebook source fetches were blocked/unavailable; these were omitted as website actions. Telephone/email/WhatsApp delivery, business availability and bookings are untested by design. Contact discrepancies remain documented for publication review.
+- Compared all tracked source image tags, Cloudinary URLs and CSS image references against the prior commit: unchanged. Existing archive/draft files remain untouched. No push or deployment of this milestone.
+
+Local production preview: `npm run preview -- --host 0.0.0.0 --port 4322`, at [Guides & Transport](http://localhost:4322/tour-operators) and [Plan Your Visit](http://localhost:4322/plan-your-trip). For remote access, use Codex/SSH port forwarding to server port 4322; the browser's local forwarded port may differ. Direct access to the server's public IP timed out from the owner's device even though server-side checks passed. A temporary HTTPS tunnel was also validated as a fallback. Preview is for owner review and must be restarted if its process stops.
+
+Owner review:
+
+1. Browse the directory on phone and desktop; try a service filter, a business-name search and reset.
+2. Review the paused Ocean Cruise listing and the direct-contact presentation, including the contact uncertainties in the source ledger.
+3. Follow the five planning steps into accommodation, entry guidance, Nan Madol and relevant providers. Confirm the tone and questions fit the intended visitor.
+4. Review the preserved Nan Madol guide/contact path and the new navigation links. Publication remains a separate decision.
+
 
 Keep existing images unchanged and source-review dates internal, following the owner's subsequent direction. Do not add public review-date badges. Production publication remains a separate step after owner review.
 

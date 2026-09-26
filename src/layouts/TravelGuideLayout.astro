@@ -37,7 +37,9 @@ const { title, description, page, heading, emphasis, intro, sections } = Astro.p
       <nav aria-label="Travel guides" class="flex flex-wrap gap-x-6 text-sm">
         <a class="tg-page-link" aria-current={page === 'getting-here' ? 'page' : undefined} href="/getting-here">Getting Here</a>
         <a class="tg-page-link" aria-current={page === 'travel-info' ? 'page' : undefined} href="/travel-info">Travel Essentials</a>
-        <a class="tg-page-link" href="/places-to-stay">Places to Stay →</a>
+        <a class="tg-page-link" href="/places-to-stay">Places to Stay</a>
+        <a class="tg-page-link" href="/tour-operators">Guides &amp; Transport</a>
+        <a class="tg-page-link" href="/plan-your-trip">Plan Your Visit →</a>
       </nav>
     </div></div>
     <nav aria-label="On this page" class="px-6 border-b border-basalt/15"><div class="max-w-6xl mx-auto flex flex-wrap gap-x-7 py-2 text-sm">{sections.map(({ id, label }) => <a href={`#${id}`} class="tg-page-link">{label}</a>)}</div></nav>

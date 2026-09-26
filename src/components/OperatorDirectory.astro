@@ -1,0 +1,92 @@
+---
+import { operators, serviceCategories, operatorSources } from '../data/operators';
+import OperatorContacts from './OperatorContacts.astro';
+---
+<section id="directory" aria-labelledby="directory-title" class="tg-section bg-sand-bright">
+  <div class="tg-wrap">
+    <div class="grid md:grid-cols-2 gap-6 mb-9">
+      <div><p class="tg-eyebrow">01 / The directory</p><h2 id="directory-title" class="tg-title">Find your <em>local connection.</em></h2></div>
+      <p class="tg-copy md:pt-8">Nine businesses from the <a class="tg-link" href={operatorSources.tourism}>official tourism directory</a>, listed alphabetically. Match a published service to your plans, then ask the provider about your dates.</p>
+    </div>
+    <div id="operator-filters" hidden class="border-y border-basalt/20 py-5 mb-5">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-[1fr_1fr_auto] gap-4 items-end">
+        <div><label for="operator-search">Business name</label><input id="operator-search" type="search" placeholder="Search by name" autocomplete="off" aria-describedby="operator-filter-note" /></div>
+        <div><label for="operator-service">Type of service</label><select id="operator-service" aria-describedby="operator-filter-note"><option value="all">All services</option>{Object.entries(serviceCategories).map(([value, label]) => <option value={value}>{label}</option>)}</select></div>
+        <button id="operator-reset" type="button" class="tg-button border border-basalt/30 hover:bg-sand">Reset filters</button>
+      </div>
+      <p id="operator-filter-note" class="text-xs text-basalt/75 leading-relaxed mt-4">Filters reflect published services, not availability. Paused operators remain visible with a notice.</p>
+    </div>
+    <p id="operator-count" role="status" aria-live="polite" aria-atomic="true" class="text-sm text-basalt/75 mb-5">Showing all {operators.length} businesses</p>
+    <div id="operator-empty" hidden class="border border-basalt/20 p-6 mb-6">
+      <h3 class="font-headline text-3xl mb-3">No businesses match.</h3><p class="tg-copy mb-4">Try a shorter name or a different service. An unlisted service may still be worth asking about.</p>
+      <button id="operator-empty-reset" type="button" class="tg-button bg-basalt text-sand">Show all businesses</button>
+    </div>
+    <div class="border-t border-basalt/25">
+      {operators.map((operator, index) => <article id={operator.id} data-operator data-name={operator.name} data-services={operator.categories.join(' ')} aria-labelledby={`${operator.id}-title`} class="operator-row border-b border-basalt/25 py-9 md:py-10">
+        <div class="min-w-0">
+          <p class="tg-eyebrow">{String(index + 1).padStart(2, '0')} / {operator.paused ? 'Temporarily paused' : 'Published listing'}</p>
+          <h3 id={`${operator.id}-title`} class="font-headline text-3xl leading-tight mb-4">{operator.name}</h3>
+          {operator.location && <p class="text-xs text-basalt/75 leading-relaxed mb-4">{operator.location}</p>}
+          <a class="source-link" href={operatorSources.tourism}>Tourism office listing ↗</a>
+          {operator.evidence.filter(item => item.url !== operatorSources.tourism).map(item => <a class="source-link" href={item.url}>{item.url === operatorSources.sunsetContact ? 'Operator location & contacts' : 'Operator’s own website'} ↗</a>)}
+        </div>
+        <div class="min-w-0 tg-copy">
+          <p class="font-medium text-basalt mb-3">{operator.services}</p>
+          <p>{operator.summary}</p>
+          {operator.paused && <p class="pause-note"><strong>Tours and new bookings are suspended.</strong> The contacts here are for updates; consult the operator’s website for reopening news.</p>}
+          {operator.relatedPlaces.includes('nan-madol') && <a class="tg-page-link tg-link text-sm mt-3" href="/nan-madol#visiting">Read the Nan Madol visitor guide →</a>}
+        </div>
+        <OperatorContacts operator={operator} />
+      </article>)}
+    </div>
+    <p class="tg-source max-w-3xl">We have not contacted these businesses to confirm current services. A listing is a starting point for an inquiry, not an endorsement or a reservation. Meeting points and pickup arrangements should be agreed directly.</p>
+  </div>
+</section>
+<script>
+  const filters = document.querySelector<HTMLElement>('#operator-filters');
+  const search = document.querySelector<HTMLInputElement>('#operator-search');
+  const service = document.querySelector<HTMLSelectElement>('#operator-service');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-operator]'));
+  const count = document.querySelector<HTMLElement>('#operator-count');
+  const empty = document.querySelector<HTMLElement>('#operator-empty');
+  const normalize = (value: string) => value.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  if (filters && search && service && count && empty) {
+    const update = () => {
+      let visible = 0;
+      for (const card of cards) {
+        const match = normalize(card.dataset.name || '').includes(normalize(search.value))
+          && (service.value === 'all' || (card.dataset.services || '').split(' ').includes(service.value));
+        card.hidden = !match;
+        if (match) visible++;
+      }
+      count.textContent = visible === cards.length ? `Showing all ${cards.length} businesses` : `Showing ${visible} of ${cards.length} businesses`;
+      empty.hidden = visible !== 0;
+    };
+    const reset = () => { search.value = ''; service.value = 'all'; update(); };
+    const resetAndFocus = () => { reset(); search.focus(); };
+    const revealHash = () => {
+      const card = cards.find(item => `#${item.id}` === location.hash);
+      if (card?.hidden) { reset(); card.scrollIntoView(); }
+    };
+    const initialService = new URLSearchParams(location.search).get('service');
+    if (initialService && Array.from(service.options).some(option => option.value === initialService)) service.value = initialService;
+    search.addEventListener('input', update);
+    service.addEventListener('change', update);
+    document.querySelector('#operator-reset')?.addEventListener('click', resetAndFocus);
+    document.querySelector('#operator-empty-reset')?.addEventListener('click', resetAndFocus);
+    window.addEventListener('hashchange', revealHash);
+    update();
+    revealHash();
+    filters.hidden = false;
+  }
+</script>
+<style>
+  [hidden] { display: none !important; }
+  label { display: block; font-size: .8rem; font-weight: 500; margin-bottom: .5rem; }
+  input, select { width: 100%; min-height: 48px; padding: .75rem; border: 1px solid #2A1F184D; background: #FFF8F1; color: #2A1F18; font-size: 1rem; }
+  .operator-row { display: grid; gap: 1.75rem; scroll-margin-top: 0; }
+  .source-link { display: block; width: fit-content; font-size: .75rem; line-height: 1.8; text-decoration: underline; text-underline-offset: 3px; padding-block: .4rem; }
+  .source-link:hover { color: #8F4C1E; }
+  .pause-note { margin-top: 1rem; border-left: 3px solid #8F4C1E; padding-left: 1rem; font-size: .85rem; }
+  @media (min-width: 1024px) { .operator-row { grid-template-columns: 1fr 1.2fr 1.1fr; gap: 2.5rem; } }
+</style>

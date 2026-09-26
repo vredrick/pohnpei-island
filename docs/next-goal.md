@@ -1,6 +1,6 @@
 # Next goal: Guides & Transport and Plan Your Visit
 
-Status: Proposed goal, ready to run; this document does not start implementation.
+Status: Implemented and validated locally on 26 September 2026; ready for owner review. No push or deployment. See the PRD implementation-progress snapshot for validation and the review checklist; see `docs/operator-sources.md` for research and unresolved contact details. The goal prompt below is preserved as the acceptance scope.
 
 ## Goal prompt
 

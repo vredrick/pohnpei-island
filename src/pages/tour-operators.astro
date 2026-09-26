@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import StatusStrip from '../components/StatusStrip.astro';
+import Footer from '../components/Footer.astro';
+import OperatorDirectory from '../components/OperatorDirectory.astro';
+import { operators, operatorSources as s } from '../data/operators';
+import '../styles/travel-guide.css';
+---
+<BaseLayout title="Guides & Transport in Pohnpei | Local Operator Contacts" description="Find Pohnpei guides, ocean excursions, car rental and outer-atoll flight contacts. Browse published services and contact businesses directly." canonical="https://pohnpeiisland.com/tour-operators">
+  <a href="#operator-guide" class="skip-link">Skip to guides and transport</a>
+  <Nav /><StatusStrip />
+  <main id="operator-guide" tabindex="-1" class="travel-guide pt-[116px]">
+    <section class="px-6 pt-16 pb-14 md:pt-24 md:pb-20 bg-sand">
+      <div class="tg-wrap grid md:grid-cols-[1.5fr_1fr] gap-10 md:gap-16 items-end">
+        <div><p class="tg-eyebrow">Pohnpei / Guides &amp; Transport</p>
+          <h1 class="font-headline text-6xl md:text-7xl lg:text-8xl leading-[.98] tracking-tight mb-7">An island to know.<br /><em class="text-ochre-deep">People to ask.</em></h1>
+          <p class="text-basalt/80 leading-relaxed max-w-lg">A day on the water. A path through the forest. A ride to your next stop. Find the people to talk to, and shape the details together.</p>
+          <a href="#directory" class="tg-button bg-basalt text-sand hover:bg-lagoon mt-8">Explore guides &amp; transport ↓</a>
+        </div>
+        <aside class="border-t-2 border-ochre-deep pt-6">
+          <p class="tg-eyebrow">Before you set out</p><h2 class="font-headline text-3xl mb-4">Start a conversation.</h2>
+          <p class="tg-copy">Share your interests, dates, group size and where you’re staying. Ask what is possible, what’s included, and what needs to stay flexible.</p>
+          <div class="flex gap-10 border-t border-basalt/20 mt-6 pt-5"><p><strong class="font-headline text-4xl font-normal">{operators.length}</strong><span class="block text-xs mt-1">Businesses listed</span></p><p><strong class="font-headline text-4xl font-normal">{operators.filter(o => o.paused).length}</strong><span class="block text-xs mt-1">Currently paused</span></p></div>
+        </aside>
+      </div>
+    </section>
+    <div class="px-6 py-5 bg-sand-bright border-y border-basalt/15"><p class="tg-wrap text-xs leading-relaxed">Independent guide · <a href={s.tourism} class="tg-link">Official tourism operator directory ↗</a></p></div>
+    <nav aria-label="On this page" class="px-6 border-b border-basalt/15"><div class="tg-wrap flex flex-wrap gap-x-8 py-2 text-sm"><a href="#directory" class="tg-page-link">01 / Find a provider</a><a href="#before-you-go" class="tg-page-link">02 / Agree the details</a><a href="#about-directory" class="tg-page-link">About the directory</a></div></nav>
+    <OperatorDirectory />
+    <section id="before-you-go" class="tg-section bg-sand tapa-pattern">
+      <div class="tg-wrap tg-split">
+        <div><p class="tg-eyebrow">02 / Agree the details</p><h2 class="tg-title">Good questions.<br /><em>A clearer plan.</em></h2><p class="tg-copy">Use these prompts when you contact a provider. Save the agreed details so everyone is working from the same plan.</p><a href="/plan-your-trip#contact" class="tg-button bg-basalt text-sand hover:bg-lagoon mt-6">Prepare your inquiry →</a></div>
+        <dl class="tg-rows tg-copy">
+          <div><dt>The route &amp; the people</dt><dd>Where will you go, and who will lead the outing or drive? Discuss fitness, swimming or diving experience, access needs, and any children in the group. Ask which permissions are needed and who arranges them.</dd></div>
+          <div><dt>The complete arrangement</dt><dd>Confirm pickup, return, duration, equipment, food, access fees and total price. Ask about deposits, payment methods and cancellation terms before agreeing.</dd></div>
+          <div><dt>If conditions change</dt><dd>Ask how rain, tides or sea conditions could affect the plan, when you’ll hear about changes, and what happens if a trip cannot go ahead.</dd></div>
+          <div><dt>A vehicle or an outer-island flight</dt><dd>For car rental, discuss licence requirements, insurance and road restrictions. For an atoll journey, confirm the destination served, baggage limits, permissions and the return arrangement. A directory listing is not a flight schedule.</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section id="about-directory" class="tg-section bg-basalt text-sand">
+      <div class="tg-wrap grid md:grid-cols-2 gap-10 md:gap-20">
+        <div><p class="text-xs tracking-[.18em] uppercase text-sand/75 mb-5">About this directory</p><h2 class="font-headline text-4xl md:text-5xl mb-6">Published details.<br /><em>Direct connections.</em></h2><p class="text-sm leading-relaxed text-sand/85">PohnpeiIsland.com is independent, with no formal tourism-office affiliation. This directory covers the businesses listed by the Pohnpei Tourism Office. It does not cover every provider on the island.</p></div>
+        <div class="text-sm leading-relaxed text-sand/85 space-y-5"><p>The linked tourism listings provide the starting point. Operator websites supply additional details where available. Locations are shown only where published; confirm your meeting point directly.</p><p>Phone, email and WhatsApp links open your chosen app. Website links take you to the provider. No inquiry, booking or payment is collected here.</p><p>Looking for another service or a local introduction? <a class="underline underline-offset-4" href={s.contact}>Ask the Pohnpei Tourism Office ↗</a></p><div class="flex flex-wrap gap-4"><a href="/plan-your-trip" class="tg-button bg-sand text-basalt hover:bg-sand-bright">Plan your visit →</a><a href="/places-to-stay" class="tg-button border border-sand/40 hover:bg-sand/10">Find a place to stay →</a></div></div>
+      </div>
+    </section>
+  </main><Footer />
+</BaseLayout>

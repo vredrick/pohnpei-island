@@ -3,94 +3,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import StatusStrip from '../components/StatusStrip.astro';
 import Footer from '../components/Footer.astro';
+import { operatorSources } from '../data/operators';
+import { travelSources } from '../data/travel';
+import '../styles/travel-guide.css';
+const steps = [
+  { id: 'interests', label: 'Choose your interests' },
+  { id: 'arrival', label: 'Check your journey' },
+  { id: 'stay', label: 'Find your base' },
+  { id: 'contact', label: 'Talk to a provider' },
+  { id: 'reconfirm', label: 'Reconfirm the details' },
+];
 ---
-
-<BaseLayout
-  title="Plan Your Trip to Pohnpei — The Garden Island of Micronesia"
-  description="Start planning your trip to Pohnpei Island, Micronesia. Flights, accommodation, tours, and everything you need to know before you go."
->
-  <Nav />
-  <StatusStrip />
-
-  <main class="pt-[116px]">
-    <section class="py-28 md:py-36 px-6 md:px-24 bg-sand">
-      <div class="max-w-3xl mx-auto">
-        <span
-          class="font-label text-ochre tracking-[0.3em] uppercase text-[11px] font-semibold mb-8 block"
-        >
-          Plan Your Visit
-        </span>
-        <h1
-          class="font-headline text-basalt text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight mb-10"
-        >
-          Plan your <em class="italic text-ochre">trip</em>.
-        </h1>
-
-        <div class="space-y-8 font-body text-basalt/75 text-[16px] leading-relaxed">
-          <p>
-            Pohnpei isn't a place you can wing entirely — but that's part of
-            what makes it worth the effort. Flights are limited, accommodation
-            books up, and the best experiences happen when someone local is
-            showing you around.
-          </p>
-        </div>
-
-        <!-- Trip planner placeholder -->
-        <div class="mt-12 bg-sand-bright border border-basalt/10 p-8 md:p-10">
-          <h2 class="font-headline text-2xl text-basalt mb-2">Build your itinerary</h2>
-          <p class="font-body text-basalt/50 text-sm mb-6">
-            A trip planning tool is coming soon. Tell us what you're interested in and we'll help shape your visit.
-          </p>
-          <textarea
-            disabled
-            placeholder="Tell us what you want to do in Pohnpei..."
-            rows="4"
-            class="w-full bg-transparent border-2 border-basalt/15 px-4 py-3 font-body text-base placeholder:text-basalt/25 cursor-not-allowed resize-none"
-          ></textarea>
-          <button
-            disabled
-            class="mt-4 bg-basalt/20 text-basalt/40 px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold cursor-not-allowed"
-          >
-            Plan My Trip
-          </button>
-        </div>
-
-        <div class="mt-12 space-y-6 font-body text-basalt/75 text-[16px] leading-relaxed">
-          <h2 class="font-headline text-2xl text-basalt">In the Meantime</h2>
-          <p>Start with these:</p>
-          <ul class="space-y-3 list-none">
-            <li class="flex items-start gap-3">
-              <span class="text-ochre mt-1">→</span>
-              <a href="/getting-here" class="underline decoration-dotted underline-offset-4 hover:text-ochre transition-colors">Getting to Pohnpei</a>
-              <span class="text-basalt/50">— flights, airports, routes</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-ochre mt-1">→</span>
-              <a href="/places-to-stay" class="underline decoration-dotted underline-offset-4 hover:text-ochre transition-colors">Places to Stay</a>
-              <span class="text-basalt/50">— hotels, guesthouses, Airbnb</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-ochre mt-1">→</span>
-              <a href="/travel-info" class="underline decoration-dotted underline-offset-4 hover:text-ochre transition-colors">Travel Info</a>
-              <span class="text-basalt/50">— visas, weather, health, currency</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="mt-16 pt-10 border-t border-basalt/10">
-          <p class="font-body text-basalt/55 text-sm mb-6">
-            The trip planner is being built. Join the Dispatch to be the first to use it.
-          </p>
-          <a
-            href="/#dispatch"
-            class="bg-ochre text-white px-8 py-4 font-label uppercase tracking-[0.14em] text-xs font-semibold hover:bg-ochre-deep active:scale-95 transition-all inline-block"
-          >
-            Join the Dispatch
-          </a>
-        </div>
+<BaseLayout title="Plan Your Visit to Pohnpei | A Practical Trip Guide" description="Plan a Pohnpei visit step by step: choose your interests, check flights and entry guidance, arrange a stay, contact local providers and reconfirm your plans." canonical="https://pohnpeiisland.com/plan-your-trip">
+  <a href="#planning-guide" class="skip-link">Skip to planning guide</a>
+  <Nav /><StatusStrip />
+  <main id="planning-guide" tabindex="-1" class="travel-guide pt-[116px]">
+    <section class="px-6 pt-16 pb-14 md:pt-24 md:pb-20 bg-sand">
+      <div class="tg-wrap grid md:grid-cols-[1.5fr_1fr] gap-10 md:gap-16 items-end">
+        <div><p class="tg-eyebrow">Pohnpei / Plan your visit</p><h1 class="font-headline text-6xl md:text-7xl lg:text-8xl leading-[.98] tracking-tight mb-7">Make a plan.<br /><em class="text-ochre-deep">Leave room.</em></h1><p class="text-basalt/80 leading-relaxed max-w-lg">Start with what brings you here. Connect your flights, your stay and the people who’ll help you explore. Leave space to adjust the days together.</p><a href="#interests" class="tg-button bg-basalt text-sand hover:bg-lagoon mt-8">Start planning ↓</a></div>
+        <aside class="border-t-2 border-ochre-deep pt-6"><p class="tg-eyebrow">Your planning sequence</p><nav aria-label="Planning steps"><ol class="divide-y divide-basalt/15">{steps.map((step, i) => <li><a href={`#${step.id}`} class="flex items-center gap-5 min-h-12 py-3 hover:text-ochre-deep"><span class="font-headline text-xl text-ochre-deep">0{i + 1}</span><span class="text-sm">{step.label}</span><span aria-hidden="true" class="ml-auto">↓</span></a></li>)}</ol></nav></aside>
       </div>
     </section>
-  </main>
-
-  <Footer />
+    <div class="px-6 py-5 bg-sand-bright border-y border-basalt/15"><div class="tg-wrap flex flex-col md:flex-row justify-between gap-3 text-xs leading-relaxed"><p>Independent guide · Arrangements are made directly with providers.</p><a href={operatorSources.contact} class="tg-link">Official Pohnpei tourism help ↗</a></div></div>
+    <section id="interests" class="tg-section bg-sand-bright">
+      <div class="tg-wrap">
+        <div class="tg-split mb-10"><div><p class="tg-eyebrow">01 / Choose your interests</p><h2 class="tg-title">What brings<br /><em>you to Pohnpei?</em></h2></div><p class="tg-copy">Pick a few priorities to discuss with your host or guide. These are starting ideas, not bookable packages or fixed itineraries. Let the people arranging your visit help you decide what fits.</p></div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <article class="interest"><h3>History &amp; place</h3><p>Start with Nan Madol’s story and visiting guidance. Ask a listed guide about the route, permissions and tide timing for your date.</p><a href="/nan-madol" class="tg-page-link tg-link">Read the Nan Madol guide →</a></article>
+          <article class="interest"><h3>Forest &amp; waterfalls</h3><p>Describe the walking you enjoy, your group’s fitness and access needs. Ask about suitable trails, recent conditions and permissions.</p><a href="/tour-operators?service=hiking#directory" class="tg-page-link tg-link">Find waterfall &amp; hiking contacts →</a></article>
+          <article class="interest"><h3>Time on the water</h3><p>Discuss diving, an ocean trip or a boat outing with a provider. Share your experience level and ask about equipment and conditions.</p><a href="/tour-operators?service=ocean#directory" class="tg-page-link tg-link">Find ocean-trip contacts →</a></article>
+        </div>
+        <p class="tg-note tg-copy mt-9">Thinking about an outer island? Treat it as a separate planning conversation. Start with the <a href={travelSources.outerIslands} class="tg-link">tourism office’s outer-island guidance</a>, then ask about permission, transport, provisions and your return before fitting it into your visit.</p>
+      </div>
+    </section>
+    <section id="arrival" class="tg-section bg-sand tapa-pattern">
+      <div class="tg-wrap tg-split"><div><p class="tg-eyebrow">02 / Check your journey</p><h2 class="tg-title">Build around<br /><em>your arrival.</em></h2></div><div class="tg-copy"><p>Check your airline’s current flights into and out of Pohnpei, including connections and local arrival dates. Review entry and transit requirements for your own passport and route before committing to the rest of the trip.</p><p>Keep the arrival and departure plan handy when you speak with accommodation and activity providers. Ask what can be changed if a connection moves.</p><div class="flex flex-wrap gap-4 mt-6"><a href="/getting-here" class="tg-button bg-basalt text-sand hover:bg-lagoon">Getting Here →</a><a href="/travel-info#entry" class="tg-button border border-basalt/30 hover:bg-sand-bright">Entry &amp; travel essentials →</a></div></div></div>
+    </section>
+    <section id="stay" class="tg-section bg-sand-bright">
+      <div class="tg-wrap tg-split"><div><p class="tg-eyebrow">03 / Find your base</p><h2 class="tg-title">Choose a stay.<br /><em>Connect the days.</em></h2></div><div class="tg-copy"><p>Compare the published locations and facilities in the accommodation directory, then send your dates and room needs to your shortlist. Confirm the room, full cost and cancellation terms directly.</p><p>Ask about airport pickup and daily transport. Share the property’s location with your guide so pickup and return arrangements are clear. Agree the meeting point and a contact for arrival changes.</p><a href="/places-to-stay" class="tg-button bg-basalt text-sand hover:bg-lagoon mt-6">Compare places to stay →</a></div></div>
+    </section>
+    <section id="contact" class="tg-section bg-basalt text-sand">
+      <div class="tg-wrap grid md:grid-cols-2 gap-10 md:gap-16">
+        <div><p class="text-xs tracking-[.18em] uppercase text-sand/75 mb-5">04 / Talk to a provider</p><h2 class="font-headline text-4xl md:text-5xl leading-tight mb-6">An inquiry starts<br /><em>with your plans.</em></h2><p class="leading-relaxed text-sand/85">Use the Guides &amp; Transport directory to find the relevant service and a published contact. Adapt the prompts here for your message or call. Contacting a provider starts a conversation; it does not confirm a booking.</p><div class="flex flex-wrap gap-4 mt-7"><a href="/tour-operators" class="tg-button bg-sand text-basalt hover:bg-sand-bright">Browse guides &amp; transport →</a><a href="/tour-operators?service=road#directory" class="tg-button border border-sand/40 hover:bg-sand/10">Find road transport →</a></div></div>
+        <div class="bg-sand-bright text-basalt p-6 md:p-8"><h3 class="font-headline text-3xl mb-5">What to include</h3><ul class="tg-list tg-copy"><li>Your dates and how flexible they are.</li><li>Group size, children’s ages if relevant, and where you’re staying.</li><li>The places or activities you’re interested in.</li><li>Your experience, fitness, access needs and equipment questions.</li></ul><h3 class="font-headline text-2xl mt-7 mb-4">What to ask</h3><p class="tg-copy">Can you arrange this for our dates? What route and pickup do you suggest? What is included in the full price, including permissions, transport and equipment? How do payment, changes and cancellations work?</p><p class="tg-source">Save the provider’s reply and agree the details before paying or treating an arrangement as confirmed.</p></div>
+      </div>
+    </section>
+    <section id="reconfirm" class="tg-section bg-sand">
+      <div class="tg-wrap tg-split"><div><p class="tg-eyebrow">05 / Reconfirm the details</p><h2 class="tg-title">Before you go.<br /><em>Before each outing.</em></h2><p class="tg-copy">Keep a copy of your arrangements and the contacts you need. Revisit the plan with your providers when conditions or travel details change.</p><a href="/travel-info" class="tg-button border border-basalt/30 hover:bg-sand-bright mt-6">Read Travel Essentials →</a></div><dl class="tg-rows tg-copy"><div><dt>Flights, room &amp; pickup</dt><dd>Recheck dates and local times, the room confirmation, airport meeting point and how to reach your host if delayed.</dd></div><div><dt>The day’s route</dt><dd>Ask the guide about weather, tide and access conditions. Confirm the meeting point, return arrangement, what to bring and any fallback plan.</dd></div><div><dt>Payment &amp; preparation</dt><dd>Confirm the agreed total and payment method. Check your documents, packing and provider messages so unresolved questions are settled before departure.</dd></div></dl></div>
+    </section>
+    <div class="px-6 py-8 bg-sand-bright border-t border-basalt/15"><p class="tg-wrap text-sm text-basalt/75 leading-relaxed">This is an original planning sequence from PohnpeiIsland.com, an independent guide with no formal tourism-office affiliation. The linked guides provide source references for practical details. For current destination advice or introductions, <a href={operatorSources.contact} class="tg-link">contact the Pohnpei Tourism Office</a>. Bookings and payments are arranged with providers.</p></div>
+  </main><Footer />
 </BaseLayout>
+<style>
+  .interest { border-top: 2px solid #8F4C1E; padding-top: 1.5rem; }
+  .interest h3 { font-family: 'Newsreader', Georgia, serif; font-size: 1.85rem; line-height: 1.2; margin-bottom: 1rem; }
+  .interest p { color: #52443C; font-size: .9rem; line-height: 1.8; }
+  .interest a { font-size: .85rem; margin-top: .75rem; }
+</style>

@@ -1,5 +1,7 @@
 ---
-import { operators, sources, formatPhone } from '../data/nan-madol';
+import { sources } from '../data/nan-madol';
+import { nanMadolOperators as operators } from '../data/operators';
+import OperatorContacts from './OperatorContacts.astro';
 ---
 <section id="local-guides" aria-labelledby="guides-title" class="bg-sand-deep px-6 py-16 md:py-24">
   <div class="max-w-6xl mx-auto">
@@ -22,19 +24,12 @@ import { operators, sources, formatPhone } from '../data/nan-madol';
           </div>
           <p class="text-sm text-basalt/80 mb-5">{operator.services}</p>
           {operator.paused && <p class="border-l-2 border-ochre-deep pl-4 text-sm leading-relaxed mb-5"><strong>Tours temporarily suspended.</strong> The operator’s website says tours and new bookings are paused. Check its website for reopening news; the contacts below are for updates.</p>}
-          <div class="space-y-1 mb-6">
-            {operator.phones.map(phone => <a href={`tel:${phone}`} class="flex items-center min-h-11 w-fit text-sm underline underline-offset-4 hover:text-ochre-deep" aria-label={`Call ${operator.name} at ${formatPhone(phone)}`}>{formatPhone(phone)}</a>)}
-            <a href={`mailto:${operator.email}`} class="flex items-center min-h-11 text-sm underline underline-offset-4 break-all hover:text-ochre-deep" aria-label={`Email ${operator.name}: ${operator.email}`}>{operator.email}</a>
-          </div>
-          <div class="mt-auto flex flex-wrap gap-3">
-            {operator.whatsapp && <a href={`https://wa.me/${operator.whatsapp.replace('+', '')}`} class="inline-flex items-center min-h-11 px-5 py-3 bg-lagoon text-white text-xs font-semibold tracking-wide hover:bg-basalt" aria-label={`WhatsApp ${operator.name}`}>WhatsApp ↗</a>}
-            {operator.website && <a href={operator.website} class="inline-flex items-center min-h-11 px-5 py-3 border border-basalt/30 text-xs font-semibold tracking-wide hover:bg-sand" aria-label={`${operator.paused ? 'Reopening updates' : 'Website'} for ${operator.name}`}>{operator.paused ? 'Reopening updates' : 'Visit website'} ↗</a>}
-          </div>
+          <OperatorContacts operator={operator} />
           <p class="text-xs text-basalt/70 mt-6 pt-4 border-t border-basalt/10"><a href={operator.source} class="underline underline-offset-4">{operator.paused ? 'Operator’s own website' : 'Tourism office listing'}</a></p>
         </article>
       ))}
     </div>
-    <p class="mt-8 text-sm leading-relaxed text-basalt/80">Need help finding another option? <a href={sources.contact} class="underline underline-offset-4">Contact the Pohnpei Tourism Office ↗</a></p>
+    <p class="mt-8 text-sm leading-relaxed text-basalt/80">Looking beyond Nan Madol? <a href="/tour-operators" class="underline underline-offset-4">Browse all guides &amp; transport →</a> Need help finding another option? <a href={sources.contact} class="underline underline-offset-4">Contact the Pohnpei Tourism Office ↗</a></p>
   </div>
 </section>
 <style>section { scroll-margin-top: 0; }</style>

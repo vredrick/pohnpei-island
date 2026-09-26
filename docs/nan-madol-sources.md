@@ -51,6 +51,10 @@ UNESCO’s language versions differ in islet counts; wording explicitly attribut
 
 All source URLs are retained with records or this document. Phone formatting adds spaces only; dialing links retain +691 plus all seven local digits. WhatsApp links are created only for numbers explicitly labelled WhatsApp by the tourism office. No outreach or messages were sent. Phone/mail/WhatsApp actions require the visitor’s chosen application; contact reachability has not been independently confirmed.
 
+## Shared-directory follow-up — 26 September 2026
+
+The six operator records now come from `src/data/operators.ts` and share contact rendering with the full `/tour-operators` directory. All six IDs and Nan Madol anchors remain unchanged. Operator sources were rechecked on 26 September; Ocean Cruise remains paused, and the ambiguous contacts remain omitted. Caroline Islands Air, Club Pareo and Sunset View are now included in the full directory without a Nan Madol relationship. See [operator-sources.md](operator-sources.md) for current coverage, field provenance, conflicts and retrieval limitations. The historical table above records the Nan Madol-only selection, not exclusion from the full directory.
+
 ## Milestone boundary and maintenance
 
 This milestone is the Nan Madol guide, its six related listings, and shared navigation/footer changes needed for that path. Other destination pages and the full first-release PRD remain future work. Business contacts and status should be reviewed before publication and quarterly afterward; stable history yearly or after corrections. Review dates must change only after substantive source checks.

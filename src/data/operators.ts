@@ -19,13 +19,19 @@ export const serviceCategories = {
   'flights': 'Outer-atoll flights',
 } as const;
 export type ServiceCategory = keyof typeof serviceCategories;
+export const relatedPlaceGuides = {
+  'nan-madol': { label: 'Nan Madol visitor guide', href: '/nan-madol#visiting' },
+  'p-pass': { label: 'Surfing guide', href: '/diving-and-surfing#surfing' },
+  'ahnd': { label: 'Ahnd visiting guide', href: '/outer-atolls#nearby' },
+} as const;
+export type RelatedPlace = keyof typeof relatedPlaceGuides;
 export interface Operator {
   id: string;
   name: string;
   services: string;
   summary: string;
   categories: ServiceCategory[];
-  relatedPlaces: ('nan-madol')[];
+  relatedPlaces: RelatedPlace[];
   location?: string;
   phones: string[];
   email: string;
@@ -78,10 +84,10 @@ export const operators: Operator[] = [
     paused: true, source: operatorSources.oceanCruise, reviewed,
     evidence: [{ url: source, fields: 'Name and listed services.' }, { url: operatorSources.oceanCruise, fields: 'Suspension of tours/new bookings, updated email, phone and Kolonia location.' }] },
   { id: 'surf-club', name: 'Pohnpei Surf Club', services: 'Diving · Nan Madol · waterfalls · boat charters',
-    summary: 'Discuss a boat charter or a guided visit on land or water.',
-    categories: ['nan-madol', 'ocean', 'hiking', 'boats'], relatedPlaces: ['nan-madol'],
+    summary: 'Discuss a boat charter or a guided visit on land or water. The Eco-Adventure Guide also names this business for surfing and Ahnd trips; confirm current arrangements directly.',
+    categories: ['nan-madol', 'ocean', 'hiking', 'boats'], relatedPlaces: ['nan-madol', 'p-pass', 'ahnd'],
     phones: ['+6919207343', '+6913207845'], email: 'pnisurfclub@gmail.com', whatsapp: '+6919207343',
-    source, reviewed, evidence: [{ url: source, fields: 'Name, services, phones, email and explicitly published WhatsApp. Own website timed out; no website button or inferred location.' }] },
+    source, reviewed, evidence: [{ url: source, fields: 'Name, services, phones, email and explicitly published WhatsApp. Own website timed out; no website button or inferred location.' }, { url: 'https://www.pohnpei-adventure.com/surfing/', fields: 'Published surf-guide connection, including P-Pass; not current availability.' }, { url: 'https://www.pohnpei-adventure.com/atolls/', fields: 'Explicit Ahnd trip connection in an article dated 2021; no Pakin service inferred.' }] },
   { id: 'sunset-view', name: 'Sunset View Car Rental', services: 'Car rental · chauffeured tours',
     summary: 'Arrange a rental or ask about a tour with a driver. Specify Pohnpei when contacting this two-state business.',
     categories: ['road'], relatedPlaces: [], location: 'Ohmine Street, opposite Joy Hotel, Kolonia',

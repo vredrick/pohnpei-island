@@ -4,7 +4,6 @@ import Nav from '../components/Nav.astro';
 import StatusStrip from '../components/StatusStrip.astro';
 import Footer from '../components/Footer.astro';
 import { operatorSources } from '../data/operators';
-import { travelSources } from '../data/travel';
 import '../styles/travel-guide.css';
 const steps = [
   { id: 'interests', label: 'Choose your interests' },
@@ -30,10 +29,10 @@ const steps = [
         <div class="tg-split mb-10"><div><p class="tg-eyebrow">01 / Choose your interests</p><h2 class="tg-title">What brings<br /><em>you to Pohnpei?</em></h2></div><p class="tg-copy">Pick a few priorities to discuss with your host or guide. These are starting ideas, not bookable packages or fixed itineraries. Let the people arranging your visit help you decide what fits.</p></div>
         <div class="grid md:grid-cols-3 gap-8">
           <article class="interest"><h3>History &amp; place</h3><p>Start with Nan Madol’s story and visiting guidance. Ask a listed guide about the route, permissions and tide timing for your date.</p><a href="/nan-madol" class="tg-page-link tg-link">Read the Nan Madol guide →</a></article>
-          <article class="interest"><h3>Forest &amp; waterfalls</h3><p>Describe the walking you enjoy, your group’s fitness and access needs. Ask about suitable trails, recent conditions and permissions.</p><a href="/tour-operators?service=hiking#directory" class="tg-page-link tg-link">Find waterfall &amp; hiking contacts →</a></article>
-          <article class="interest"><h3>Time on the water</h3><p>Discuss diving, an ocean trip or a boat outing with a provider. Share your experience level and ask about equipment and conditions.</p><a href="/tour-operators?service=ocean#directory" class="tg-page-link tg-link">Find ocean-trip contacts →</a></article>
+          <article class="interest"><h3>Forest &amp; waterfalls</h3><p>Describe the walking you enjoy, your group’s fitness and access needs. Ask about suitable trails, recent conditions and permissions.</p><a href="/waterfalls-and-jungle" class="tg-page-link tg-link">Read the waterfall &amp; hiking guide →</a></article>
+          <article class="interest"><h3>Time on the water</h3><p>Discuss diving, an ocean trip or a boat outing with a provider. Share your experience level and ask about equipment and conditions.</p><a href="/diving-and-surfing" class="tg-page-link tg-link">Read the diving &amp; surfing guide →</a></article>
         </div>
-        <p class="tg-note tg-copy mt-9">Thinking about an outer island? Treat it as a separate planning conversation. Start with the <a href={travelSources.outerIslands} class="tg-link">tourism office’s outer-island guidance</a>, then ask about permission, transport, provisions and your return before fitting it into your visit.</p>
+        <p class="tg-note tg-copy mt-9">Thinking about an outer island? Treat it as a separate planning conversation. Start with the <a href="/outer-atolls" class="tg-link">outer-island guide</a>, then ask about permission, transport, provisions and your return before fitting it into your visit.</p>
       </div>
     </section>
     <section id="arrival" class="tg-section bg-sand tapa-pattern">

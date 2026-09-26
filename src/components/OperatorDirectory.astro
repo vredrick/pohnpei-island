@@ -1,5 +1,5 @@
 ---
-import { operators, serviceCategories, operatorSources } from '../data/operators';
+import { operators, serviceCategories, operatorSources, relatedPlaceGuides } from '../data/operators';
 import OperatorContacts from './OperatorContacts.astro';
 ---
 <section id="directory" aria-labelledby="directory-title" class="tg-section bg-sand-bright">
@@ -28,13 +28,13 @@ import OperatorContacts from './OperatorContacts.astro';
           <h3 id={`${operator.id}-title`} class="font-headline text-3xl leading-tight mb-4">{operator.name}</h3>
           {operator.location && <p class="text-xs text-basalt/75 leading-relaxed mb-4">{operator.location}</p>}
           <a class="source-link" href={operatorSources.tourism}>Tourism office listing ↗</a>
-          {operator.evidence.filter(item => item.url !== operatorSources.tourism).map(item => <a class="source-link" href={item.url}>{item.url === operatorSources.sunsetContact ? 'Operator location & contacts' : 'Operator’s own website'} ↗</a>)}
+          {operator.evidence.filter(item => item.url !== operatorSources.tourism).map(item => <a class="source-link" href={item.url}>{item.url.startsWith('https://www.pohnpei-adventure.com/') ? 'Eco-Adventure service reference' : item.url === operatorSources.sunsetContact ? 'Operator location & contacts' : 'Operator’s own website'} ↗</a>)}
         </div>
         <div class="min-w-0 tg-copy">
           <p class="font-medium text-basalt mb-3">{operator.services}</p>
           <p>{operator.summary}</p>
           {operator.paused && <p class="pause-note"><strong>Tours and new bookings are suspended.</strong> The contacts here are for updates; consult the operator’s website for reopening news.</p>}
-          {operator.relatedPlaces.includes('nan-madol') && <a class="tg-page-link tg-link text-sm mt-3" href="/nan-madol#visiting">Read the Nan Madol visitor guide →</a>}
+          {operator.relatedPlaces.map(place => <a class="tg-page-link tg-link text-sm mt-3 mr-4" href={relatedPlaceGuides[place].href}>Read the {relatedPlaceGuides[place].label} →</a>)}
         </div>
         <OperatorContacts operator={operator} />
       </article>)}

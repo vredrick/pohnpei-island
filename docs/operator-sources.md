@@ -54,3 +54,7 @@ Shared navigation/footer and travel guide navigation now expose the directory an
 Before publication, recheck paused status and the unresolved contact differences above. Review business records quarterly or when corrections arrive. Advance a review date only after checking relevant sources. No image URLs, image files, asset processing or image dependencies were changed.
 
 Local preview and validation are recorded in the PRD progress snapshot. Chromium loaded all eight distinct external web destinations on the new pages with HTTP 200 and matching page content, including the tourism pages that returned a 403 to a raw Python request. This distinguishes a client access block from a broken link. The Browser plugin was unavailable; installed Playwright was used. Broader release work, including Waterfalls & Jungle and the homepage’s simulated newsletter, remains open. This milestone is not a release approval.
+
+### Adventure-guide follow-up — 26 September 2026
+
+Added Surf Club's explicitly published surfing/P-Pass and Ahnd connections from [Eco-Adventure surfing](https://www.pohnpei-adventure.com/surfing/) and [Ahnd & Pakin](https://www.pohnpei-adventure.com/atolls/). These are attributed inquiries requiring current confirmation, not guaranteed departures. The atoll reference is dated 2021. No Pakin service, specific airline route, or named hiking route has been inferred. General activity lists use existing service categories; contacts and pause status are unchanged. See `docs/adventure-sources.md` for the audit, omitted claims and remaining limits.

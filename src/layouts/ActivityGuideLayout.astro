@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import StatusStrip from '../components/StatusStrip.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/travel-guide.css';
+interface Props {
+  title: string; description: string; page: string;
+  sections: { id: string; label: string }[];
+}
+const { title, description, page, sections } = Astro.props;
+---
+<BaseLayout title={title} description={description} canonical={`https://pohnpeiisland.com/${page}`}>
+  <a href="#activity-guide" class="skip-link">Skip to activity guide</a>
+  <Nav /><StatusStrip />
+  <main id="activity-guide" tabindex="-1" class="travel-guide pt-[116px]">
+    <slot name="hero" />
+    <div class="px-6 py-5 bg-sand-bright border-y border-basalt/15"><div class="tg-wrap flex flex-wrap justify-between gap-4 text-xs leading-relaxed"><p>Independent guide · Arrange visits directly with local providers.</p><a href="https://visitpohnpei.travel/contact-us/" class="tg-link">Official Pohnpei tourism help ↗</a></div></div>
+    <nav aria-label="On this page" class="px-6 border-b border-basalt/15"><div class="tg-wrap flex flex-wrap gap-x-7 py-2 text-sm">{sections.map(({ id, label }) => <a href={`#${id}`} class="tg-page-link">{label}</a>)}</div></nav>
+    <slot />
+    <section class="tg-section bg-basalt text-sand" aria-label="Continue planning"><div class="tg-wrap"><p class="text-xs uppercase tracking-[.18em] text-sand/75 mb-4">Build your visit</p><h2 class="font-headline text-4xl mb-6">Connect the places. <em>Talk to the people.</em></h2><nav aria-label="Related guides" class="flex flex-wrap gap-x-8 gap-y-2 text-sm">
+      {page !== 'waterfalls-and-jungle' && <a class="tg-page-link underline underline-offset-4" href="/waterfalls-and-jungle">Waterfalls &amp; Jungle →</a>}
+      {page !== 'diving-and-surfing' && <a class="tg-page-link underline underline-offset-4" href="/diving-and-surfing">Diving &amp; Surfing →</a>}
+      {page !== 'outer-atolls' && <a class="tg-page-link underline underline-offset-4" href="/outer-atolls">Outer Islands →</a>}
+      <a class="tg-page-link underline underline-offset-4" href="/nan-madol">Nan Madol →</a><a class="tg-page-link underline underline-offset-4" href="/plan-your-trip">Plan Your Visit →</a>
+    </nav></div></section>
+  </main><Footer />
+</BaseLayout>

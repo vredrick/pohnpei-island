@@ -22,16 +22,16 @@ This snapshot supersedes the original baseline and current-state labels below, w
 | Phase 3: remaining release work | Dining and shopping directories; missing destination/culture/history/about pages; remaining existing-page audits; newsletter cleanup; site-wide links and search metadata. |
 | Phases 4 and 5 | Deferred: photography improvements, interactive guide, and partnership exploration. |
 
-The disabled `/plan-your-trip` tool has been replaced. The `/waterfalls-and-jungle` route now exists and all audited internal destinations resolve. Remaining release issues include the homepage newsletter's simulated success and a missing homepage Diving & Surfing card image (the guide hero is repaired). The first-release checklist below remains a release-wide gate, not a declaration that local milestones are unfinished.
+The disabled `/plan-your-trip` tool has been replaced. The `/waterfalls-and-jungle` route now exists and all audited internal destinations resolve. Remaining release issues include the homepage newsletter's simulated success. Both the Diving & Surfing guide hero and homepage card images are repaired. The first-release checklist below remains a release-wide gate, not a declaration that local milestones are unfinished.
 
-**Recommended next milestone:** build sourced Dining and Shopping & Crafts directories, with direct business contacts and useful navigation. Remaining release work also includes about-Pohnpei/culture/history/About this Guide pages, publisher identity and corrections contact, newsletter cleanup, the broken homepage Diving & Surfing card asset, and site-wide accessibility/search metadata. The completed local Guides & Transport / Plan Your Visit brief remains in [docs/next-goal.md](docs/next-goal.md); completion of that goal is not completion of the whole first release.
+**Recommended next milestone:** build sourced Dining and Shopping & Crafts directories, with direct business contacts and useful navigation. Remaining release work also includes about-Pohnpei/culture/history/About this Guide pages, publisher identity and corrections contact, newsletter cleanup, and site-wide accessibility/search metadata. The completed local Guides & Transport / Plan Your Visit brief remains in [docs/next-goal.md](docs/next-goal.md); completion of that goal is not completion of the whole first release.
 
 ### Diving hero repair — 26 September 2026
 
 - Owner authorized fixing the diving hero after deployment. Replaced the missing `diving-surfing-hero.jpg` reference with the existing Cloudinary `hero-right-manta-road-pass.jpg` asset already used on the homepage; alt text describes the visible manta ray without asserting a dive location.
 - The image fills the hero container on mobile and desktop, with explicit source dimensions and high fetch priority. No new imagery was generated or uploaded.
 - Local validation: ten-route production build and diff check passed. Playwright/Chromium at 390 and 1440 px confirmed the image decodes at 2000 × 900, fills its container without overflow, and retains the working hero-to-surfing anchor. No page errors, console warnings/errors or framework overlays appeared. Screenshots were visually reviewed.
-- A separate check found that the homepage card’s `chapter-03-diving-surfing.jpg` also returns 404. That card remains outside this hero-only fix.
+- A separate check found that the homepage card’s `chapter-03-diving-surfing.jpg` also returns 404. The owner subsequently authorized its repair: the homepage card now uses the same existing manta-ray asset in a 900 × 1200 crop, with descriptive alt text and explicit dimensions.
 
 ### Adventure guides validation — 26 September 2026
 

@@ -126,3 +126,7 @@ Reduced both pattern variants proportionally to75%: 48px rendered height and120p
 ### Matching outer border weight — 2026-09-28
 
 Matched the top and bottom outer borders to the bold divider sides: all are 6 units in the SVG, rendering at 4.5px after the shared 75% scale. This applies to both variants without changing their 48px height, motifs or animation. Build and diff checks pass.
+
+### Additional 15% reduction — 2026-09-28
+
+Applied the owner's further 15% reduction to both bands: 48px becomes 40.8px high, with a 102px repeat. The complete artwork scales to 63.75% of its original SVG size, keeping the now-matched outer and divider borders equal. Animation travel is one 102px tile. Build/diff, mobile-to-wide layout checks, and identical loop endpoint checks pass; screenshots refreshed.

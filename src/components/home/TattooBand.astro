@@ -7,10 +7,10 @@ const patternId = `tattoo-${variant}-${className || 'default'}`;
      by the owner: solid cuff rails, broad geometric teeth, open panels and filled fish silhouettes.
      Decorative only; no named motif or cultural meaning is asserted. -->
 <div class:list={['island-tattoo', `tattoo-${variant}`, className]} aria-hidden="true">
-  <svg class="tattoo-track" width="100%" height="48" xmlns="http://www.w3.org/2000/svg" focusable="false">
+  <svg class="tattoo-track" width="100%" height="40.8" xmlns="http://www.w3.org/2000/svg" focusable="false">
     <defs>
       <clipPath id={`${patternId}-panel`}><rect width="120" height="64" /></clipPath>
-      <pattern id={patternId} width="160" height="64" patternUnits="userSpaceOnUse" patternTransform="scale(0.75)">
+      <pattern id={patternId} width="160" height="64" patternUnits="userSpaceOnUse" patternTransform="scale(0.6375)">
         <!-- Both variants share identical edges, hatching, rails and dividers. -->
         <path d="M0 0H160V6H0ZM0 58H160V64H0Z" fill="currentColor" />
         <g clip-path={`url(#${patternId}-panel)`}>
@@ -26,17 +26,17 @@ const patternId = `tattoo-${variant}-${className || 'default'}`;
         </g>
       </pattern>
     </defs>
-    <rect width="100%" height="48" fill={`url(#${patternId})`} />
+    <rect width="100%" height="40.8" fill={`url(#${patternId})`} />
   </svg>
 </div>
 
 <style>
-  .island-tattoo { width: 100%; height: 48px; overflow: hidden; line-height: 0; }
-  /* The 160px source tile renders at 120px wide after scaling: the first and last frames match exactly. */
-  .island-tattoo .tattoo-track { display: block; width: calc(100% + 120px); height: 48px; max-width: none; animation: tattoo-current 80s linear infinite; animation-play-state: paused; }
+  .island-tattoo { width: 100%; height: 40.8px; overflow: hidden; line-height: 0; }
+  /* The 160px source tile renders at 102px wide after scaling: the first and last frames match exactly. */
+  .island-tattoo .tattoo-track { display: block; width: calc(100% + 102px); height: 40.8px; max-width: none; animation: tattoo-current 80s linear infinite; animation-play-state: paused; }
   .tattoo-fish .tattoo-track { animation-duration: 100s; }
   .tattoo-visible .tattoo-track { animation-play-state: running; }
   :global(.motion-paused) .tattoo-track { animation-play-state: paused !important; }
-  @keyframes tattoo-current { from { transform: translateX(-120px); } to { transform: translateX(0); } }
+  @keyframes tattoo-current { from { transform: translateX(-102px); } to { transform: translateX(0); } }
   @media (prefers-reduced-motion: reduce) { .island-tattoo .tattoo-track { animation: none; } }
 </style>

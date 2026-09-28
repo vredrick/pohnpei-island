@@ -1,0 +1,186 @@
+{
+  "viewports": [
+    {
+      "width": 320,
+      "noOverflow": true,
+      "wordmarkFits": true
+    },
+    {
+      "width": 390,
+      "noOverflow": true,
+      "wordmarkFits": true
+    },
+    {
+      "width": 600,
+      "noOverflow": true,
+      "wordmarkFits": true
+    },
+    {
+      "width": 768,
+      "noOverflow": true,
+      "wordmarkFits": true
+    },
+    {
+      "width": 1024,
+      "noOverflow": true,
+      "wordmarkFits": true
+    },
+    {
+      "width": 1440,
+      "noOverflow": true,
+      "wordmarkFits": true
+    },
+    {
+      "width": 1920,
+      "noOverflow": true,
+      "wordmarkFits": true
+    }
+  ],
+  "errors": [],
+  "checks": [
+    {
+      "name": "hero spells Pohnpei without clipping",
+      "passed": true
+    },
+    {
+      "name": "pause control works",
+      "passed": true
+    },
+    {
+      "name": "paused state active",
+      "passed": true
+    },
+    {
+      "name": "ribbon animation pauses",
+      "passed": true
+    },
+    {
+      "name": "pause survives reload",
+      "passed": true
+    },
+    {
+      "name": "resume restores motion",
+      "passed": true
+    },
+    {
+      "name": "header changes after scrolling",
+      "passed": true
+    },
+    {
+      "name": "parallax responds to scroll",
+      "passed": true
+    },
+    {
+      "name": "all photos decode",
+      "passed": true
+    },
+    {
+      "name": "all reveal sections become visible",
+      "passed": true
+    },
+    {
+      "name": "destination #about",
+      "passed": true
+    },
+    {
+      "name": "destination /",
+      "passed": true
+    },
+    {
+      "name": "destination #adventures",
+      "passed": true
+    },
+    {
+      "name": "destination #culture",
+      "passed": true
+    },
+    {
+      "name": "destination /plan-your-trip",
+      "passed": true
+    },
+    {
+      "name": "destination /tour-operators",
+      "passed": true
+    },
+    {
+      "name": "destination /travel-info",
+      "passed": true
+    },
+    {
+      "name": "destination /waterfalls-and-jungle",
+      "passed": true
+    },
+    {
+      "name": "destination /diving-and-surfing",
+      "passed": true
+    },
+    {
+      "name": "destination /nan-madol",
+      "passed": true
+    },
+    {
+      "name": "destination /outer-atolls",
+      "passed": true
+    },
+    {
+      "name": "destination /travel-info#local-customs",
+      "passed": true
+    },
+    {
+      "name": "destination /getting-here",
+      "passed": true
+    },
+    {
+      "name": "destination /places-to-stay",
+      "passed": true
+    },
+    {
+      "name": "destination #top",
+      "passed": true
+    },
+    {
+      "name": "mobile menu opens",
+      "passed": true
+    },
+    {
+      "name": "escape closes menu and restores focus",
+      "passed": true
+    },
+    {
+      "name": "menu selection closes and navigates",
+      "passed": true
+    },
+    {
+      "name": "desktop resize closes mobile menu",
+      "passed": true
+    },
+    {
+      "name": "live reduced motion stops parallax",
+      "passed": true
+    },
+    {
+      "name": "live reduced motion stops ribbon",
+      "passed": true
+    },
+    {
+      "name": "reduced motion reveals content",
+      "passed": true
+    },
+    {
+      "name": "no JS content remains visible",
+      "passed": true
+    },
+    {
+      "name": "no JS mobile navigation works",
+      "passed": true
+    },
+    {
+      "name": "existing travel guide still renders",
+      "passed": true
+    },
+    {
+      "name": "no runtime errors",
+      "passed": true
+    }
+  ]
+}

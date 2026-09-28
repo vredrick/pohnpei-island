@@ -1,0 +1,107 @@
+---
+import TattooBand from './TattooBand.astro';
+import Icon from './Icon.astro';
+const photo = (name: string, width: number) => `https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,w_${width}/${name}`;
+const experiences = [
+  { number: '01', title: 'Into the green.', subtitle: 'Waterfalls & wild interiors', text: 'Follow the river. Take the ridge. Find a different kind of rush.', image: 'chapter-02-wild-interior.jpg', alt: 'A waterfall cascading beside a forest walkway on Pohnpei', href: '/waterfalls-and-jungle', class: 'forest' },
+  { number: '02', title: 'Beyond the blue.', subtitle: 'Reefs, diving & surf', text: 'Meet the life beneath the surface, and the waves beyond the reef.', image: 'hero-right-manta-road-pass.jpg', alt: 'A manta ray swimming through blue water', href: '/diving-and-surfing', class: 'ocean' },
+  { number: '03', title: 'Between worlds.', subtitle: 'The stone city of Nan Madol', text: 'Basalt walls. Quiet canals. A history that asks you to look closer.', image: 'chapter-01-nan-madol.jpg', alt: 'Ancient stacked basalt walls and a tidal canal at Nan Madol', href: '/nan-madol', class: 'history' },
+  { number: '04', title: 'A slower horizon.', subtitle: 'Lagoon islands & outer atolls', text: 'Let the mainland fall away. Make room for the journey.', image: 'hero-left-matnas.jpg', alt: 'Green islands and still water in Pohnpei’s lagoon at sunset', href: '/outer-atolls', class: 'islands' },
+];
+const planning = [
+  { number: '01', title: 'Find your way here', detail: 'Flights & arrival', href: '/getting-here' },
+  { number: '02', title: 'Somewhere to stay', detail: 'Hotels & island stays', href: '/places-to-stay' },
+  { number: '03', title: 'Go with a local', detail: 'Guides & tour operators', href: '/tour-operators' },
+  { number: '04', title: 'A little preparation', detail: 'Good things to know', href: '/travel-info' },
+];
+---
+
+<div class="island-home">
+  <a class="home-skip" href="#about">Skip to content</a>
+  <header class="island-nav" id="island-nav">
+    <a href="/" class="island-brand" aria-label="Pohnpei Island home">
+      <svg viewBox="0 0 48 36" fill="none" aria-hidden="true"><path d="M3 25h42M8 29h32M14 33h20M5 21 24 3l19 18M12 21 24 10l12 11M18 21l6-5 6 5" stroke="currentColor" stroke-width="1.1"/><path d="M24 3v18" stroke="currentColor" stroke-width=".7"/></svg>
+      <span>POHNPEI<span class="brand-small">ISLAND · MICRONESIA</span></span>
+    </a>
+    <nav class="home-desktop-nav" aria-label="Main navigation">
+      <a href="#about">The island</a><a href="#adventures">Experiences</a><a href="#culture">People & culture</a>
+    </nav>
+    <div class="home-nav-actions">
+      <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause animations" title="Pause animations" hidden><span aria-hidden="true"><Icon name="pause" /></span></button>
+      <a class="nav-plan" href="/plan-your-trip">Plan your visit <span aria-hidden="true"><Icon name="arrow" /></span></a>
+      <details class="home-menu">
+        <summary aria-label="Open navigation"><span class="menu-label">Menu</span><span class="menu-lines" aria-hidden="true"></span></summary>
+        <nav aria-label="Mobile navigation"><a href="#about">The island <span>01</span></a><a href="#adventures">Experiences <span>02</span></a><a href="#culture">People & culture <span>03</span></a><a href="/plan-your-trip">Plan your visit <span><Icon name="arrow" /></span></a><a href="/tour-operators">Find a local guide <span><Icon name="arrow" /></span></a><p>Kaselehlie. You’re welcome here.</p></nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="arrival" aria-labelledby="arrival-title">
+      <div class="arrival-landscape" data-parallax="0.2">
+        <img src={photo('hero-left-matnas.jpg', 2000)} srcset={`${photo('hero-left-matnas.jpg', 900)} 900w, ${photo('hero-left-matnas.jpg', 1600)} 1600w, ${photo('hero-left-matnas.jpg', 2400)} 2400w`} sizes="100vw" width="2560" height="1919" alt="Pohnpei’s forested lagoon shores opening toward the Pacific at sunset" fetchpriority="high" loading="eager" />
+      </div>
+      <div class="arrival-shade"></div>
+      <div class="arrival-topline home-in"><p>Kaselehlie <span>—</span> Welcome to Pohnpei</p><p>Federated States of Micronesia <span class="hero-coordinates">6.9° N &nbsp; 158.2° E</span></p></div>
+      <h1 id="arrival-title" aria-label="Pohnpei"><span aria-hidden="true">P</span><span aria-hidden="true">O</span><span aria-hidden="true">H</span><span aria-hidden="true">N</span><span aria-hidden="true">P</span><span aria-hidden="true">E</span><span aria-hidden="true">I</span></h1>
+      <div class="arrival-subline home-in"><span>The Garden Island</span><span class="hero-rule"></span><span>A Pacific state of mind</span></div>
+      <div class="arrival-bottom">
+        <div class="arrival-message home-in"><span class="eyebrow">Far from ordinary</span><h2>A world apart.<br /><em>A little closer.</em></h2><p>Rainforest to reef. Ancient wonders to everyday life.<br class="desktop-break" /> Come for the island. Stay for the feeling.</p></div>
+        <a class="discover-seal home-in" href="#about" aria-label="Discover Pohnpei"><svg class="seal-ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="seal-text" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0" /></defs><text><textPath href="#seal-text" textLength="278">DISCOVER POHNPEI · TAKE YOUR TIME · </textPath></text></svg><span aria-hidden="true"><Icon name="down" /></span></a>
+      </div>
+      <div class="arrival-caption"><span>01 / A first glimpse of Pohnpei</span><a href="#about">Scroll to feel the island <span aria-hidden="true"><Icon name="down" /></span></a></div>
+      <TattooBand class="arrival-border" />
+    </section>
+
+    <section class="island-intro home-section" id="about" aria-labelledby="intro-title">
+      <div class="section-meta"><span class="eyebrow">01 / A different rhythm</span><span class="small-star" aria-hidden="true"><Icon name="diamond" /></span><span class="eyebrow">Land. Ocean. Connection.</span></div>
+      <div class="intro-layout">
+        <div class="intro-heading" data-enter><p class="small-serif">Some places change your plans.</p><h2 id="intro-title">This one changes<br />your <em>pace.</em></h2><div class="intro-underline" aria-hidden="true"><svg viewBox="0 0 470 32" fill="none"><path d="M2 20C120 0 320 0 468 13M25 29C180 9 340 12 437 21" stroke="currentColor" stroke-width="1.5" /></svg></div></div>
+        <div class="intro-copy" data-enter><p>Out in the North Pacific, Pohnpei rises from the ocean in a tangle of green. Rain feeds the forest. Reefs hold the lagoon. And life has a rhythm all its own.</p><p>This is an island to get to know, slowly. Walk with a local guide. Listen to the stories. Leave a little space for the unexpected.</p><a href="/travel-info" class="text-link">Get to know Pohnpei <span aria-hidden="true"><Icon name="arrow" /></span></a></div>
+      </div>
+      <div class="island-facts" data-enter><div><span class="fact-title">North Pacific</span><span class="eyebrow">A little off the usual map</span></div><div><span class="fact-title">Rainforest to reef</span><span class="eyebrow">A whole world in one island</span></div><div><span class="fact-title">Kaselehlie</span><span class="eyebrow">It begins with a welcome</span></div></div>
+    </section>
+
+    <section class="experience-section home-section" id="adventures" aria-labelledby="experiences-title">
+      <div class="experience-heading"><div data-enter><span class="eyebrow">02 / Follow your curiosity</span><h2 id="experiences-title">Which way<br /><em>will you wander?</em></h2></div><div class="experience-aside" data-enter><p>No two days need to look alike.<br />Find your own way into the island.</p><span class="eyebrow">Four places to begin <span aria-hidden="true"><Icon name="down-right" /></span></span></div></div>
+      <div class="experience-grid">
+        {experiences.map((item) => <a class:list={['experience-card', item.class]} href={item.href} id={item.class === 'islands' ? 'atolls' : undefined} data-enter>
+          <div class="experience-photo"><img src={photo(item.image, 720)} srcset={`${photo(item.image, 480)} 480w, ${photo(item.image, 900)} 900w`} sizes="(max-width: 600px) 85vw, (max-width: 900px) 45vw, 24vw" width="720" height="960" alt={item.alt} loading="lazy" decoding="async" /><span class="photo-number">{item.number}</span><span class="photo-arrow" aria-hidden="true"><Icon name="arrow" /></span></div>
+          <span class="eyebrow experience-category">{item.subtitle}</span><h3>{item.title}</h3><p>{item.text}</p>
+        </a>)}
+      </div>
+      <div class="experience-foot"><span class="eyebrow">Explore with care. Go with curiosity.</span><a href="/tour-operators" class="text-link">Meet your local guide <span aria-hidden="true"><Icon name="arrow" /></span></a></div>
+    </section>
+
+    <section class="ancient-section" id="nan-madol" aria-labelledby="ancient-title">
+      <div id="history" class="anchor-offset"></div>
+      <div class="ancient-image"><img src={photo('feature-nan-madol-step-into.jpg', 1400)} width="1400" height="1800" alt="Massive basalt columns stacked into the walls of Nan Madol, with palms and blue sky overhead" loading="lazy" decoding="async" data-parallax="0.07" /><span class="image-caption">Nan Madol · Pohnpei, Micronesia</span></div>
+      <div class="ancient-copy"><span class="eyebrow" data-enter>03 / An island with a memory</span><h2 id="ancient-title" data-enter>Some stories<br />are written<br /><em>in stone.</em></h2><p data-enter>At the edge of the lagoon, a city of basalt rises from the water. Nan Madol carries the history of the Saudeleur dynasty across more than 100 artificial islets.</p><p data-enter>Walk its quiet paths with a local guide. There is more here than first meets the eye.</p><a href="/nan-madol" class="light-link" data-enter>Step into Nan Madol <span aria-hidden="true"><Icon name="arrow" /></span></a><div class="heritage-note"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none"><path d="m20 3 16 9v17l-16 9-16-9V12Z" stroke="currentColor"/><path d="M11 28V15h18v13M15 15v13m5-13v13m5-13v13M9 28h22M10 12l10-5 10 5" stroke="currentColor"/></svg><span>UNESCO World Heritage Site<br /><span class="heritage-small">A place to approach with respect</span></span></div></div>
+      <div class="ancient-orbits" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="culture-section home-section" id="culture" aria-labelledby="culture-title">
+      <TattooBand class="culture-border" variant="fish" />
+      <div class="culture-copy"><span class="eyebrow" data-enter>04 / The heart of the island</span><h2 id="culture-title" data-enter>A place is<br />its <em>people.</em></h2><div class="culture-body" data-enter><p>The landscapes stay with you.<br />The welcome stays longer.</p><p>Pohnpei is home, first. Its living traditions, family ties and everyday generosity are part of what makes a visit meaningful. Come with an open mind, ask before taking photographs, and let your hosts lead the way.</p><a href="/travel-info#local-customs" class="text-link">A thoughtful way to visit <span aria-hidden="true"><Icon name="arrow" /></span></a></div></div>
+      <figure class="culture-portrait" data-enter><div><img src={photo('chapter-04-living-culture.jpg', 1000)} width="800" height="1100" alt="A Pohnpeian cultural demonstration beneath a thatched shelter" loading="lazy" decoding="async" /></div><figcaption><span>A living culture. An everyday connection.</span><span aria-hidden="true"><Icon name="diamond" /></span></figcaption></figure>
+      <span class="culture-script" aria-hidden="true">Kaselehlie.</span>
+    </section>
+
+    <div class="island-ticker" aria-hidden="true"><div class="island-ticker-track">{[0, 1].map(() => <span>Less hurry. <em>More wonder.</em><span class="ticker-star"><Icon name="diamond" /></span>Less hurry. <em>More wonder.</em><span class="ticker-star"><Icon name="diamond" /></span></span>)}</div></div>
+
+    <section class="planning-section home-section" id="plan" aria-labelledby="planning-title">
+      <div id="dispatch" class="anchor-offset"></div>
+      <div class="planning-top"><span class="eyebrow">05 / Make room for a little wonder</span><span class="eyebrow">Your journey starts here <span aria-hidden="true"><Icon name="down-left" /></span></span></div>
+      <div class="planning-layout"><div class="planning-left"><h2 id="planning-title" data-enter>Far away.<br /><em>Within reach.</em></h2><p data-enter>A few good plans. Plenty of room to explore.<br />We’ll help you take the first step.</p><a href="/plan-your-trip" class="planning-cta" data-enter>Plan your Pohnpei visit <span aria-hidden="true"><Icon name="arrow" /></span></a><figure class="arrival-postcard" data-enter><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Pohnpei_lagoon_from_plane_2.jpg" width="4032" height="2268" alt="A real aerial view of Pohnpei’s lagoon, fringing reef, airport and forested mountains" loading="lazy" decoding="async" /><figcaption><span>Your window seat, eventually.</span><a href="https://commons.wikimedia.org/wiki/File:Pohnpei_lagoon_from_plane_2.jpg" target="_blank" rel="noopener noreferrer">Photo: Zykasaa <Icon name="arrow" /></a><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0 · Display crop</a></figcaption></figure></div>
+        <div class="planning-links" data-enter>{planning.map(item => <a href={item.href}><span class="planning-number">{item.number}</span><span><span class="eyebrow">{item.detail}</span><h3>{item.title}</h3></span><span class="planning-arrow" aria-hidden="true"><Icon name="arrow" /></span></a>)}<p class="planning-note">An independent guide. Real places. A little local perspective.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="island-footer">
+    <TattooBand class="footer-border" />
+    <div class="footer-top"><a class="footer-tagline" href="#top">Until the island<br /><em>brings you here.</em></a><nav aria-label="Footer navigation"><a href="#about">The island</a><a href="#adventures">Experiences</a><a href="/plan-your-trip">Plan your visit</a><a href="/tour-operators">Local guides</a></nav><a href="#top" class="back-top" aria-label="Back to top"><Icon name="up" /></a></div>
+    <div class="footer-wordmark" aria-hidden="true">POHNPEI</div>
+    <div class="footer-bottom"><span>© {new Date().getFullYear()} PohnpeiIsland.com</span><span>An independent island guide · Made with care</span><a href="https://visitpohnpei.travel/" target="_blank" rel="noopener noreferrer">Pohnpei tourism information <Icon name="arrow" /></a></div>
+  </footer>
+</div>

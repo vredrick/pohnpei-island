@@ -1,0 +1,169 @@
+/* The homepage's editorial language, carried through every visitor guide. */
+.island-guide {
+  --paper: #f2f0e5; --ink: #233e3c; --rust: #a4472e; --ocean: #142e34;
+  --ease: cubic-bezier(.22,1,.36,1);
+  background: var(--paper); color: var(--ink);
+}
+.island-guide main { padding-top: 88px; }
+.island-guide main:focus { outline: none; }
+.island-guide :is(h1,h2,h3,h4) { font-weight: 400; letter-spacing: -.035em; }
+.island-guide em { font-weight: 400; }
+.island-guide .home-icon { display: inline-block; flex-shrink: 0; width: 1em; height: 1em; vertical-align: -.12em; }
+.island-guide :is(a,button,summary,input,select,textarea):focus-visible { outline: 2px solid var(--rust); outline-offset: 5px; }
+.island-guide ::selection { background: var(--rust); color: var(--paper); }
+.island-guide .tg-wrap { max-width: 1280px; }
+.island-guide .tg-title { letter-spacing: -.04em; line-height: 1.04; }
+.island-guide :is(.tg-eyebrow,.eyebrow) { color: var(--rust); font: 500 10px/1.6 'Be Vietnam Pro',sans-serif; letter-spacing: .17em; text-transform: uppercase; }
+.island-guide .tg-copy { line-height: 1.95; font-size: 14px; }
+.island-guide .tg-source { font-size: 11px; line-height: 1.9; opacity: .86; }
+.island-guide .tg-button { gap: 24px; padding: 16px 24px; font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; transition: background .25s, color .25s; }
+.island-guide .tg-button .home-icon { width: 20px; height: 20px; transition: transform .3s var(--ease); }
+.island-guide .tg-button:hover .home-icon { transform: translate(2px,-2px); }
+.island-guide .tg-page-link { gap: 8px; }
+.island-guide .tg-note { border-left: 1px solid var(--rust); background: #e8e9dd80; padding: 24px; }
+.island-guide .tg-rows > * { padding-block: 28px; }
+.island-guide .tg-rows :is(h3,dt) { font-size: 29px; }
+.island-guide :is(.contact-link,.source-link) { gap: 10px; }
+.island-guide :is(.contact-link,.source-link) .home-icon { flex-shrink: 0; }
+.island-guide :is(input,select,textarea) { accent-color: var(--rust); border-radius: 0; }
+.island-guide :is(#operator-filters,#stay-filters) { padding: 28px; background: #e8e9dd; border: 0; }
+.island-guide :is(.stay-card,.operator-row) h3 { font-size: clamp(29px,2.5vw,39px); }
+.island-guide .contact-column { background: #e8e9dd70; padding: 24px; }
+.island-guide .pause-note { border-color: var(--rust); }
+
+/* Native details keeps the full navigation usable without JavaScript. */
+.guide-nav { position: fixed; inset: 0 0 auto; height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 0 4%; z-index: 80; background: #f2f0e5f5; color: var(--ink); border-bottom: 1px solid #233e3c25; backdrop-filter: blur(14px); }
+.guide-brand { display: flex; align-items: center; gap: 10px; }
+.guide-brand > svg { width: 41px; height: 36px; }
+.guide-brand > span { font: 27px/1 'Newsreader',Georgia,serif; letter-spacing: .055em; }
+.guide-brand small { display: block; font: 7px/1.5 'Be Vietnam Pro',sans-serif; letter-spacing: .2em; padding-top: 6px; }
+.guide-desktop-links { display: flex; align-items: center; gap: 32px; }
+.guide-desktop-links a { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; padding-block: 15px; }
+.guide-desktop-links a:last-child { border-bottom: 1px solid var(--ink); display: flex; align-items: center; gap: 22px; }
+.guide-desktop-links a:last-child svg { font-size: 19px; }
+.guide-nav a[aria-current=page] { color: var(--rust); }
+.guide-nav-actions { display: flex; align-items: center; gap: 25px; }
+.island-guide .motion-toggle { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #233e3c90; border-radius: 50%; cursor: pointer; }
+.island-guide .motion-toggle[hidden] { display: none; }
+.island-guide .motion-toggle svg { width: 17px; height: 17px; }
+.guide-menu summary { display: flex; gap: 18px; align-items: center; min-height: 44px; cursor: pointer; list-style: none; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
+.guide-menu summary::-webkit-details-marker { display: none; }
+.guide-menu-lines { width: 24px; height: 9px; border-top: 1px solid; border-bottom: 1px solid; transition: transform .3s; }
+.guide-menu[open] .guide-menu-lines { transform: rotate(-20deg); }
+.guide-menu-panel { position: absolute; top: 100%; left: 0; right: 0; padding: 40px 6% 24px; background: var(--paper); display: grid; grid-template-columns: 1fr 1fr; gap: 20px 10%; max-height: calc(100dvh - 88px); overflow: auto; box-shadow: 0 30px 35px #142e3420; border-bottom: 1px solid #233e3c30; }
+.guide-menu-panel > div > p { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--rust); margin-bottom: 12px; }
+.guide-menu-panel a { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #233e3c20; font: 28px/1.15 'Newsreader',Georgia,serif; padding: 14px 0; }
+.guide-menu-panel a svg { width: 18px !important; height: 18px !important; }
+.guide-menu-welcome { grid-column: 1/-1; font-size: 11px; padding-top: 10px; }
+
+/* Generous first chapters; information remains easy to scan below. */
+.guide-hero { position: relative; padding: 100px 5.2% 144px; overflow: hidden; }
+.guide-hero-grid { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 8%; align-items: end; }
+.guide-hero-content { min-width: 0; position: relative; }
+.guide-hero-title { font-size: clamp(64px,7.6vw,122px); line-height: .98; letter-spacing: -.055em !important; margin: 25px 0 30px; }
+.guide-hero-content > p:not(.tg-eyebrow) { max-width: 570px; line-height: 1.85; }
+.guide-hero-content > p.tg-copy { font-size: 15px; }
+.guide-hero-aside { margin-bottom: 10px; padding-top: 25px; border-top-width: 1px; }
+.guide-hero-aside h2, .guide-hero-aside > p.font-headline { font-size: 34px; line-height: 1.12; }
+.guide-hero-aside .tg-eyebrow { margin-bottom: 20px; }
+.guide-hero-border { position: absolute; bottom: 0; left: 0; color: #151916; }
+.guide-hero--split .guide-hero-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+.guide-hero-media { height: 520px; border-radius: 48% 48% 0 0; }
+.guide-hero-media img { transition: transform 1.5s var(--ease); }
+.guide-hero-media:hover img { transform: scale(1.035); }
+.guide-hero--photo { min-height: min(850px,calc(100svh - 88px)); padding: 100px 5.2% 130px; display: flex; align-items: end; color: var(--paper); background: var(--ocean); }
+.guide-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.guide-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg,#142e34a8, #142e3410 80%),linear-gradient(0deg,#142e3490,transparent 60%); }
+.guide-hero-inner { width: 100%; position: relative; }
+.guide-hero--photo .tg-eyebrow { color: var(--paper); }
+.guide-hero--photo .guide-hero-title { font-size: clamp(80px,10vw,156px); }
+.guide-hero--photo .guide-hero-title em { color: #e2c5a3; }
+.guide-hero--photo .guide-hero-border { background: #e9ddc9; color: #151916; }
+.guide-context { padding-inline: 5.2%; }
+.guide-toc { padding-inline: 5.2%; background: var(--paper); }
+.guide-toc .tg-page-link { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+.guide-onward { position: relative; padding-top: 145px !important; }
+.guide-onward-border { position: absolute; top: 0; left: 0; color: #151916; background: #e9ddc9; }
+.guide-onward h2 { font-size: clamp(36px,4.5vw,70px); max-width: 850px; }
+
+.guide-footer { background: var(--ocean); color: var(--paper); overflow: hidden; }
+.guide-footer-band { color: #151916; background: #e9ddc9; }
+.guide-footer-inner { padding: 0 5.2% 30px; }
+.guide-footer-top { display: grid; grid-template-columns: 1.7fr 1fr 1fr auto; gap: 40px; padding: 70px 0 65px; }
+.guide-footer-tagline { font: 42px/1.1 'Newsreader',Georgia,serif; letter-spacing: -.025em; }
+.guide-footer-tagline em { color: #d7bb94; }
+.guide-footer nav { display: flex; flex-direction: column; align-items: start; gap: 15px; font-size: 11px; }
+.guide-footer nav > span { color: #d7bb94; text-transform: uppercase; letter-spacing: .15em; font-size: 8px; margin-bottom: 7px; }
+.guide-footer nav a:hover, .guide-footer-bottom a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.guide-back-top { display: grid; place-items: center; border: 1px solid #f2f0e560; width: 50px; height: 50px; border-radius: 50%; font-size: 23px; }
+.guide-footer-wordmark { font: 20.5vw/.84 'Newsreader',Georgia,serif; letter-spacing: -.065em; padding-top: .1em; text-align: center; }
+.guide-footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 25px; margin-top: 28px; border-top: 1px solid #f2f0e530; font-size: 9px; }
+.guide-footer-note { font-size: 9px; margin-top: 15px; opacity: .65; }
+
+.island-guide.motion-ready [data-enter] { opacity: 0; transform: translateY(25px); transition: opacity 1s var(--ease),transform 1s var(--ease); }
+.island-guide.motion-ready [data-enter].entered { opacity: 1; transform: none; }
+.island-guide.motion-paused *, .island-guide.motion-paused *::before, .island-guide.motion-paused *::after { animation-play-state: paused !important; transition: none !important; }
+.island-guide.motion-paused [data-enter] { opacity: 1; transform: none; }
+html:has(.island-guide.motion-paused) { scroll-behavior: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .island-guide.motion-ready [data-enter] { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 1000px) {
+  .guide-desktop-links { gap: 20px; }
+  .guide-desktop-links a { font-size: 9px; }
+  .guide-nav { gap: 15px; }
+  .guide-nav-actions { gap: 18px; }
+  .guide-brand > span { font-size: 24px; }
+  .guide-hero { padding-top: 75px; }
+  .guide-hero-grid { gap: 6%; grid-template-columns: 1.4fr 1fr; }
+  .guide-hero-title { font-size: 70px; }
+  .guide-hero-media { height: 430px; }
+  .guide-footer-top { gap: 25px; }
+  .guide-footer-tagline { font-size: 33px; }
+}
+@media (max-width: 760px) {
+  .island-guide main { padding-top: 76px; }
+  .guide-nav { height: 76px; padding-inline: 6%; }
+  .guide-brand > svg { width: 30px; }
+  .guide-brand > span { font-size: 23px; }
+  .guide-brand { gap: 6px; }
+  .guide-brand small { font-size: 6px; }
+  .guide-desktop-links { display: none; }
+  .guide-menu summary > span:first-child { display: none; }
+  .guide-nav-actions { gap: 19px; }
+  .island-guide .motion-toggle { width: 36px; height: 36px; }
+  .guide-menu-panel { grid-template-columns: 1fr; gap: 30px; padding: 28px 6%; max-height: calc(100dvh - 76px); }
+  .guide-menu-panel a { font-size: 26px; min-height: 48px; }
+  .guide-hero { padding: 65px 6% 110px; }
+  .guide-hero-grid, .guide-hero--split .guide-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .guide-hero-title { font-size: clamp(55px,11.7vw,84px); margin-block: 24px; }
+  .guide-hero-content > p:not(.tg-eyebrow) { font-size: 14px; }
+  .guide-hero-aside { margin-left: 10%; }
+  .guide-hero-aside h2, .guide-hero-aside > p.font-headline { font-size: 30px; }
+  .guide-hero-media { height: 420px; margin-left: 10%; }
+  .guide-hero--photo { min-height: 720px; min-height: min(780px,calc(100svh - 76px)); padding-bottom: 115px; }
+  .guide-hero--photo .guide-hero-title { font-size: clamp(65px,15vw,110px); }
+  .guide-hero--photo .guide-hero-photo { object-position: 60% 50%; }
+  .guide-context, .guide-toc { padding-inline: 6%; }
+  .guide-toc > div { gap: 0 20px; }
+  .guide-toc .tg-page-link { font-size: 9px; }
+  .guide-footer-inner { padding-inline: 6%; }
+  .guide-footer-top { grid-template-columns: 1fr 1fr; padding: 48px 0; gap: 35px 25px; }
+  .guide-footer-tagline { grid-column: 1/-1; font-size: 36px; }
+  .guide-back-top { grid-column: 2; grid-row: 1; justify-self: end; }
+  .guide-footer-bottom { flex-direction: column; gap: 12px; font-size: 8px; }
+  .island-guide :is(#operator-filters,#stay-filters) { padding: 20px; }
+  .island-guide .tg-copy { font-size: 14px; }
+}
+@media (max-width: 360px) {
+  .guide-brand > span { font-size: 20px; }
+  .guide-brand > svg { width: 25px; }
+  .guide-nav-actions { gap: 14px; }
+  .guide-hero-title { font-size: 51px; }
+  .guide-hero-media { height: 330px; }
+  .island-guide .tg-button { padding: 14px 18px; gap: 15px; }
+}
+/* A real waterfall photograph connects the forest guide to its home chapter. */
+.guide-forest-photo { width: 100%; height: 280px; object-fit: cover; object-position: center 48%; margin-bottom: 30px; }
+.island-guide .guide-forest-aside { border-top: 0; padding-top: 0; }
+@media (max-width: 760px) { .guide-forest-photo { height: 300px; } }

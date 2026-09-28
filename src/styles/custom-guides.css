@@ -1,0 +1,119 @@
+/* Editorial compositions for the planning and directory chapters. */
+.custom-guide .custom-guide-hero {
+  position: relative;
+  overflow: hidden;
+  background: #f2f0e5;
+  color: #233e3c;
+}
+.custom-guide .custom-guide-hero-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(70px, 8vw, 130px) 5vw 100px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(260px, 1fr);
+  gap: clamp(50px, 8vw, 130px);
+  align-items: end;
+}
+.custom-guide .custom-guide-kicker {
+  margin-bottom: 35px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.custom-guide .custom-guide-heading {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(64px, 6.8vw, 112px);
+  line-height: .98;
+  letter-spacing: -.055em;
+  margin: 0 0 30px;
+}
+.custom-guide .custom-guide-heading em { color: #a4472e; font-weight: 400; }
+.custom-guide .custom-guide-intro { max-width: 500px; font-size: 15px; line-height: 1.9; }
+.custom-guide .custom-guide-aside {
+  border-top: 1px solid #a4472e;
+  padding-top: 25px;
+  margin-bottom: 6px;
+}
+.custom-guide .custom-guide-aside h2 { font-size: 36px; letter-spacing: -.03em; }
+.custom-guide .custom-guide-aside .tg-eyebrow,
+.custom-guide .custom-guide-aside .eyebrow { margin-bottom: 20px; }
+.custom-guide .custom-guide-aside nav a { transition: color .2s, padding .2s; }
+.custom-guide .custom-guide-aside nav a:hover { padding-left: 5px; }
+.custom-guide .custom-guide-hero > .island-tattoo {
+  height: 64px;
+  color: #151916;
+}
+.custom-guide .custom-guide-hero--photo { color: #f2f0e5; background: #142e34; }
+.custom-guide .custom-guide-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.custom-guide .custom-guide-hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(13 34 32 / 83%), rgb(13 34 32 / 28%) 75%), linear-gradient(0deg, rgb(13 34 32 / 45%), transparent 60%);
+}
+.custom-guide .custom-guide-hero-inner {
+  position: relative;
+  max-width: 1320px;
+  padding: 90px 5vw 80px;
+  margin: auto;
+}
+.custom-guide .custom-guide-hero--photo .custom-guide-heading { font-size: clamp(80px, 11vw, 176px); }
+.custom-guide .custom-guide-subtitle { font-family: 'Newsreader', Georgia, serif; font-size: clamp(30px, 3vw, 46px); line-height: 1.12; margin: 0 0 24px; font-style: italic; }
+.custom-guide .custom-guide-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.custom-guide .custom-guide-caption { margin-top: 40px; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; }
+.custom-guide .custom-guide-hero--photo > .island-tattoo { position: relative; color: #151916; background: #e9ddc9; }
+.custom-guide .custom-guide-context { font-size: 11px; }
+.custom-guide .custom-guide-toc { background: #e9e8dc; }
+.custom-guide .custom-guide-toc a { font-size: 12px; }
+.custom-guide .guide-section { padding: 100px max(24px, 5vw); }
+.custom-guide .eyebrow { color: #a4472e; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 22px; }
+.custom-guide .section-title { font-family: 'Newsreader', Georgia, serif; font-size: clamp(38px, 4vw, 62px); font-weight: 400; line-height: 1.04; letter-spacing: -.04em; }
+.custom-guide .section-title em { color: #a4472e; }
+.custom-guide .guide-prose { color: #435754; line-height: 1.9; }
+.custom-guide .guide-prose > * + * { margin-top: 1.5rem; }
+.custom-guide .text-link { text-decoration: underline; text-underline-offset: 4px; }
+.custom-guide .text-link:hover, .custom-guide .page-link:hover { color: #a4472e; }
+.custom-guide .page-link { display: inline-flex; align-items: center; min-height: 48px; }
+.custom-guide .guide-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 50px; padding: 16px 22px; font-size: 11px; line-height: 1.5; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; transition: background .2s, color .2s; }
+.custom-guide .home-icon { display: inline-block; width: 1.1em; height: 1.1em; vertical-align: -.12em; flex-shrink: 0; }
+.custom-guide .guide-button .home-icon, .custom-guide .tg-button .home-icon { width: 18px; height: 18px; }
+.custom-guide .tg-button { gap: 18px; }
+.custom-guide dd { color: #435754; font-size: .9rem; line-height: 1.85; }
+.custom-guide #questions summary { cursor: pointer; font-family: 'Newsreader', Georgia, serif; font-size: 25px; font-weight: 400; min-height: 44px; align-content: center; }
+.custom-guide #questions details p { padding-top: 1rem; color: #435754; line-height: 1.85; }
+.custom-guide .interest { border-top: 1px solid #a4472e; padding-top: 1.5rem; }
+.custom-guide .interest h3 { font-family: 'Newsreader', Georgia, serif; font-size: 32px; letter-spacing: -.025em; line-height: 1.15; margin-bottom: 1rem; }
+.custom-guide .interest p { color: #435754; font-size: .9rem; line-height: 1.85; }
+.custom-guide .interest a { font-size: .8rem; margin-top: .75rem; }
+.custom-guide .interest-image { width: 100%; height: 250px; object-fit: cover; margin-bottom: 30px; }
+@media (min-width: 1000px) {
+  .custom-guide .interest:nth-child(2) { margin-top: 50px; }
+  .custom-guide .interest:nth-child(3) { margin-top: 100px; }
+}
+@media (max-width: 900px) {
+  .custom-guide .custom-guide-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 60px; padding-bottom: 70px; }
+  .custom-guide .custom-guide-heading { font-size: clamp(58px, 10vw, 94px); }
+  .custom-guide .custom-guide-aside { max-width: 520px; }
+}
+@media (max-width: 600px) {
+  .custom-guide .custom-guide-hero-grid { padding: 55px 24px 55px; gap: 48px; }
+  .custom-guide .custom-guide-kicker { margin-bottom: 30px; font-size: 9px; }
+  .custom-guide .custom-guide-heading { font-size: clamp(49px, 12vw, 70px); letter-spacing: -.045em; }
+  .custom-guide .custom-guide-intro { font-size: 14px; }
+  .custom-guide .custom-guide-aside h2 { font-size: 30px; }
+  .custom-guide .custom-guide-hero-inner { padding: 60px 24px 55px; }
+  .custom-guide .custom-guide-hero--photo .custom-guide-heading { font-size: clamp(66px, 17vw, 104px); }
+  .custom-guide .custom-guide-hero-shade { background: linear-gradient(90deg, rgb(13 34 32 / 78%), rgb(13 34 32 / 45%)); }
+  .custom-guide .custom-guide-caption { font-size: 9px; line-height: 1.8; }
+  .custom-guide .guide-section { padding: 70px 24px; }
+  .custom-guide .interest-image { height: 290px; }
+}

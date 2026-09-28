@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/guide-theme.css';
 
 interface Props {
   title?: string;
@@ -14,6 +15,7 @@ const {
   canonical,
   image,
 } = Astro.props;
+const isGuide = Astro.url.pathname !== '/';
 ---
 
 <!doctype html>
@@ -32,7 +34,7 @@ const {
     {canonical && <link rel="canonical" href={canonical} />}
     {canonical && <meta property="og:url" content={canonical} />}
     {image && <meta property="og:image" content={image} />}
-    <meta name="theme-color" content="#B8642B" />
+    <meta name="theme-color" content="#233e3c" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -46,9 +48,10 @@ const {
       rel="stylesheet"
     />
   </head>
-  <body class="bg-sand text-basalt font-body antialiased">
+  <body class:list={['bg-sand text-basalt font-body antialiased', { 'island-guide': isGuide }]}>
     <noscript><style is:inline>.reveal { opacity: 1; transform: none; }</style></noscript>
     <slot />
+    <script src="../components/home/homepage-motion.ts"></script>
 
     <script>
       const io = new IntersectionObserver(

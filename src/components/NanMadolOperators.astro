@@ -1,4 +1,5 @@
 ---
+import Icon from './home/Icon.astro';
 import { sources } from '../data/nan-madol';
 import { nanMadolOperators as operators } from '../data/operators';
 import OperatorContacts from './OperatorContacts.astro';
@@ -29,7 +30,7 @@ import OperatorContacts from './OperatorContacts.astro';
         </article>
       ))}
     </div>
-    <p class="mt-8 text-sm leading-relaxed text-basalt/80">Looking beyond Nan Madol? <a href="/tour-operators" class="underline underline-offset-4">Browse all guides &amp; transport →</a> Need help finding another option? <a href={sources.contact} class="underline underline-offset-4">Contact the Pohnpei Tourism Office ↗</a></p>
+    <p class="mt-8 text-sm leading-relaxed text-basalt/80">Looking beyond Nan Madol? <a href="/tour-operators" class="underline underline-offset-4">Browse all guides &amp; transport <Icon name="arrow" /></a> Need help finding another option? <a href={sources.contact} class="underline underline-offset-4">Contact the Pohnpei Tourism Office <Icon name="arrow" /></a></p>
   </div>
 </section>
 <style>section { scroll-margin-top: 0; }</style>

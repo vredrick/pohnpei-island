@@ -1,0 +1,17 @@
+---
+interface Props {
+  name?: 'arrow' | 'down' | 'up' | 'down-right' | 'down-left' | 'pause' | 'play' | 'diamond';
+}
+const { name = 'arrow' } = Astro.props;
+const paths = {
+  arrow: 'M5 19 19 5M5 5h14v14',
+  down: 'M12 3v18M5 14l7 7 7-7',
+  up: 'M12 21V3M5 10l7-7 7 7',
+  'down-right': 'M5 5 19 19M5 19h14V5',
+  'down-left': 'M19 5 5 19M5 5v14h14',
+  pause: 'M8 5v14M16 5v14',
+  play: 'm8 4 12 8-12 8Z',
+  diamond: 'm12 2 8 10-8 10-8-10ZM12 7l4 5-4 5-4-5Z',
+};
+---
+<svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true" focusable="false"><path d={paths[name]} /></svg>

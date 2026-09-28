@@ -1,32 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
-import StatusStrip from '../components/StatusStrip.astro';
-import Hero from '../components/Hero.astro';
-import IntroEditorial from '../components/IntroEditorial.astro';
-import StatsBand from '../components/StatsBand.astro';
-import ChaptersGrid from '../components/ChaptersGrid.astro';
-import NanMadolFeature from '../components/NanMadolFeature.astro';
-import StartPlanning from '../components/StartPlanning.astro';
-import DispatchForm from '../components/DispatchForm.astro';
-import MarqueeTicker from '../components/MarqueeTicker.astro';
-import Footer from '../components/Footer.astro';
+import Homepage from '../components/home/Homepage.astro';
+import '../styles/homepage.css';
 ---
 
-<BaseLayout>
-  <Nav />
-  <StatusStrip />
-
-  <main id="top" class="pt-[116px]">
-    <Hero />
-    <IntroEditorial />
-    <StatsBand />
-    <ChaptersGrid />
-    <NanMadolFeature />
-    <StartPlanning />
-    <DispatchForm />
-    <MarqueeTicker />
-  </main>
-
-  <Footer />
+<BaseLayout
+  title="Pohnpei Island — A world apart, a little closer"
+  description="Kaselehlie. Discover Pohnpei through its rainforest, reefs, ancient stone city and living culture. An independent guide to the Garden Island of Micronesia."
+  canonical="https://pohnpeiisland.com/"
+  image="https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,w_1600/hero-left-matnas.jpg"
+>
+  <Homepage />
 </BaseLayout>

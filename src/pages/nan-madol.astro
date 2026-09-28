@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
-import StatusStrip from '../components/StatusStrip.astro';
 import Footer from '../components/Footer.astro';
+import Icon from '../components/home/Icon.astro';
+import TattooBand from '../components/home/TattooBand.astro';
+import '../styles/custom-guides.css';
 import NanMadolOperators from '../components/NanMadolOperators.astro';
 import { sources } from '../data/nan-madol';
 
@@ -14,29 +16,29 @@ const contents = [ ['story', 'The story'], ['visiting', 'Plan your visit'], ['pr
   canonical="https://pohnpeiisland.com/nan-madol" image={image}>
   <a href="#guide" class="skip-link">Skip to visitor guide</a>
   <Nav />
-  <StatusStrip />
-  <main id="guide" tabindex="-1" class="pt-[116px]">
-    <section class="relative bg-basalt overflow-hidden">
-      <img src={image} alt="People beside Nan Madol’s basalt walls and waterway" width="2000" height="900" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover opacity-60" />
-      <div class="absolute inset-0 bg-gradient-to-t from-basalt via-basalt/30 to-transparent"></div>
-      <div class="relative max-w-6xl mx-auto px-6 pt-20 pb-12 md:pt-36 md:pb-20 text-sand">
-        <p class="text-xs uppercase tracking-[0.22em] mb-5">Pohnpei / Culture &amp; history</p>
-        <h1 class="font-headline text-6xl md:text-8xl leading-none mb-5">Nan Madol</h1>
-        <p class="font-headline text-3xl md:text-4xl italic max-w-xl leading-tight mb-6">A city of stone.<br />A story still living.</p>
-        <p class="text-base leading-relaxed max-w-lg text-sand/90 mb-8">Meet Pohnpei’s extraordinary lagoon city, understand its significance, and find a local guide to help you visit with care.</p>
-        <div class="flex flex-wrap gap-3">
-          <a href="#visiting" class="guide-button bg-sand text-basalt hover:bg-sand-bright">Plan your visit ↓</a>
-          <a href="#local-guides" class="guide-button border border-sand/70 text-sand hover:bg-basalt">Find a local guide ↓</a>
+  <main id="guide" tabindex="-1" class="custom-guide">
+    <section class="custom-guide-hero custom-guide-hero--photo">
+      <img src={image} alt="People beside Nan Madol’s basalt walls and waterway" width="2000" height="900" fetchpriority="high" class="custom-guide-hero-image" />
+      <div class="custom-guide-hero-shade" aria-hidden="true"></div>
+      <div class="custom-guide-hero-inner">
+        <p class="custom-guide-kicker">Pohnpei / Culture &amp; history</p>
+        <h1 class="custom-guide-heading">Nan Madol</h1>
+        <p class="custom-guide-subtitle">A city of stone.<br />A story still living.</p>
+        <p class="custom-guide-intro">Meet Pohnpei’s extraordinary lagoon city, understand its significance, and find a local guide to help you visit with care.</p>
+        <div class="custom-guide-actions">
+          <a href="#visiting" class="guide-button bg-sand text-basalt hover:bg-sand-bright">Plan your visit <Icon name="down" /></a>
+          <a href="#local-guides" class="guide-button border border-sand/70 text-sand hover:bg-basalt">Find a local guide <Icon name="down" /></a>
         </div>
-        <p class="text-xs text-sand/90 mt-8">UNESCO World Heritage Site · Inscribed 2016</p>
+        <p class="custom-guide-caption">UNESCO World Heritage Site · Inscribed 2016</p>
       </div>
+    <TattooBand class="custom-guide-border-nan-madol" variant="geometric" />
     </section>
-    <div class="px-6 bg-sand-bright border-b border-basalt/15">
+    <div class="custom-guide-context px-6 bg-sand-bright border-b border-basalt/15">
       <div class="max-w-6xl mx-auto py-5 flex flex-col md:flex-row gap-3 md:justify-between text-xs leading-relaxed text-basalt/80">
-        <p>An independent Pohnpei guide. <a href={sources.tourism} class="text-link">Visit the official tourism site ↗</a></p>
+        <p>An independent Pohnpei guide. <a href={sources.tourism} class="text-link">Visit the official tourism site <Icon name="arrow" /></a></p>
       </div>
     </div>
-    <nav aria-label="On this page" class="px-6 border-b border-basalt/15">
+    <nav aria-label="On this page" class="custom-guide-toc px-6 border-b border-basalt/15">
       <div class="max-w-6xl mx-auto flex flex-wrap gap-x-6 py-3">
         {contents.map(([id, label], i) => <a class="min-h-11 inline-flex items-center gap-2 text-sm hover:text-ochre-deep underline-offset-4 hover:underline" href={`#${id}`}><span class="text-ochre-deep text-xs">0{i + 1}</span>{label}</a>)}
       </div>
@@ -48,22 +50,22 @@ const contents = [ ['story', 'The story'], ['visiting', 'Plan your visit'], ['pr
           <p class="font-headline text-2xl md:text-3xl leading-snug text-basalt">Off Pohnpei’s southeast coast, Nan Madol brings together stone architecture, waterways, and a living cultural inheritance.</p>
           <p>UNESCO describes more than 100 artificial islets, with remains of residences, ceremonial buildings, and tombs. Its English listing dates the surviving structures to 1200–1500 CE and identifies Nan Madol as the Saudeleur dynasty’s ceremonial centre.</p>
           <p>Basalt columns were brought from elsewhere on Pohnpei and arranged in alternating courses. The scale of that work reflects the skill and organisation of its builders. Nan Madol remains connected to Pohnpei’s ceremonial traditions and the Nahnmwarki system of chiefly authority.</p>
-          <p class="text-sm"><a href={sources.unesco} class="text-link">Read UNESCO’s account of Nan Madol ↗</a></p>
+          <p class="text-sm"><a href={sources.unesco} class="text-link">Read UNESCO’s account of Nan Madol <Icon name="arrow" /></a></p>
           <h3 class="font-headline text-3xl text-basalt pt-4">What to look for</h3>
           <p>The tourism office highlights the royal mortuary complex, stone courtyards, and tidal canals. A guide can help you understand what you’re seeing and explain local traditions. Ask which areas are appropriate to enter before exploring.</p>
-          <p>JADESA’s route description calls the mortuary destination Nan Douwas. Its boat itinerary passes several islets before reaching it. <a href="https://myjadesa.com/pages/tours" class="text-link">See JADESA’s route description ↗</a></p>
+          <p>JADESA’s route description calls the mortuary destination Nan Douwas. Its boat itinerary passes several islets before reaching it. <a href="https://myjadesa.com/pages/tours" class="text-link">See JADESA’s route description <Icon name="arrow" /></a></p>
           <aside class="border-l-2 border-ochre-deep pl-6 py-2">
             <h3 class="font-headline text-2xl text-basalt mb-3">A place to care for</h3>
-            <p>UNESCO inscribed Nan Madol in 2016 and currently lists it as World Heritage in Danger. It identifies silting waterways and mangrove growth among the threats to its structures. <a href={sources.unesco} class="text-link">Read the conservation context ↗</a></p>
+            <p>UNESCO inscribed Nan Madol in 2016 and currently lists it as World Heritage in Danger. It identifies silting waterways and mangrove growth among the threats to its structures. <a href={sources.unesco} class="text-link">Read the conservation context <Icon name="arrow" /></a></p>
           </aside>
         </div>
       </div>
     </section>
-    <section id="visiting" class="guide-section bg-sand-bright tapa-pattern">
+    <section id="visiting" class="guide-section bg-sand-bright">
       <div class="max-w-6xl mx-auto">
         <p class="eyebrow">02 / Plan your visit</p>
         <h2 class="section-title max-w-2xl mb-6">Start with the route.<br /><em>Let the tide set the time.</em></h2>
-        <p class="max-w-2xl leading-relaxed text-basalt/80 mb-10">The tourism office places access at Temwen Island and recommends a local guide. For the walking approach, it describes rough road sections and a tidal-flat crossing, with mid to low tide easier for access. <a href={sources.tourism} class="text-link">Official visiting guidance ↗</a></p>
+        <p class="max-w-2xl leading-relaxed text-basalt/80 mb-10">The tourism office places access at Temwen Island and recommends a local guide. For the walking approach, it describes rough road sections and a tidal-flat crossing, with mid to low tide easier for access. <a href={sources.tourism} class="text-link">Official visiting guidance <Icon name="arrow" /></a></p>
         <div class="grid md:grid-cols-2 gap-6">
           <article class="bg-sand-bright border border-basalt/15 p-6 md:p-8">
             <p class="eyebrow">Road + walking</p><h3 class="font-headline text-3xl mb-4">Arrange the whole journey.</h3>
@@ -71,7 +73,7 @@ const contents = [ ['story', 'The story'], ['visiting', 'Plan your visit'], ['pr
           </article>
           <article class="bg-sand-bright border border-basalt/15 p-6 md:p-8">
             <p class="eyebrow">Boat or kayak</p><h3 class="font-headline text-3xl mb-4">See the waterways with a guide.</h3>
-            <p class="leading-relaxed text-basalt/80">JADESA advertises guided boat and kayak visits; its Nan Madol boat trips depend on the tide. Ask about departure location, boarding, equipment, and the route for your date. Other listed operators can explain their own arrangements. <a href="#local-guides" class="text-link">Compare local contacts ↓</a></p>
+            <p class="leading-relaxed text-basalt/80">JADESA advertises guided boat and kayak visits; its Nan Madol boat trips depend on the tide. Ask about departure location, boarding, equipment, and the route for your date. Other listed operators can explain their own arrangements. <a href="#local-guides" class="text-link">Compare local contacts <Icon name="down" /></a></p>
           </article>
         </div>
         <div class="mt-8 bg-basalt text-sand p-6 md:p-10 grid md:grid-cols-[1fr_1.5fr] gap-6">
@@ -126,15 +128,15 @@ const contents = [ ['story', 'The story'], ['visiting', 'Plan your visit'], ['pr
     </section>
     <section id="sources" class="guide-section bg-sand">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-        <div><p class="eyebrow">Keep exploring</p><h2 class="section-title mb-5">Make your <em>next connection.</em></h2><p class="text-basalt/80 leading-relaxed mb-6">Have dates in mind? Compare places to stay, then share your accommodation’s location with a local operator to arrange your visit.</p><div class="flex flex-wrap gap-3"><a href="/places-to-stay" class="guide-button bg-lagoon text-white hover:bg-basalt">Find a place to stay →</a><a href="#local-guides" class="guide-button border border-basalt/30 hover:bg-sand-bright">Find a local guide ↑</a></div></div>
+        <div><p class="eyebrow">Keep exploring</p><h2 class="section-title mb-5">Make your <em>next connection.</em></h2><p class="text-basalt/80 leading-relaxed mb-6">Have dates in mind? Compare places to stay, then share your accommodation’s location with a local operator to arrange your visit.</p><div class="flex flex-wrap gap-3"><a href="/places-to-stay" class="guide-button bg-lagoon text-white hover:bg-basalt">Find a place to stay <Icon name="arrow" /></a><a href="#local-guides" class="guide-button border border-basalt/30 hover:bg-sand-bright">Find a local guide <Icon name="up" /></a></div></div>
         <div class="text-sm text-basalt/80 leading-relaxed">
           <h3 class="font-headline text-2xl text-basalt mb-4">About this guide &amp; our sources</h3>
           <p class="mb-4">PohnpeiIsland.com is an independent guide with no formal tourism-office affiliation. We write our own visitor guidance using the sources below. Source review is not an on-site inspection or a confirmation of business availability.</p>
           <ul class="space-y-3">
-            <li><a class="text-link" href={sources.unesco}>UNESCO: history, significance, and conservation ↗</a></li>
-            <li><a class="text-link" href={sources.tourism}>Pohnpei Tourism Office: visiting Nan Madol ↗</a></li>
-            <li><a class="text-link" href={sources.operators}>Pohnpei Tourism Office: full operator directory ↗</a></li>
-            <li><a class="text-link" href="https://myjadesa.com/pages/tours">JADESA: routes and tour information ↗</a></li>
+            <li><a class="text-link" href={sources.unesco}>UNESCO: history, significance, and conservation <Icon name="arrow" /></a></li>
+            <li><a class="text-link" href={sources.tourism}>Pohnpei Tourism Office: visiting Nan Madol <Icon name="arrow" /></a></li>
+            <li><a class="text-link" href={sources.operators}>Pohnpei Tourism Office: full operator directory <Icon name="arrow" /></a></li>
+            <li><a class="text-link" href="https://myjadesa.com/pages/tours">JADESA: routes and tour information <Icon name="arrow" /></a></li>
           </ul>
           <p class="mt-5">Business-specific sources appear with each listing.</p>
         </div>
@@ -143,18 +145,3 @@ const contents = [ ['story', 'The story'], ['visiting', 'Plan your visit'], ['pr
   </main>
   <Footer />
 </BaseLayout>
-<style>
-  .guide-section { padding: 4rem 1.5rem; }
-  .eyebrow { color: #8F4C1E; font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 1rem; }
-  .section-title { font-family: 'Newsreader', Georgia, serif; font-size: 2.5rem; line-height: 1.1; letter-spacing: -.025em; }
-  .section-title em { color: #8F4C1E; }
-  .guide-prose { color: #52443C; line-height: 1.8; }
-  .guide-prose > * + * { margin-top: 1.5rem; }
-  .text-link { text-decoration: underline; text-underline-offset: 4px; }
-  .text-link:hover { color: #8F4C1E; }
-  .guide-button { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 1.5rem; min-height: 48px; font-size: .75rem; font-weight: 600; letter-spacing: .06em; }
-  summary { cursor: pointer; font-weight: 500; font-size: 1.05rem; min-height: 44px; align-content: center; }
-  details p { padding-top: 1rem; color: #52443C; line-height: 1.8; }
-  section { scroll-margin-top: 0; }
-  @media (min-width: 768px) { .guide-section { padding: 6rem 1.5rem; } .section-title { font-size: 3rem; } }
-</style>

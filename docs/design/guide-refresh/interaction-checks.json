@@ -1,0 +1,126 @@
+[
+  {
+    "check": "geometric pattern is running in view",
+    "passed": true
+  },
+  {
+    "check": "geometric subtle duration",
+    "passed": true
+  },
+  {
+    "check": "geometric first/last loop frames identical",
+    "passed": true
+  },
+  {
+    "check": "fish pattern is running in view",
+    "passed": true
+  },
+  {
+    "check": "fish subtle duration",
+    "passed": true
+  },
+  {
+    "check": "fish first/last loop frames identical",
+    "passed": true
+  },
+  {
+    "check": "home pause freezes pattern",
+    "passed": true
+  },
+  {
+    "check": "pause persists from home to guide",
+    "passed": true
+  },
+  {
+    "check": "guide pattern paused",
+    "passed": true
+  },
+  {
+    "check": "guide resume starts pattern",
+    "passed": true
+  },
+  {
+    "check": "mobile menu opens",
+    "passed": true
+  },
+  {
+    "check": "all nine guides linked in mobile menu",
+    "passed": true
+  },
+  {
+    "check": "Escape closes menu and restores focus",
+    "passed": true
+  },
+  {
+    "check": "menu link navigates",
+    "passed": true
+  },
+  {
+    "check": "stay filters visible",
+    "passed": true
+  },
+  {
+    "check": "all ten stays initially shown",
+    "passed": true
+  },
+  {
+    "check": "stay empty state",
+    "passed": true
+  },
+  {
+    "check": "stay reset",
+    "passed": true
+  },
+  {
+    "check": "stay area filter",
+    "passed": true
+  },
+  {
+    "check": "operator service query applied",
+    "passed": true
+  },
+  {
+    "check": "operator service filter matches",
+    "passed": true
+  },
+  {
+    "check": "operator empty state",
+    "passed": true
+  },
+  {
+    "check": "operator reset restores nine",
+    "passed": true
+  },
+  {
+    "check": "Nan Madol accordion opens",
+    "passed": true
+  },
+  {
+    "check": "OS reduced motion hides animation control",
+    "passed": true
+  },
+  {
+    "check": "OS reduced motion disables patterns",
+    "passed": true
+  },
+  {
+    "check": "OS reduced motion leaves content visible",
+    "passed": true
+  },
+  {
+    "check": "zero runtime errors",
+    "passed": true
+  },
+  {
+    "check": "no JS shows all properties",
+    "passed": true
+  },
+  {
+    "check": "no JS menu works",
+    "passed": true
+  },
+  {
+    "check": "no JS patterns remain still",
+    "passed": true
+  }
+]

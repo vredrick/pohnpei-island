@@ -1,4 +1,5 @@
 ---
+import Icon from './home/Icon.astro';
 import { operators, serviceCategories, operatorSources, relatedPlaceGuides } from '../data/operators';
 import OperatorContacts from './OperatorContacts.astro';
 ---
@@ -27,14 +28,14 @@ import OperatorContacts from './OperatorContacts.astro';
           <p class="tg-eyebrow">{String(index + 1).padStart(2, '0')} / {operator.paused ? 'Temporarily paused' : 'Published listing'}</p>
           <h3 id={`${operator.id}-title`} class="font-headline text-3xl leading-tight mb-4">{operator.name}</h3>
           {operator.location && <p class="text-xs text-basalt/75 leading-relaxed mb-4">{operator.location}</p>}
-          <a class="source-link" href={operatorSources.tourism}>Tourism office listing ↗</a>
-          {operator.evidence.filter(item => item.url !== operatorSources.tourism).map(item => <a class="source-link" href={item.url}>{item.url.startsWith('https://www.pohnpei-adventure.com/') ? 'Eco-Adventure service reference' : item.url === operatorSources.sunsetContact ? 'Operator location & contacts' : 'Operator’s own website'} ↗</a>)}
+          <a class="source-link" href={operatorSources.tourism}>Tourism office listing <Icon name="arrow" /></a>
+          {operator.evidence.filter(item => item.url !== operatorSources.tourism).map(item => <a class="source-link" href={item.url}>{item.url.startsWith('https://www.pohnpei-adventure.com/') ? 'Eco-Adventure service reference' : item.url === operatorSources.sunsetContact ? 'Operator location & contacts' : 'Operator’s own website'} <Icon name="arrow" /></a>)}
         </div>
         <div class="min-w-0 tg-copy">
           <p class="font-medium text-basalt mb-3">{operator.services}</p>
           <p>{operator.summary}</p>
           {operator.paused && <p class="pause-note"><strong>Tours and new bookings are suspended.</strong> The contacts here are for updates; consult the operator’s website for reopening news.</p>}
-          {operator.relatedPlaces.map(place => <a class="tg-page-link tg-link text-sm mt-3 mr-4" href={relatedPlaceGuides[place].href}>Read the {relatedPlaceGuides[place].label} →</a>)}
+          {operator.relatedPlaces.map(place => <a class="tg-page-link tg-link text-sm mt-3 mr-4" href={relatedPlaceGuides[place].href}>Read the {relatedPlaceGuides[place].label} <Icon name="arrow" /></a>)}
         </div>
         <OperatorContacts operator={operator} />
       </article>)}
@@ -83,10 +84,10 @@ import OperatorContacts from './OperatorContacts.astro';
 <style>
   [hidden] { display: none !important; }
   label { display: block; font-size: .8rem; font-weight: 500; margin-bottom: .5rem; }
-  input, select { width: 100%; min-height: 48px; padding: .75rem; border: 1px solid #2A1F184D; background: #FFF8F1; color: #2A1F18; font-size: 1rem; }
+  input, select { width: 100%; min-height: 48px; padding: .75rem; border: 1px solid #233e3c4D; background: #f8f7f0; color: #233e3c; font-size: 1rem; }
   .operator-row { display: grid; gap: 1.75rem; scroll-margin-top: 0; }
   .source-link { display: block; width: fit-content; font-size: .75rem; line-height: 1.8; text-decoration: underline; text-underline-offset: 3px; padding-block: .4rem; }
-  .source-link:hover { color: #8F4C1E; }
-  .pause-note { margin-top: 1rem; border-left: 3px solid #8F4C1E; padding-left: 1rem; font-size: .85rem; }
+  .source-link:hover { color: #a4472e; }
+  .pause-note { margin-top: 1rem; border-left: 3px solid #a4472e; padding-left: 1rem; font-size: .85rem; }
   @media (min-width: 1024px) { .operator-row { grid-template-columns: 1fr 1.2fr 1.1fr; gap: 2.5rem; } }
 </style>

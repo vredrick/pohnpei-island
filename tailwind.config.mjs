@@ -4,14 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        sand: '#F4E9D4',
-        'sand-bright': '#FFF8F1',
-        'sand-deep': '#ECE1CD',
-        basalt: '#2A1F18',
-        'basalt-soft': '#52443C',
-        ochre: '#B8642B',
-        'ochre-deep': '#8F4C1E',
-        lagoon: '#186969',
+        sand: '#F2F0E5',
+        'sand-bright': '#F8F7F0',
+        'sand-deep': '#E8E9DD',
+        basalt: '#233E3C',
+        'basalt-soft': '#4C615B',
+        ochre: '#A4472E',
+        'ochre-deep': '#A4472E',
+        lagoon: '#365E57',
       },
       borderRadius: {
         DEFAULT: '0px',

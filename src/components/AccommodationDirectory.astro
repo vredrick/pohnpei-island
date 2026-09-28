@@ -1,4 +1,5 @@
 ---
+import Icon from './home/Icon.astro';
 import { accommodations, staySources } from '../data/accommodations';
 const phoneLabel = (phone: string) => phone.replace(/^(\+691)(\d{3})(\d{4})$/, '$1 $2 $3');
 ---
@@ -32,20 +33,20 @@ const phoneLabel = (phone: string) => phone.replace(/^(\+691)(\d{3})(\d{4})$/, '
             <p class="text-xs uppercase tracking-[.15em] text-ochre-deep mb-3">{String(i + 1).padStart(2, '0')} / {stay.area}</p>
             <h3 class="font-headline text-3xl leading-tight mb-3">{stay.name}</h3>
             <p class="text-sm leading-relaxed text-basalt/80">{stay.description}</p>
-            <a href={staySources.tourism} class="source-link mt-4 inline-block">Tourism listing &amp; contacts ↗</a>
+            <a href={staySources.tourism} class="source-link mt-4 inline-block">Tourism listing &amp; contacts <Icon name="arrow" /></a>
           </div>
           <div>
             <h4 class="text-xs font-semibold uppercase tracking-[.12em] mb-3">Published amenities</h4>
             {stay.dated && <p class="text-xs text-ochre-deep mb-3 font-medium">2025 information · please reconfirm</p>}
             <ul class="text-sm leading-relaxed space-y-2 text-basalt/85">{stay.amenities.map(amenity => <li class="flex gap-2"><span aria-hidden="true" class="text-ochre-deep">—</span><span>{amenity}</span></li>)}</ul>
             <p class="text-sm leading-relaxed text-basalt/80 mt-5"><strong class="text-basalt">Ask before booking:</strong> {stay.ask}</p>
-            <div class="flex flex-wrap gap-x-4 gap-y-2 mt-4">{stay.sources.map(source => <a href={source.url} class="source-link">{source.label} ↗</a>)}</div>
+            <div class="flex flex-wrap gap-x-4 gap-y-2 mt-4">{stay.sources.map(source => <a href={source.url} class="source-link">{source.label} <Icon name="arrow" /></a>)}</div>
           </div>
           <div class="contact-column">
             <h4 class="text-xs font-semibold uppercase tracking-[.12em] mb-3">Contact the property</h4>
-            <a href={`tel:${stay.phone}`} aria-label={`Call ${stay.name} at ${phoneLabel(stay.phone)}`} class="contact-link">{phoneLabel(stay.phone)} <span aria-hidden="true">↗</span></a>
-            <a href={`mailto:${stay.email}`} aria-label={`Email ${stay.name} at ${stay.email}`} class="contact-link"><span class="break-all">{stay.email}</span><span aria-hidden="true">↗</span></a>
-            {stay.website && <a href={stay.website} aria-label={`Visit ${stay.name} website`} class="mt-3 inline-flex min-h-11 items-center gap-4 text-sm font-medium text-lagoon underline underline-offset-4">Property website <span aria-hidden="true">↗</span></a>}
+            <a href={`tel:${stay.phone}`} aria-label={`Call ${stay.name} at ${phoneLabel(stay.phone)}`} class="contact-link">{phoneLabel(stay.phone)} <span aria-hidden="true"><Icon name="arrow" /></span></a>
+            <a href={`mailto:${stay.email}`} aria-label={`Email ${stay.name} at ${stay.email}`} class="contact-link"><span class="break-all">{stay.email}</span><span aria-hidden="true"><Icon name="arrow" /></span></a>
+            {stay.website && <a href={stay.website} aria-label={`Visit ${stay.name} website`} class="mt-3 inline-flex min-h-11 items-center gap-4 text-sm font-medium text-lagoon underline underline-offset-4">Property website <span aria-hidden="true"><Icon name="arrow" /></span></a>}
             {!stay.website && <p class="text-xs text-basalt/70 leading-relaxed mt-4">For current room details, use the published phone or email above.</p>}
           </div>
         </article>
@@ -95,14 +96,14 @@ const phoneLabel = (phone: string) => phone.replace(/^(\+691)(\d{3})(\d{4})$/, '
 <style>
   section { scroll-margin-top: 0; }
   [hidden] { display: none !important; }
-  .eyebrow { color: #8F4C1E; font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 1rem; }
+  .eyebrow { color: #a4472e; font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 1rem; }
   label { display: block; font-size: .8rem; font-weight: 500; margin-bottom: .5rem; }
-  input, select { width: 100%; min-height: 48px; padding: .75rem; border: 1px solid #2A1F184D; background: #FFF8F1; color: #2A1F18; font-size: 1rem; }
+  input, select { width: 100%; min-height: 48px; padding: .75rem; border: 1px solid #233e3c4D; background: #f8f7f0; color: #233e3c; font-size: 1rem; }
   .stay-card { display: grid; gap: 1.75rem; }
   .source-link { font-size: .75rem; line-height: 1.6; text-decoration: underline; text-underline-offset: 3px; padding-block: .35rem; }
-  .source-link:hover { color: #8F4C1E; }
-  .contact-link { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: .75rem; border-bottom: 1px solid #2A1F1826; padding: .6rem 0; font-size: .85rem; }
-  .contact-link:hover { color: #186969; text-decoration: underline; text-underline-offset: 4px; }
+  .source-link:hover { color: #a4472e; }
+  .contact-link { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: .75rem; border-bottom: 1px solid #233e3c26; padding: .6rem 0; font-size: .85rem; }
+  .contact-link:hover { color: #365e57; text-decoration: underline; text-underline-offset: 4px; }
   @media (min-width: 1024px) { .stay-card { grid-template-columns: 1fr 1.2fr 1fr; gap: 2.5rem; } }
   @media (min-width: 640px) and (max-width: 1023px) { .stay-card { grid-template-columns: 1fr 1fr; } .contact-column { grid-column: 2; } }
 </style>

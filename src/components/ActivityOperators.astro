@@ -1,9 +1,10 @@
 ---
+import Icon from './home/Icon.astro';
 import { operators, type ServiceCategory, type RelatedPlace } from '../data/operators';
 interface Props { service?: ServiceCategory; place?: RelatedPlace }
 const { service, place } = Astro.props;
 const matches = operators.filter(operator => place ? operator.relatedPlaces.includes(place) : service && operator.categories.includes(service));
 ---
 <ul class="divide-y divide-basalt/20 border-y border-basalt/20 mt-6">
-  {matches.map(operator => <li class="py-5"><a href={`/tour-operators#${operator.id}`} class="tg-page-link tg-link font-headline text-2xl">{operator.name} →</a><p class="tg-copy text-sm">{operator.services}</p>{operator.paused && <p class="mt-2 text-sm font-semibold text-ochre-deep">Tours and new bookings are suspended. Contacts are for reopening updates.</p>}</li>)}
+  {matches.map(operator => <li class="py-5"><a href={`/tour-operators#${operator.id}`} class="tg-page-link tg-link font-headline text-2xl">{operator.name} <Icon name="arrow" /></a><p class="tg-copy text-sm">{operator.services}</p>{operator.paused && <p class="mt-2 text-sm font-semibold text-ochre-deep">Tours and new bookings are suspended. Contacts are for reopening updates.</p>}</li>)}
 </ul>

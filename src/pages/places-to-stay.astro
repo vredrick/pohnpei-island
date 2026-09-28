@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
-import StatusStrip from '../components/StatusStrip.astro';
 import Footer from '../components/Footer.astro';
+import Icon from '../components/home/Icon.astro';
+import TattooBand from '../components/home/TattooBand.astro';
+import '../styles/custom-guides.css';
 import AccommodationDirectory from '../components/AccommodationDirectory.astro';
 import { staySources } from '../data/accommodations';
 ---
@@ -10,32 +12,33 @@ import { staySources } from '../data/accommodations';
   description="Compare ten Pohnpei hotels by area and published amenities. Find direct phone and email contacts, questions to ask before booking, and official tourism resources."
   canonical="https://pohnpeiisland.com/places-to-stay">
   <a href="#stay-guide" class="skip-link">Skip to accommodation guide</a>
-  <Nav /><StatusStrip />
-  <main id="stay-guide" tabindex="-1" class="pt-[116px]">
-    <section class="px-6 pt-16 pb-14 md:pt-24 md:pb-20 bg-sand">
-      <div class="max-w-6xl mx-auto grid md:grid-cols-[1.5fr_1fr] gap-12 md:gap-20 items-end">
+  <Nav />
+  <main id="stay-guide" tabindex="-1" class="custom-guide">
+    <section class="custom-guide-hero custom-guide-hero--editorial">
+      <div class="custom-guide-hero-grid">
         <div>
-          <p class="eyebrow">Pohnpei / Plan your stay</p>
-          <h1 class="font-headline text-6xl md:text-7xl lg:text-8xl leading-[.98] tracking-tight mb-7">A place to stay.<br /><em class="text-ochre-deep">An island to know.</em></h1>
-          <p class="text-basalt/80 leading-relaxed max-w-lg">Find a base for your time in Pohnpei. Explore the places, compare the practical details, and start a conversation with the people who’ll welcome you.</p>
-          <a href="#stays" class="guide-button bg-basalt text-sand hover:bg-lagoon mt-8">Explore places to stay ↓</a>
+          <p class="custom-guide-kicker">Pohnpei / Plan your stay</p>
+          <h1 class="custom-guide-heading">A place to stay.<br /><em class="text-ochre-deep">An island to know.</em></h1>
+          <p class="custom-guide-intro">Find a base for your time in Pohnpei. Explore the places, compare the practical details, and start a conversation with the people who’ll welcome you.</p>
+          <a href="#stays" class="guide-button bg-basalt text-sand hover:bg-lagoon mt-8">Explore places to stay <Icon name="down" /></a>
         </div>
-        <aside class="border-t-2 border-ochre-deep pt-6 pb-1">
+        <aside class="custom-guide-aside">
           <p class="eyebrow">Before you choose</p>
           <h2 class="font-headline text-3xl mb-4">Start with your days.</h2>
           <p class="text-sm text-basalt/80 leading-relaxed mb-5">Think about the trips you want to take, where you’ll eat, and how you’ll get around. Then ask a property how it can support your plans.</p>
           <div class="flex gap-8 border-t border-basalt/20 pt-5"><p><strong class="font-headline text-4xl font-normal">10</strong><span class="block text-xs mt-1">Places listed</span></p><p><strong class="font-headline text-4xl font-normal">2</strong><span class="block text-xs mt-1">Areas: Kolonia &amp; Nett</span></p></div>
         </aside>
       </div>
+    <TattooBand class="custom-guide-border-places-to-stay" variant="fish" />
     </section>
-    <div class="px-6 py-5 bg-sand-bright border-y border-basalt/15">
+    <div class="custom-guide-context px-6 py-5 bg-sand-bright border-y border-basalt/15">
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-3 text-xs text-basalt/80 leading-relaxed">
-        <p>Independent guide · <a href={staySources.tourism} class="text-link">Official tourism accommodation directory ↗</a></p>
+        <p>Independent guide · <a href={staySources.tourism} class="text-link">Official tourism accommodation directory <Icon name="arrow" /></a></p>
       </div>
     </div>
-    <nav aria-label="On this page" class="px-6 border-b border-basalt/15"><div class="max-w-6xl mx-auto flex flex-wrap gap-x-8 py-2 text-sm"><a href="#stays" class="page-link">01 / Compare stays</a><a href="#booking-checklist" class="page-link">02 / Before you book</a><a href="#island-days" class="page-link">03 / Plan your days</a><a href="#stay-sources" class="page-link">About this guide</a></div></nav>
+    <nav aria-label="On this page" class="custom-guide-toc px-6 border-b border-basalt/15"><div class="max-w-6xl mx-auto flex flex-wrap gap-x-8 py-2 text-sm"><a href="#stays" class="page-link">01 / Compare stays</a><a href="#booking-checklist" class="page-link">02 / Before you book</a><a href="#island-days" class="page-link">03 / Plan your days</a><a href="#stay-sources" class="page-link">About this guide</a></div></nav>
     <AccommodationDirectory />
-    <section id="booking-checklist" class="guide-section bg-sand tapa-pattern">
+    <section id="booking-checklist" class="guide-section bg-sand">
       <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20">
         <div><p class="eyebrow">02 / Before you book</p><h2 class="section-title mb-6">A good stay starts<br />with <em>a few questions.</em></h2><p class="text-basalt/80 leading-relaxed">Send your dates, number of guests, and room requirements. Ask for written confirmation of the room and terms before making your arrangements.</p></div>
         <dl class="bg-sand-bright px-6 md:px-8 divide-y divide-basalt/15">
@@ -48,8 +51,8 @@ import { staySources } from '../data/accommodations';
     </section>
     <section id="island-days" class="guide-section bg-basalt text-sand">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-20 items-center">
-        <div><p class="text-xs tracking-[.18em] uppercase mb-5 text-sand/75">03 / Beyond your room</p><h2 class="font-headline text-4xl md:text-5xl leading-tight mb-5">Make room for<br /><em>Nan Madol.</em></h2><p class="text-sand/85 leading-relaxed">Once you’ve shortlisted a stay, share its location with a local guide. Work out the route, pickup, tide timing, and return trip together.</p><a href="/nan-madol" class="guide-button bg-sand text-basalt hover:bg-sand-bright mt-7">Explore the Nan Madol guide ↗</a><a href="/tour-operators" class="block py-4 text-sm underline underline-offset-4">Find guides &amp; transport →</a><a href="/plan-your-trip" class="block py-4 text-sm underline underline-offset-4">Follow the planning steps →</a></div>
-        <div class="border-t border-sand/30 pt-7"><h3 class="font-headline text-3xl mb-4">Make the next connection.</h3><div class="divide-y divide-sand/25"><a class="block py-5 text-sm underline underline-offset-4" href="/nan-madol#local-guides">Contact local Nan Madol guides →</a><a class="block py-5 text-sm underline underline-offset-4" href="/getting-here">Plan your journey to Pohnpei →</a><a class="block py-5 text-sm underline underline-offset-4" href={staySources.contact}>Ask the Pohnpei Tourism Office ↗</a></div></div>
+        <div><p class="text-xs tracking-[.18em] uppercase mb-5 text-sand/75">03 / Beyond your room</p><h2 class="font-headline text-4xl md:text-5xl leading-tight mb-5">Make room for<br /><em>Nan Madol.</em></h2><p class="text-sand/85 leading-relaxed">Once you’ve shortlisted a stay, share its location with a local guide. Work out the route, pickup, tide timing, and return trip together.</p><a href="/nan-madol" class="guide-button bg-sand text-basalt hover:bg-sand-bright mt-7">Explore the Nan Madol guide <Icon name="arrow" /></a><a href="/tour-operators" class="block py-4 text-sm underline underline-offset-4">Find guides &amp; transport <Icon name="arrow" /></a><a href="/plan-your-trip" class="block py-4 text-sm underline underline-offset-4">Follow the planning steps <Icon name="arrow" /></a></div>
+        <div class="border-t border-sand/30 pt-7"><h3 class="font-headline text-3xl mb-4">Make the next connection.</h3><div class="divide-y divide-sand/25"><a class="block py-5 text-sm underline underline-offset-4" href="/nan-madol#local-guides">Contact local Nan Madol guides <Icon name="arrow" /></a><a class="block py-5 text-sm underline underline-offset-4" href="/getting-here">Plan your journey to Pohnpei <Icon name="arrow" /></a><a class="block py-5 text-sm underline underline-offset-4" href={staySources.contact}>Ask the Pohnpei Tourism Office <Icon name="arrow" /></a></div></div>
       </div>
     </section>
     <section id="stay-sources" class="guide-section bg-sand-bright">
@@ -67,16 +70,3 @@ import { staySources } from '../data/accommodations';
   </main>
   <Footer />
 </BaseLayout>
-<style>
-  section { scroll-margin-top: 0; }
-  .guide-section { padding: 4rem 1.5rem; }
-  .eyebrow { color: #8F4C1E; font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 1rem; }
-  .section-title { font-family: 'Newsreader', Georgia, serif; font-size: 2.5rem; line-height: 1.1; letter-spacing: -.025em; }
-  .section-title em { color: #8F4C1E; }
-  .text-link { text-decoration: underline; text-underline-offset: 4px; }
-  .text-link:hover, .page-link:hover { color: #8F4C1E; }
-  .page-link { display: inline-flex; align-items: center; min-height: 48px; }
-  .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 1rem 1.5rem; font-size: .8rem; font-weight: 500; }
-  dd { font-size: .9rem; color: #52443C; line-height: 1.8; }
-  @media (min-width: 768px) { .guide-section { padding: 6rem 1.5rem; } .section-title { font-size: 3rem; } }
-</style>

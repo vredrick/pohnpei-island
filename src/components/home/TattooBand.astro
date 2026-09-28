@@ -1,0 +1,40 @@
+---
+interface Props { class?: string; variant?: 'geometric' | 'fish'; }
+const { class: className = '', variant = 'geometric' } = Astro.props;
+const patternId = `tattoo-${variant}-${className || 'default'}`;
+---
+<!-- Original geometric adaptation of the Pohnpeian tattoo references supplied
+     by the owner: solid cuff rails, broad geometric teeth, open panels and filled fish silhouettes.
+     Decorative only; no named motif or cultural meaning is asserted. -->
+<div class:list={['island-tattoo', `tattoo-${variant}`, className]} aria-hidden="true">
+  <svg class="tattoo-track" width="100%" height="64" xmlns="http://www.w3.org/2000/svg" focusable="false">
+    <defs>
+      <pattern id={patternId} width="160" height="64" patternUnits="userSpaceOnUse">
+        <!-- Broad ink rails and solid diagonal teeth, not outline hatching. -->
+        <path d="M0 0H160V5H0ZM0 59H160V64H0Z" fill="currentColor" />
+        {Array.from({ length: 17 }, (_, i) => i * 10 - 6).map(x => <path d={`M${x} 8h7l6 6h-7ZM${x} 50h7l6 6h-7Z`} fill="currentColor" />)}
+        {variant === 'geometric' ? <>
+          <!-- Heavy interlocking teeth and a black panel with one diamond cutout. -->
+          <path d="M0 18H52L39 31 26 20 13 31 0 20ZM0 27 13 38 26 27 39 38 52 27V38L39 49 26 38 13 49 0 38ZM108 18H160L147 31 134 20 121 31 108 20ZM108 27 121 38 134 27 147 38 160 27V38L147 49 134 38 121 49 108 38Z" fill="currentColor" />
+          <path d="M56 18h6v30h-6ZM98 18h6v30h-6ZM66 18h28v30H66Zm14 5-7 10 7 10 7-10Z" fill="currentColor" fill-rule="evenodd" />
+        </> : <>
+          <!-- Filled angular fish; only the eye and a small body notch are cut out. -->
+          <path d="M0 18h5v30H0ZM77 18h6v30h-6ZM155 18h5v30h-5Z" fill="currentColor" />
+          {[0, 78].map(x => <path transform={`translate(${x} 0)`} d="M12 20 29 29 43 20 48 20 43 16 55 19 72 33 55 47 43 50 48 46 43 46 29 37 12 46 17 33ZM62 30a2 2 0 1 0 0 4 2 2 0 1 0 0-4ZM37 27l9 6-9 6 3-6Z" fill="currentColor" fill-rule="evenodd" />)}
+        </>}
+      </pattern>
+    </defs>
+    <rect width="100%" height="64" fill={`url(#${patternId})`} />
+  </svg>
+</div>
+
+<style>
+  .island-tattoo { width: 100%; height: 64px; overflow: hidden; line-height: 0; }
+  /* One full 160px tile per loop: the first and last frames match exactly. */
+  .island-tattoo .tattoo-track { display: block; width: calc(100% + 160px); max-width: none; animation: tattoo-current 80s linear infinite; animation-play-state: paused; }
+  .tattoo-fish .tattoo-track { animation-duration: 100s; animation-direction: reverse; }
+  .tattoo-visible .tattoo-track { animation-play-state: running; }
+  :global(.motion-paused) .tattoo-track { animation-play-state: paused !important; }
+  @keyframes tattoo-current { from { transform: translateX(-160px); } to { transform: translateX(0); } }
+  @media (prefers-reduced-motion: reduce) { .island-tattoo .tattoo-track { animation: none; } }
+</style>

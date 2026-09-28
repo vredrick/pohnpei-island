@@ -1,20 +1,21 @@
 ---
+import Icon from './home/Icon.astro';
 import { formatPhone, type Operator } from '../data/operators';
 interface Props { operator: Operator }
 const { operator } = Astro.props;
 ---
 <div class="operator-contacts">
   <p class="text-xs uppercase tracking-[.12em] text-basalt/70 mb-2">{operator.paused ? 'Contacts for updates' : 'Contact directly'}</p>
-  {operator.phones.map(phone => <a href={`tel:${phone}`} aria-label={`Call ${operator.name} at ${formatPhone(phone)}`}><span>{formatPhone(phone)}</span><span aria-hidden="true">Call ↗</span></a>)}
-  <a href={`mailto:${operator.email}`} aria-label={`Email ${operator.name}: ${operator.email}`}><span class="break-all">{operator.email}</span><span aria-hidden="true">Email ↗</span></a>
+  {operator.phones.map(phone => <a href={`tel:${phone}`} aria-label={`Call ${operator.name} at ${formatPhone(phone)}`}><span>{formatPhone(phone)}</span><span aria-hidden="true">Call <Icon name="arrow" /></span></a>)}
+  <a href={`mailto:${operator.email}`} aria-label={`Email ${operator.name}: ${operator.email}`}><span class="break-all">{operator.email}</span><span aria-hidden="true">Email <Icon name="arrow" /></span></a>
   <div class="flex flex-wrap gap-x-5 mt-3">
-    {operator.whatsapp && <a href={`https://wa.me/${operator.whatsapp.replace('+', '')}`} aria-label={`WhatsApp ${operator.name}`}>WhatsApp ↗</a>}
-    {operator.website && <a href={operator.website} aria-label={`${operator.paused ? 'Reopening updates' : 'Website'} for ${operator.name}`}>{operator.paused ? 'Reopening updates' : 'Visit website'} ↗</a>}
+    {operator.whatsapp && <a href={`https://wa.me/${operator.whatsapp.replace('+', '')}`} aria-label={`WhatsApp ${operator.name}`}>WhatsApp <Icon name="arrow" /></a>}
+    {operator.website && <a href={operator.website} aria-label={`${operator.paused ? 'Reopening updates' : 'Website'} for ${operator.name}`}>{operator.paused ? 'Reopening updates' : 'Visit website'} <Icon name="arrow" /></a>}
   </div>
 </div>
 <style>
   .operator-contacts { min-width: 0; }
-  a { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 48px; padding-block: .6rem; font-size: .85rem; border-bottom: 1px solid #2A1F1826; }
-  a:hover { color: #186969; text-decoration: underline; text-underline-offset: 4px; }
+  a { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 48px; padding-block: .6rem; font-size: .85rem; border-bottom: 1px solid #233e3c26; }
+  a:hover { color: #365e57; text-decoration: underline; text-underline-offset: 4px; }
   a > span:last-child { flex-shrink: 0; }
 </style>

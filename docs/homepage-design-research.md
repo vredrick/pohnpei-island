@@ -118,3 +118,7 @@ Following the owner's closer tattoo references, the triangle band now includes a
 ### Solid fish and identical framing — 2026-09-28
 
 Simplified each fish to a single filled angular silhouette with a forked tail, removing eye/gill cutouts and fin detail. Both variants now share the same markup for 2px outer edges, 3px middle rails, fine diagonal hatching, 6px divider sides and three 1.2px wavy lines. Two solid fish occupy each panel; head-first motion and the shared lagoon color remain. Build/diff checks, responsive checks (320/390/1440/2560px), divider equality and pixel-identical loop endpoints pass. Fish detail screenshot refreshed.
+
+### Smaller bands — 2026-09-28
+
+Reduced both pattern variants proportionally to75%: 48px rendered height and120px repeat width. SVG pattern scaling preserves matching stroke and divider proportions. Animation travel now equals one120px tile, retaining seamless endpoints. Updated the custom-page band height override. Build/diff checks, endpoint pixel comparison, and home/guide browser checks confirm48px bands with no overflow at390/1440/2560px. Both detail screenshots refreshed.

@@ -122,3 +122,7 @@ Simplified each fish to a single filled angular silhouette with a forked tail, r
 ### Smaller bands — 2026-09-28
 
 Reduced both pattern variants proportionally to75%: 48px rendered height and120px repeat width. SVG pattern scaling preserves matching stroke and divider proportions. Animation travel now equals one120px tile, retaining seamless endpoints. Updated the custom-page band height override. Build/diff checks, endpoint pixel comparison, and home/guide browser checks confirm48px bands with no overflow at390/1440/2560px. Both detail screenshots refreshed.
+
+### Matching outer border weight — 2026-09-28
+
+Matched the top and bottom outer borders to the bold divider sides: all are 6 units in the SVG, rendering at 4.5px after the shared 75% scale. This applies to both variants without changing their 48px height, motifs or animation. Build and diff checks pass.

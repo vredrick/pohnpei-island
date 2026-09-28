@@ -12,7 +12,7 @@ const patternId = `tattoo-${variant}-${className || 'default'}`;
       <clipPath id={`${patternId}-panel`}><rect width="120" height="64" /></clipPath>
       <pattern id={patternId} width="160" height="64" patternUnits="userSpaceOnUse" patternTransform="scale(0.75)">
         <!-- Both variants share identical edges, hatching, rails and dividers. -->
-        <path d="M0 0H160V2H0ZM0 62H160V64H0Z" fill="currentColor" />
+        <path d="M0 0H160V6H0ZM0 58H160V64H0Z" fill="currentColor" />
         <g clip-path={`url(#${patternId}-panel)`}>
           <path d="M0 20H120V23H0ZM0 41H120V44H0Z" fill="currentColor" />
           {Array.from({ length: 19 }, (_, i) => i * 8 - 24).map(x => <path d={`M${x} 2h1.5l18 18h-1.5ZM${x} 62h1.5l18-18h-1.5Z`} fill="currentColor" />)}

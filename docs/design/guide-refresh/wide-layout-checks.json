@@ -1,0 +1,498 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "headingHeight": 71,
+    "headingScroll": 71,
+    "headingBounds": {
+      "top": 158.890625,
+      "bottom": 229.390625,
+      "left": 16.375,
+      "right": 300.8125
+    },
+    "glyphs": [
+      {
+        "top": 162.25,
+        "bottom": 225.25,
+        "left": 16.375,
+        "right": 51.328125
+      },
+      {
+        "top": 162.25,
+        "bottom": 225.25,
+        "left": 55.296875,
+        "right": 100.25
+      },
+      {
+        "top": 162.25,
+        "bottom": 225.25,
+        "left": 104.203125,
+        "right": 151.15625
+      },
+      {
+        "top": 162.25,
+        "bottom": 225.25,
+        "left": 155.125,
+        "right": 199.078125
+      },
+      {
+        "top": 162.25,
+        "bottom": 225.25,
+        "left": 203.03125,
+        "right": 237.984375
+      },
+      {
+        "top": 162.25,
+        "bottom": 225.25,
+        "left": 241.953125,
+        "right": 278.90625
+      },
+      {
+        "top": 162.25,
+        "bottom": 225.25,
+        "left": 282.859375,
+        "right": 300.8125
+      }
+    ],
+    "footerX": 0,
+    "footerRight": 320,
+    "heroHeight": 730,
+    "captionBottom": 632,
+    "heroBandTop": 666,
+    "noOverflow": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "headingHeight": 86,
+    "headingScroll": 86,
+    "headingBounds": {
+      "top": 158.890625,
+      "bottom": 244.8125,
+      "left": 19.96875,
+      "right": 366.609375
+    },
+    "glyphs": [
+      {
+        "top": 164.203125,
+        "bottom": 240.203125,
+        "left": 19.96875,
+        "right": 63.03125
+      },
+      {
+        "top": 164.203125,
+        "bottom": 240.203125,
+        "left": 67.0625,
+        "right": 123.125
+      },
+      {
+        "top": 164.203125,
+        "bottom": 240.203125,
+        "left": 127.15625,
+        "right": 185.21875
+      },
+      {
+        "top": 164.203125,
+        "bottom": 240.203125,
+        "left": 189.265625,
+        "right": 243.328125
+      },
+      {
+        "top": 164.203125,
+        "bottom": 240.203125,
+        "left": 247.359375,
+        "right": 290.421875
+      },
+      {
+        "top": 164.203125,
+        "bottom": 240.203125,
+        "left": 294.453125,
+        "right": 340.515625
+      },
+      {
+        "top": 164.203125,
+        "bottom": 240.203125,
+        "left": 344.546875,
+        "right": 366.609375
+      }
+    ],
+    "footerX": 0,
+    "footerRight": 390,
+    "heroHeight": 844,
+    "captionBottom": 746,
+    "heroBandTop": 780,
+    "noOverflow": true
+  },
+  {
+    "width": 768,
+    "height": 700,
+    "headingHeight": 175,
+    "headingScroll": 175,
+    "headingBounds": {
+      "top": 202.1875,
+      "bottom": 376.9375,
+      "left": 23.65625,
+      "right": 737.28125
+    },
+    "glyphs": [
+      {
+        "top": 212.203125,
+        "bottom": 370.203125,
+        "left": 23.65625,
+        "right": 113.4375
+      },
+      {
+        "top": 212.203125,
+        "bottom": 370.203125,
+        "left": 120.96875,
+        "right": 236.75
+      },
+      {
+        "top": 212.203125,
+        "bottom": 370.203125,
+        "left": 244.265625,
+        "right": 364.046875
+      },
+      {
+        "top": 212.203125,
+        "bottom": 370.203125,
+        "left": 371.578125,
+        "right": 484.359375
+      },
+      {
+        "top": 212.203125,
+        "bottom": 370.203125,
+        "left": 491.890625,
+        "right": 581.671875
+      },
+      {
+        "top": 212.203125,
+        "bottom": 370.203125,
+        "left": 589.1875,
+        "right": 684.96875
+      },
+      {
+        "top": 212.203125,
+        "bottom": 370.203125,
+        "left": 692.5,
+        "right": 737.28125
+      }
+    ],
+    "footerX": 0,
+    "footerRight": 768,
+    "heroHeight": 809,
+    "captionBottom": 714.5625,
+    "heroBandTop": 744.5625,
+    "noOverflow": true
+  },
+  {
+    "width": 1440,
+    "height": 665,
+    "headingHeight": 328,
+    "headingScroll": 328,
+    "headingBounds": {
+      "top": 202.890625,
+      "bottom": 530.546875,
+      "left": 44.359375,
+      "right": 1382.40625
+    },
+    "glyphs": [
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 44.359375,
+        "right": 212.171875
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 226.90625,
+        "right": 443.71875
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 458.4375,
+        "right": 682.25
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 696.984375,
+        "right": 907.796875
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 922.515625,
+        "right": 1090.328125
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 1105.0625,
+        "right": 1283.875
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 1298.59375,
+        "right": 1382.40625
+      }
+    ],
+    "footerX": 0,
+    "footerRight": 1440,
+    "heroHeight": 994,
+    "captionBottom": 900.359375,
+    "heroBandTop": 930.359375,
+    "noOverflow": true
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "headingHeight": 328,
+    "headingScroll": 328,
+    "headingBounds": {
+      "top": 202.890625,
+      "bottom": 530.546875,
+      "left": 44.359375,
+      "right": 1382.40625
+    },
+    "glyphs": [
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 44.359375,
+        "right": 212.171875
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 226.90625,
+        "right": 443.71875
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 458.4375,
+        "right": 682.25
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 696.984375,
+        "right": 907.796875
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 922.515625,
+        "right": 1090.328125
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 1105.0625,
+        "right": 1283.875
+      },
+      {
+        "top": 223.546875,
+        "bottom": 518.546875,
+        "left": 1298.59375,
+        "right": 1382.40625
+      }
+    ],
+    "footerX": 0,
+    "footerRight": 1440,
+    "heroHeight": 994,
+    "captionBottom": 900.359375,
+    "heroBandTop": 930.359375,
+    "noOverflow": true
+  },
+  {
+    "width": 1920,
+    "height": 900,
+    "headingHeight": 437,
+    "headingScroll": 437,
+    "headingBounds": {
+      "top": 202.890625,
+      "bottom": 639.765625,
+      "left": 59.140625,
+      "right": 1843.203125
+    },
+    "glyphs": [
+      {
+        "top": 230.4375,
+        "bottom": 623.4375,
+        "left": 59.140625,
+        "right": 282.5625
+      },
+      {
+        "top": 230.4375,
+        "bottom": 623.4375,
+        "left": 301.921875,
+        "right": 591.34375
+      },
+      {
+        "top": 230.4375,
+        "bottom": 623.4375,
+        "left": 610.6875,
+        "right": 910.109375
+      },
+      {
+        "top": 230.4375,
+        "bottom": 623.4375,
+        "left": 929.46875,
+        "right": 1210.890625
+      },
+      {
+        "top": 230.4375,
+        "bottom": 623.4375,
+        "left": 1230.234375,
+        "right": 1453.65625
+      },
+      {
+        "top": 230.4375,
+        "bottom": 623.4375,
+        "left": 1473.015625,
+        "right": 1711.4375
+      },
+      {
+        "top": 230.4375,
+        "bottom": 623.4375,
+        "left": 1730.78125,
+        "right": 1843.203125
+      }
+    ],
+    "footerX": 0,
+    "footerRight": 1920,
+    "heroHeight": 1125,
+    "captionBottom": 1030.828125,
+    "heroBandTop": 1060.828125,
+    "noOverflow": true
+  },
+  {
+    "width": 2560,
+    "height": 1080,
+    "headingHeight": 583,
+    "headingScroll": 583,
+    "headingBounds": {
+      "top": 202.890625,
+      "bottom": 785.40625,
+      "left": 78.84375,
+      "right": 2457.609375
+    },
+    "glyphs": [
+      {
+        "top": 238.625,
+        "bottom": 763.625,
+        "left": 78.84375,
+        "right": 376.734375
+      },
+      {
+        "top": 238.625,
+        "bottom": 763.625,
+        "left": 402.65625,
+        "right": 788.546875
+      },
+      {
+        "top": 238.625,
+        "bottom": 763.625,
+        "left": 814.46875,
+        "right": 1213.359375
+      },
+      {
+        "top": 238.625,
+        "bottom": 763.625,
+        "left": 1239.28125,
+        "right": 1614.171875
+      },
+      {
+        "top": 238.625,
+        "bottom": 763.625,
+        "left": 1640.09375,
+        "right": 1937.984375
+      },
+      {
+        "top": 238.625,
+        "bottom": 763.625,
+        "left": 1963.90625,
+        "right": 2281.796875
+      },
+      {
+        "top": 238.625,
+        "bottom": 763.625,
+        "left": 2307.71875,
+        "right": 2457.609375
+      }
+    ],
+    "footerX": 0,
+    "footerRight": 2560,
+    "heroHeight": 1270,
+    "captionBottom": 1176.46875,
+    "heroBandTop": 1206.46875,
+    "noOverflow": true
+  },
+  {
+    "width": 3440,
+    "height": 1440,
+    "headingHeight": 783,
+    "headingScroll": 783,
+    "headingBounds": {
+      "top": 202.890625,
+      "bottom": 985.65625,
+      "left": 105.953125,
+      "right": 3302.40625
+    },
+    "glyphs": [
+      {
+        "top": 252.25,
+        "bottom": 957.25,
+        "left": 105.953125,
+        "right": 506.125
+      },
+      {
+        "top": 252.25,
+        "bottom": 957.25,
+        "left": 541.328125,
+        "right": 1059.5
+      },
+      {
+        "top": 252.25,
+        "bottom": 957.25,
+        "left": 1094.71875,
+        "right": 1629.890625
+      },
+      {
+        "top": 252.25,
+        "bottom": 957.25,
+        "left": 1665.09375,
+        "right": 2168.265625
+      },
+      {
+        "top": 252.25,
+        "bottom": 957.25,
+        "left": 2203.46875,
+        "right": 2603.640625
+      },
+      {
+        "top": 252.25,
+        "bottom": 957.25,
+        "left": 2638.859375,
+        "right": 3066.03125
+      },
+      {
+        "top": 252.25,
+        "bottom": 957.25,
+        "left": 3101.234375,
+        "right": 3302.40625
+      }
+    ],
+    "footerX": 0,
+    "footerRight": 3440,
+    "heroHeight": 1471,
+    "captionBottom": 1376.71875,
+    "heroBandTop": 1406.71875,
+    "noOverflow": true
+  }
+]

@@ -14,13 +14,16 @@ const patternId = `tattoo-${variant}-${className || 'default'}`;
         <path d="M0 0H160V5H0ZM0 59H160V64H0Z" fill="currentColor" />
         {Array.from({ length: 17 }, (_, i) => i * 10 - 6).map(x => <path d={`M${x} 8h7l6 6h-7ZM${x} 50h7l6 6h-7Z`} fill="currentColor" />)}
         {variant === 'geometric' ? <>
-          <!-- Heavy interlocking teeth and a black panel with one diamond cutout. -->
-          <path d="M0 18H52L39 31 26 20 13 31 0 20ZM0 27 13 38 26 27 39 38 52 27V38L39 49 26 38 13 49 0 38ZM108 18H160L147 31 134 20 121 31 108 20ZM108 27 121 38 134 27 147 38 160 27V38L147 49 134 38 121 49 108 38Z" fill="currentColor" />
-          <path d="M56 18h6v30h-6ZM98 18h6v30h-6ZM66 18h28v30H66Zm14 5-7 10 7 10 7-10Z" fill="currentColor" fill-rule="evenodd" />
+          <!-- Broad chevron fields flank a framed, stacked-triangle panel,
+               adapting the heavy bands and inset panels in the owner’s reference. -->
+          <path d="M0 18h10l16 15 16-15h10L26 43ZM0 34l15 14H0Zm52 0v14H37ZM108 18h10l16 15 16-15h10l-26 25ZM108 34l15 14h-15Zm52 0v14h-15Z" fill="currentColor" />
+          <path d="M56 17h48v32H56Zm6 4v24h8V21Zm12-1v26h12V20Zm16 1v24h8V21Z" fill="currentColor" fill-rule="evenodd" />
+          <path d="m80 20 6 8H74Zm0 9 6 8H74Zm0 9 6 8H74ZM62 23l8 8v4l-8-8Zm0 11 8 8v3l-8-7ZM90 23l8 8v4l-8-8Zm0 11 8 8v3l-8-7Z" fill="currentColor" />
         </> : <>
-          <!-- Filled angular fish; only the eye and a small body notch are cut out. -->
-          <path d="M0 18h5v30H0ZM77 18h6v30h-6ZM155 18h5v30h-5Z" fill="currentColor" />
-          {[0, 78].map(x => <path transform={`translate(${x} 0)`} d="M12 20 29 29 43 20 48 20 43 16 55 19 72 33 55 47 43 50 48 46 43 46 29 37 12 46 17 33ZM62 30a2 2 0 1 0 0 4 2 2 0 1 0 0-4ZM37 27l9 6-9 6 3-6Z" fill="currentColor" fill-rule="evenodd" />)}
+          <!-- Head-first stencil fish: forked tails, tapered bodies, swept fins,
+               and a small angular gill cut. Every silhouette faces right. -->
+          <path d="M0 19h3v26H0ZM78 19h3v26h-3ZM157 19h3v26h-3Z" fill="currentColor" />
+          {[0, 78].map(x => <path transform={`translate(${x} 0)`} d="M10 21 25 29 36 24 43 23 39 16 54 23 65 27 74 32 65 37 54 41 39 48 43 41 36 40 25 35 10 43 16 32ZM57 26 53 32 57 38 51 35 49 32 51 29ZM66 30l2 2-2 2-2-2Z" fill="currentColor" fill-rule="evenodd" />)}
         </>}
       </pattern>
     </defs>
@@ -32,7 +35,7 @@ const patternId = `tattoo-${variant}-${className || 'default'}`;
   .island-tattoo { width: 100%; height: 64px; overflow: hidden; line-height: 0; }
   /* One full 160px tile per loop: the first and last frames match exactly. */
   .island-tattoo .tattoo-track { display: block; width: calc(100% + 160px); max-width: none; animation: tattoo-current 80s linear infinite; animation-play-state: paused; }
-  .tattoo-fish .tattoo-track { animation-duration: 100s; animation-direction: reverse; }
+  .tattoo-fish .tattoo-track { animation-duration: 100s; }
   .tattoo-visible .tattoo-track { animation-play-state: running; }
   :global(.motion-paused) .tattoo-track { animation-play-state: paused !important; }
   @keyframes tattoo-current { from { transform: translateX(-160px); } to { transform: translateX(0); } }

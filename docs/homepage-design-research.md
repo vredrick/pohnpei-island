@@ -114,3 +114,7 @@ Build passes. Pixel comparisons confirm identical loop endpoints for both patter
 ### Wavy dividers and connected hatching — 2026-09-28
 
 Following the owner's closer tattoo references, the triangle band now includes a divider after each six-triangle run: two bold sides enclose three fine vertical wavy lines. Fine diagonal hatching connects the 2px outer edges to the central rails without the previous gaps. The shared lagoon color, full-width layout and motion are preserved. Build/diff checks, browser checks at 320/390/1440/2560px and pixel-identical loop endpoints passed; the geometric detail screenshot is refreshed.
+
+### Solid fish and identical framing — 2026-09-28
+
+Simplified each fish to a single filled angular silhouette with a forked tail, removing eye/gill cutouts and fin detail. Both variants now share the same markup for 2px outer edges, 3px middle rails, fine diagonal hatching, 6px divider sides and three 1.2px wavy lines. Two solid fish occupy each panel; head-first motion and the shared lagoon color remain. Build/diff checks, responsive checks (320/390/1440/2560px), divider equality and pixel-identical loop endpoints pass. Fish detail screenshot refreshed.

@@ -79,7 +79,7 @@
 .arrival-caption a span { font-size: 17px; padding-left: 12px; }
 .island-tattoo { width: 100%; line-height: 0; }
 .island-tattoo svg { display: block; }
-.arrival-border { position: absolute; bottom: 0; left: 0; color: #151916; background: #e9ddc9; }
+.arrival-border { position: absolute; bottom: 0; left: 0; color: var(--ocean); background: #e9ddc9; }
 .home-in { animation: home-fade 1.2s .45s var(--ease) both; }
 .section-meta { display: flex; align-items: center; justify-content: space-between; padding-bottom: 60px; }
 .small-star { color: var(--rust); font-size: 32px; }
@@ -145,7 +145,7 @@
 .ancient-orbits span:nth-child(3) { inset: 30px; }
 .ancient-orbits span:nth-child(4) { inset: 45px; }
 .culture-section { background: #e9ddc9; padding-top: 157px; padding-bottom: 140px; position: relative; display: grid; grid-template-columns: 1.05fr 1fr; column-gap: 10%; }
-.culture-border { position: absolute; top: 24px; left: 0; color: #151916; }
+.culture-border { position: absolute; top: 24px; left: 0; color: var(--ocean); }
 .culture-copy h2 { font-size: clamp(66px,7vw,118px); line-height: .97; margin-top: 45px; }
 .culture-copy h2 em { color: var(--rust); }
 .culture-body { margin: 38px 0 0 12%; max-width: 340px; }
@@ -187,7 +187,7 @@
 .planning-note { font-size: 10px; line-height: 1.8; margin-top: 25px !important; }
 .island-footer { background: var(--ocean); color: var(--paper); }
 .home-footer-content { padding: 0 4% 25px; }
-.footer-border { color: #151916; background: #e9ddc9; }
+.footer-border { color: var(--ocean); background: #e9ddc9; }
 .footer-top { display: flex; justify-content: space-between; align-items: start; padding: 55px 0 50px; }
 .footer-tagline { font: 40px/1.1 'Newsreader', Georgia, serif; letter-spacing: -.025em; }
 .footer-tagline em { color: #d7bb94; }

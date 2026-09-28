@@ -10,16 +10,15 @@ const patternId = `tattoo-${variant}-${className || 'default'}`;
   <svg class="tattoo-track" width="100%" height="64" xmlns="http://www.w3.org/2000/svg" focusable="false">
     <defs>
       <pattern id={patternId} width="160" height="64" patternUnits="userSpaceOnUse">
-        <!-- Broad ink rails and solid diagonal teeth, not outline hatching. -->
-        <path d="M0 0H160V5H0ZM0 59H160V64H0Z" fill="currentColor" />
-        {Array.from({ length: 17 }, (_, i) => i * 10 - 6).map(x => <path d={`M${x} 8h7l6 6h-7ZM${x} 50h7l6 6h-7Z`} fill="currentColor" />)}
         {variant === 'geometric' ? <>
-          <!-- Broad chevron fields flank a framed, stacked-triangle panel,
-               adapting the heavy bands and inset panels in the owner’s reference. -->
-          <path d="M0 18h10l16 15 16-15h10L26 43ZM0 34l15 14H0Zm52 0v14H37ZM108 18h10l16 15 16-15h10l-26 25ZM108 34l15 14h-15Zm52 0v14h-15Z" fill="currentColor" />
-          <path d="M56 17h48v32H56Zm6 4v24h8V21Zm12-1v26h12V20Zm16 1v24h8V21Z" fill="currentColor" fill-rule="evenodd" />
-          <path d="m80 20 6 8H74Zm0 9 6 8H74Zm0 9 6 8H74ZM62 23l8 8v4l-8-8Zm0 11 8 8v3l-8-7ZM90 23l8 8v4l-8-8Zm0 11 8 8v3l-8-7Z" fill="currentColor" />
+          <!-- Owner's vertical tattoo panel laid horizontally: continuous filled
+               triangles between heavy rails and two inset diagonal-hatched strips. -->
+          <path d="M0 0H160V6H0ZM0 18H160V21H0ZM0 43H160V46H0ZM0 58H160V64H0Z" fill="currentColor" />
+          {Array.from({ length: 22 }, (_, i) => i * 8 - 8).map(x => <path d={`M${x} 8h3l9 9h-3ZM${x} 56h3l9-9h-3Z`} fill="currentColor" />)}
+          {Array.from({ length: 8 }, (_, i) => i * 20).map(x => <path d={`M${x} 22l20 10-20 10Z`} fill="currentColor" />)}
         </> : <>
+          <path d="M0 0H160V5H0ZM0 59H160V64H0Z" fill="currentColor" />
+          {Array.from({ length: 17 }, (_, i) => i * 10 - 6).map(x => <path d={`M${x} 8h7l6 6h-7ZM${x} 50h7l6 6h-7Z`} fill="currentColor" />)}
           <!-- Head-first stencil fish: forked tails, tapered bodies, swept fins,
                and a small angular gill cut. Every silhouette faces right. -->
           <path d="M0 19h3v26H0ZM78 19h3v26h-3ZM157 19h3v26h-3Z" fill="currentColor" />

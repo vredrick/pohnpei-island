@@ -104,3 +104,9 @@ Owner screenshots exposed the headline being vertically compressed by a fixed-he
 The new tattoo reference informed broader chevron fields and a framed stacked-triangle panel. Fish now have tapered bodies, forked tails, swept fins and angular gill cutouts. Removed reversed playback so right-facing fish move right (transform -160px at start to -80px halfway through), retaining the 100-second seamless cycle.
 
 Validation: build and diff checks passed. Browser geometry checks at 320×568, 390×844, 768×700, 1440×665, 1440×900, 1920×900, 2560×1080 and 3440×1440 confirm intact lettering, full-width footer bands, no horizontal overflow, and hero content clear of the bottom band. Animated lettering remains inside its box after entry. Pattern pause works, and start/end pixel comparisons remain identical for both variants. `wide-layout-checks.json` records the measured results; stencil detail images were refreshed.
+
+### Horizontal reference panel and shared dark color — 2026-09-28
+
+Owner requested the close-up tattoo panel laid horizontally, then requested that both patterns match the site's main dark color. The geometric variant now uses a continuous horizontal row of solid right-pointing triangles, enclosed by heavy rails and diagonal-hatched strips above and below. It replaces the alternating chevron/panel interpretation. Both variants use the existing `--ocean` token (#142e34), matching the dark footer and feature sections instead of a separate black ink value. Fish silhouettes and head-first movement are retained.
+
+Build passes. Pixel comparisons confirm identical loop endpoints for both patterns. Browser inspection on the home, outer-island, Nan Madol and Getting Here layouts confirms every pattern resolves to rgb(20,46,52), with no horizontal page overflow. Refreshed both stencil-detail screenshots.

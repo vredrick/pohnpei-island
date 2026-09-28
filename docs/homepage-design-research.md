@@ -110,3 +110,7 @@ Validation: build and diff checks passed. Browser geometry checks at 320×568, 3
 Owner requested the close-up tattoo panel laid horizontally, then requested that both patterns match the site's main dark color. The geometric variant now uses a continuous horizontal row of solid right-pointing triangles, enclosed by heavy rails and diagonal-hatched strips above and below. It replaces the alternating chevron/panel interpretation. Both variants use the existing `--ocean` token (#142e34), matching the dark footer and feature sections instead of a separate black ink value. Fish silhouettes and head-first movement are retained.
 
 Build passes. Pixel comparisons confirm identical loop endpoints for both patterns. Browser inspection on the home, outer-island, Nan Madol and Getting Here layouts confirms every pattern resolves to rgb(20,46,52), with no horizontal page overflow. Refreshed both stencil-detail screenshots.
+
+### Wavy dividers and connected hatching — 2026-09-28
+
+Following the owner's closer tattoo references, the triangle band now includes a divider after each six-triangle run: two bold sides enclose three fine vertical wavy lines. Fine diagonal hatching connects the 2px outer edges to the central rails without the previous gaps. The shared lagoon color, full-width layout and motion are preserved. Build/diff checks, browser checks at 320/390/1440/2560px and pixel-identical loop endpoints passed; the geometric detail screenshot is refreshed.

@@ -9,13 +9,21 @@ const patternId = `tattoo-${variant}-${className || 'default'}`;
 <div class:list={['island-tattoo', `tattoo-${variant}`, className]} aria-hidden="true">
   <svg class="tattoo-track" width="100%" height="64" xmlns="http://www.w3.org/2000/svg" focusable="false">
     <defs>
+      {variant === 'geometric' && <clipPath id={`${patternId}-panel`}><rect width="120" height="64" /></clipPath>}
       <pattern id={patternId} width="160" height="64" patternUnits="userSpaceOnUse">
         {variant === 'geometric' ? <>
-          <!-- Owner's vertical tattoo panel laid horizontally: continuous filled
-               triangles between heavy rails and two inset diagonal-hatched strips. -->
-          <path d="M0 0H160V6H0ZM0 18H160V21H0ZM0 43H160V46H0ZM0 58H160V64H0Z" fill="currentColor" />
-          {Array.from({ length: 22 }, (_, i) => i * 8 - 8).map(x => <path d={`M${x} 8h3l9 9h-3ZM${x} 56h3l9-9h-3Z`} fill="currentColor" />)}
-          {Array.from({ length: 8 }, (_, i) => i * 20).map(x => <path d={`M${x} 22l20 10-20 10Z`} fill="currentColor" />)}
+          <!-- Thin outer edges, connected diagonal hatching and the triangle row
+               alternate with bold-sided dividers containing fine wavy lines. -->
+          <path d="M0 0H160V2H0ZM0 62H160V64H0Z" fill="currentColor" />
+          <g clip-path={`url(#${patternId}-panel)`}>
+            <path d="M0 20H120V23H0ZM0 41H120V44H0Z" fill="currentColor" />
+            {Array.from({ length: 19 }, (_, i) => i * 8 - 24).map(x => <path d={`M${x} 2h1.5l18 18h-1.5ZM${x} 62h1.5l18-18h-1.5Z`} fill="currentColor" />)}
+            {Array.from({ length: 6 }, (_, i) => i * 20).map(x => <path d={`M${x} 23l20 9-20 9Z`} fill="currentColor" />)}
+          </g>
+          <g data-wave-divider>
+            <path d="M120 0h6v64h-6ZM154 0h6v64h-6Z" fill="currentColor" />
+            {[132, 140, 148].map(x => <path d={`M${x} 2q-3 3.75 0 7.5${'t0 7.5'.repeat(7)}`} fill="none" stroke="currentColor" stroke-width="1.2" />)}
+          </g>
         </> : <>
           <path d="M0 0H160V5H0ZM0 59H160V64H0Z" fill="currentColor" />
           {Array.from({ length: 17 }, (_, i) => i * 10 - 6).map(x => <path d={`M${x} 8h7l6 6h-7ZM${x} 50h7l6 6h-7Z`} fill="currentColor" />)}

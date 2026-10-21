@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/home/Icon.astro';
+import TattooBand from '../components/home/TattooBand.astro';
+import '../styles/custom-guides.css';
+---
+<BaseLayout title="Page not found | Pohnpei Island" description="This page isn’t on the map. Find your way back to the Pohnpei Island visitor guides." noindex>
+  <Nav />
+  <main id="not-found" tabindex="-1" class="custom-guide">
+    <section class="custom-guide-hero custom-guide-hero--editorial">
+      <div class="custom-guide-hero-grid">
+        <div>
+          <p class="custom-guide-kicker">Pohnpei / 404</p>
+          <h1 class="custom-guide-heading">Off the path.<br /><em class="text-ochre-deep">Let’s find your way.</em></h1>
+          <p class="custom-guide-intro">The page you were looking for has moved or doesn’t exist. Start again from the guides below.</p>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a href="/" class="guide-button bg-basalt text-sand hover:bg-lagoon">Home <Icon name="arrow" /></a>
+            <a href="/plan-your-trip/" class="guide-button border border-basalt/30 hover:bg-sand-bright">Plan your visit <Icon name="arrow" /></a>
+            <a href="/nan-madol/" class="guide-button border border-basalt/30 hover:bg-sand-bright">Nan Madol <Icon name="arrow" /></a>
+          </div>
+        </div>
+      </div>
+      <TattooBand class="custom-guide-border-tour-operators" variant="fish" />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

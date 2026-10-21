@@ -2,13 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Homepage from '../components/home/Homepage.astro';
 import '../styles/homepage.css';
+import { ogImage, pohnpei } from '../data/site';
+
+const destination = {
+  ...pohnpei,
+  description: 'A high volcanic island in the Federated States of Micronesia, known for its rainforest, waterfalls, reefs and the ancient stone city of Nan Madol.',
+  url: 'https://pohnpeiisland.com/',
+  includesAttraction: { '@type': 'TouristAttraction', name: 'Nan Madol', url: 'https://pohnpeiisland.com/nan-madol/' },
+};
 ---
 
 <BaseLayout
-  title="Pohnpei Island — A world apart, a little closer"
+  title="Pohnpei Island Travel Guide | Micronesia’s Garden Island"
   description="Kaselehlie. Discover Pohnpei through its rainforest, reefs, ancient stone city and living culture. An independent guide to the Garden Island of Micronesia."
   canonical="https://pohnpeiisland.com/"
-  image="https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,w_1600/hero-left-matnas.jpg"
+  image={ogImage('hero-left-matnas.jpg')}
+  schema={[destination]}
 >
   <Homepage />
 </BaseLayout>

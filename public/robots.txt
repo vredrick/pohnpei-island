@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pohnpeiisland.com/sitemap.xml

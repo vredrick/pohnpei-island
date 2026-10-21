@@ -1,6 +1,6 @@
-# Build Your Stay pilot
+# Trip request pilot ("Plan my trip")
 
-`/build-your-stay` is a demand test. Travellers choose dates, a base, experiences and extras, then send the request with an email address. We reply with a free draft plan built from the published guides. No provider has agreed to anything, so the page names no businesses, quotes no prices and books nothing.
+The form lives on `/plan-your-trip/` (the old `/build-your-stay/` URL redirects there). It is a demand test for an owner-arranged service: travellers send their dates, group, the experiences they want, where they'd like to stay, extras and a budget. The owner contacts local guides, boats and hosts (many of whom aren't online) and replies with real options. Nothing is booked or paid until the traveller says yes, and the form names no businesses and quotes no prices. The code still uses the original `BuildYourStay` / `bys-` names; the site structure is described in `docs/trip-request-plan.md`.
 
 ## What it collects
 
@@ -31,7 +31,7 @@ After you edit the script, use **Deploy → Manage deployments → Edit → New 
 
 ## Running the pilot
 
-- **The promise:** a draft plan within 3 days (`replyDays` in `src/data/build-your-stay.ts`). Change it there if needed.
+- **The promise:** a reply with options within 3 days (`replyDays` in `src/data/build-your-stay.ts`). Change it there if contacting providers takes longer; the "How it works" copy updates with it.
 - **Draft reply:** a day-by-day outline using the guides. Mark anything still to confirm with providers. End with the real test: *"Would you like us to arrange this for you for $X?"* Record the answer in the Status column.
 - **Traffic:** link to the page with UTM tags, for example `?utm_source=facebook&utm_campaign=micronesia-group`, so the Source column shows which channels bring requests.
 - **Decide in advance:** set a target number of requests with real dates and a time window before promoting the page.
@@ -45,11 +45,11 @@ After you edit the script, use **Deploy → Manage deployments → Edit → New 
 | Requests with dates in the next 12 months | Requests |
 | Most-chosen experiences and bases | Requests: Experiences, Base |
 | Budget and fair planning fee | Requests: Budget, Fee ok |
-| Replies to draft plans and "yes, arrange it" | Requests: Status |
+| Replies to your options and "yes, arrange it" | Requests: Status |
 | Which channels bring requests | Requests and Funnel: Source |
 
 ## Limits
 
 - The endpoint is public. A hidden field rejects simple bots, and every value is stored as plain text. If spam appears, add a reCAPTCHA or Cloudflare Turnstile check.
 - Apps Script has daily email quotas. A personal Gmail account allows about 100 emails a day, which is plenty for a pilot.
-- Travellers get no automatic confirmation email. Sending one from a public endpoint could be abused to send mail to anyone. Your draft plan reply is the confirmation.
+- Travellers get no automatic confirmation email. Sending one from a public endpoint could be abused to send mail to anyone. Your reply with options is the confirmation.

@@ -1,6 +1,6 @@
 # Plan: one trip-request path ("we set it up with locals")
 
-Status: Plan only (21 October 2026). Nothing is built yet. The owner will review it and build it from a cloud session.
+Status: Built and deployed 21 October 2026. Decisions taken for the open questions below: nav button "Plan my trip", CTA "Start my trip request", reply time kept at 3 days, payment wording kept neutral ("Nothing is booked or paid until you say yes"), no phone/WhatsApp field yet. Owner feedback during the build: the form must be on the first screen, so `/plan-your-trip/` uses a compact hero with "How it works" beside the heading and puts the do-it-yourself links below the form.
 
 ## The idea, in the owner's words (summarised)
 

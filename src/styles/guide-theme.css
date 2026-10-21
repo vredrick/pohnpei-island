@@ -39,9 +39,12 @@
 .guide-brand small { display: block; font: 7px/1.5 'Be Vietnam Pro',sans-serif; letter-spacing: .2em; padding-top: 6px; }
 .guide-desktop-links { display: flex; align-items: center; gap: 32px; }
 .guide-desktop-links a { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; padding-block: 15px; }
-.guide-desktop-links a:last-child { border-bottom: 1px solid var(--ink); display: flex; align-items: center; gap: 22px; }
+.guide-desktop-links a:last-child { display: flex; align-items: center; gap: 18px; padding: 13px 18px; background: var(--ink); color: var(--paper); transition: background .25s; }
+.guide-desktop-links a:last-child:hover { background: var(--rust); }
 .guide-desktop-links a:last-child svg { font-size: 19px; }
 .guide-nav a[aria-current=page] { color: var(--rust); }
+.guide-desktop-links a:last-child[aria-current=page] { color: var(--paper); background: var(--rust); }
+.guide-nav-plan { display: none; }
 .guide-nav-actions { display: flex; align-items: center; gap: 25px; }
 .island-guide .motion-toggle { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #233e3c90; border-radius: 50%; cursor: pointer; }
 .island-guide .motion-toggle[hidden] { display: none; }
@@ -55,6 +58,9 @@
 .guide-menu-panel a { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #233e3c20; font: 28px/1.15 'Newsreader',Georgia,serif; padding: 14px 0; }
 .guide-menu-panel a svg { width: 18px !important; height: 18px !important; }
 .guide-menu-welcome { grid-column: 1/-1; font-size: 11px; padding-top: 10px; }
+.guide-menu-panel a.guide-menu-cta { grid-column: 1/-1; padding: 18px 22px; border: 0; background: var(--ink); color: var(--paper); }
+.guide-menu-panel a.guide-menu-cta:hover { background: var(--rust); }
+.guide-menu-cta small { display: block; margin-top: 4px; font: 13px/1.4 'Be Vietnam Pro',sans-serif; opacity: .8; }
 
 /* Generous first chapters; information remains easy to scan below. */
 .guide-hero { position: relative; padding: 100px 5.2% 144px; overflow: hidden; }
@@ -129,6 +135,7 @@ html:has(.island-guide.motion-paused) { scroll-behavior: auto; }
   .guide-brand { gap: 6px; }
   .guide-brand small { font-size: 6px; }
   .guide-desktop-links { display: none; }
+  .guide-nav-plan { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; background: var(--ink); color: var(--paper); font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
   .guide-menu summary > span:first-child { display: none; }
   .guide-nav-actions { gap: 19px; }
   .island-guide .motion-toggle { width: 36px; height: 36px; }
@@ -154,6 +161,13 @@ html:has(.island-guide.motion-paused) { scroll-behavior: auto; }
   .guide-footer-bottom { flex-direction: column; gap: 12px; font-size: 8px; }
   .island-guide :is(#operator-filters,#stay-filters) { padding: 20px; }
   .island-guide .tg-copy { font-size: 14px; }
+}
+@media (max-width: 430px) {
+  .guide-nav { padding-inline: 4.5%; }
+  .guide-nav-actions { gap: 10px; }
+  .guide-nav-plan { min-height: 36px; padding: 0 10px; font-size: 9px; letter-spacing: .06em; }
+  .island-guide .motion-toggle { width: 32px; height: 32px; }
+  .guide-brand > span { font-size: 21px; }
 }
 @media (max-width: 360px) {
   .guide-brand > span { font-size: 20px; }

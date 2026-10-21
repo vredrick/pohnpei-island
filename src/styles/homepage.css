@@ -171,6 +171,12 @@
 .planning-left > p { margin-top: 26px; font-size: 12px; line-height: 1.9; }
 .planning-cta { display: inline-flex; padding: 19px 24px; margin-top: 26px; gap: 40px; align-items: center; font-size: 10px; text-transform: uppercase; letter-spacing: .09em; color: var(--paper) !important; background: var(--ink); transition: background .3s; }
 .planning-cta:hover { background: var(--rust); }
+.planning-how { display: grid; gap: 14px; margin: 30px 0 4px; padding: 0; list-style: none; counter-reset: how; max-width: 460px; }
+.planning-how li { counter-increment: how; display: grid; grid-template-columns: 34px minmax(0, 1fr); padding-top: 14px; border-top: 1px solid #233e3c30; }
+.planning-how li::before { content: '0' counter(how); grid-row: span 2; font: 400 17px 'Newsreader', Georgia, serif; color: var(--rust); }
+.planning-how b { font: 400 22px/1.2 'Newsreader', Georgia, serif; }
+.planning-how span { font-size: 12px; line-height: 1.7; opacity: .85; }
+.planning-diy { margin-bottom: 18px !important; }
 .planning-cta span { font-size: 22px; line-height: 1; }
 .island-home .arrival-postcard { margin-top: 45px; max-width: 410px; }
 .arrival-postcard img { width: 100%; height: auto; aspect-ratio: 2.3; object-fit: cover; object-position: center 65%; }

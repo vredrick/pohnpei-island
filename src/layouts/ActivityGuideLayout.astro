@@ -4,26 +4,29 @@ import Nav from '../components/Nav.astro';
 import Icon from '../components/home/Icon.astro';
 import TattooBand from '../components/home/TattooBand.astro';
 import Footer from '../components/Footer.astro';
+import TripCta from '../components/TripCta.astro';
 import '../styles/travel-guide.css';
 interface Props {
   title: string; description: string; page: string; image?: string; imageAlt?: string;
   sections: { id: string; label: string }[];
 }
 const { title, description, page, image, imageAlt, sections } = Astro.props;
+// The trip request form's experience id for each activity guide.
+const experienceFor: Record<string, string> = { 'waterfalls-and-jungle': 'falls', 'diving-and-surfing': 'dive', 'outer-atolls': 'atoll' };
 ---
 <BaseLayout title={title} description={description} canonical={`/${page}/`} image={image} imageAlt={imageAlt}>
   <a href="#activity-guide" class="skip-link">Skip to activity guide</a>
   <Nav />
   <main id="activity-guide" tabindex="-1" class="travel-guide guide-main">
     <slot name="hero" />
-    <div class="guide-context px-6 py-5 bg-sand-bright border-y border-basalt/15"><div class="tg-wrap flex flex-wrap justify-between gap-4 text-xs leading-relaxed"><p>Independent guide · Arrange visits directly with local providers.</p><a href="https://visitpohnpei.travel/contact-us/" class="tg-link">Official Pohnpei tourism help <Icon name="arrow" /></a></div></div>
+    <div class="guide-context px-6 py-5 bg-sand-bright border-y border-basalt/15"><div class="tg-wrap flex flex-wrap justify-between gap-4 text-xs leading-relaxed"><p>Independent guide · <a href="/plan-your-trip/" class="tg-link">Let us arrange it with locals</a> or contact providers directly.</p><a href="https://visitpohnpei.travel/contact-us/" class="tg-link">Official Pohnpei tourism help <Icon name="arrow" /></a></div></div>
     <nav aria-label="On this page" class="guide-toc px-6 border-b border-basalt/15"><div class="tg-wrap flex flex-wrap gap-x-7 py-2 text-sm">{sections.map(({ id, label }) => <a href={`#${id}`} class="tg-page-link">{label}</a>)}</div></nav>
     <slot />
-    <section class="tg-section guide-onward bg-basalt text-sand" aria-label="Continue planning"><TattooBand class="guide-onward-border" variant="fish" /><div class="tg-wrap"><p class="text-xs uppercase tracking-[.18em] text-sand/75 mb-4">Build your visit</p><h2 class="font-headline text-4xl mb-6">Connect the places. <em>Talk to the people.</em></h2><nav aria-label="Related guides" class="flex flex-wrap gap-x-8 gap-y-2 text-sm">
+    <section class="tg-section guide-onward bg-basalt text-sand" aria-label="Continue planning"><TattooBand class="guide-onward-border" variant="fish" /><div class="tg-wrap"><TripCta add={experienceFor[page]} /><p class="text-xs uppercase tracking-[.18em] text-sand/75 mt-14 mb-4">Keep exploring</p><nav aria-label="Related guides" class="flex flex-wrap gap-x-8 gap-y-2 text-sm">
       {page !== 'waterfalls-and-jungle' && <a class="tg-page-link underline underline-offset-4" href="/waterfalls-and-jungle/">Waterfalls &amp; Jungle <Icon name="arrow" /></a>}
       {page !== 'diving-and-surfing' && <a class="tg-page-link underline underline-offset-4" href="/diving-and-surfing/">Diving &amp; Surfing <Icon name="arrow" /></a>}
       {page !== 'outer-atolls' && <a class="tg-page-link underline underline-offset-4" href="/outer-atolls/">Outer Islands <Icon name="arrow" /></a>}
-      <a class="tg-page-link underline underline-offset-4" href="/nan-madol/">Nan Madol <Icon name="arrow" /></a><a class="tg-page-link underline underline-offset-4" href="/plan-your-trip/">Plan Your Visit <Icon name="arrow" /></a>
+      <a class="tg-page-link underline underline-offset-4" href="/nan-madol/">Nan Madol <Icon name="arrow" /></a><a class="tg-page-link underline underline-offset-4" href="/tour-operators/">Guides &amp; Transport <Icon name="arrow" /></a>
     </nav></div></section>
   </main><Footer />
 </BaseLayout>

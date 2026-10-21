@@ -1,6 +1,6 @@
 ---
 import Icon from './home/Icon.astro';
-import { bases, budgets, experiences, extras, fees, flightOptions, photo, replyDays, sources, steps } from '../data/build-your-stay';
+import { bases, budgets, experiences, extras, fees, flightOptions, howItWorks, photo, replyDays, sources, steps } from '../data/build-your-stay';
 
 const endpoint = import.meta.env.PUBLIC_TRIP_REQUEST_ENDPOINT ?? '';
 const today = new Date().toISOString().slice(0, 10);
@@ -10,7 +10,7 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
 <noscript>
   <div class="bys-noscript tg-wrap">
     <p class="tg-eyebrow">JavaScript needed</p>
-    <p>The stay builder needs JavaScript. You can still <a class="tg-link" href="/plan-your-trip/">follow the planning steps</a> and contact providers directly from the <a class="tg-link" href="/tour-operators/">guides &amp; transport directory</a>.</p>
+    <p>The trip request form needs JavaScript. You can still plan it yourself: start with <a class="tg-link" href="/getting-here/">Getting here</a>, then contact providers directly from the <a class="tg-link" href="/tour-operators/">guides &amp; transport directory</a>.</p>
   </div>
 </noscript>
 
@@ -46,28 +46,28 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       </section>
 
       <section class="bys-step" data-step="2" aria-labelledby="bys-h2" hidden>
-        <h2 id="bys-h2" tabindex="-1">Pick your <em>base.</em></h2>
-        <p class="bys-lede">Choose the feel you want. We’ll suggest places to stay that match.</p>
-        <div class="bys-cards">
-          {bases.map(b => { const img = optionImage(b.image, b.alt); return (
-            <button type="button" class="bys-card" data-single="base" data-val={b.id} aria-pressed="false">
-              <span class="bys-mark" aria-hidden="true"></span>
-              {img ? <img src={img.src} srcset={img.srcset} sizes="(max-width: 700px) 92vw, 280px" width="640" height="440" alt={img.alt} loading="lazy" decoding="async" /> : <span class="bys-ph" aria-hidden="true"></span>}
-              <span class="bys-card-body"><span class="tg-eyebrow">{b.place}</span><span class="bys-card-title">{b.name}</span><span class="bys-card-text">{b.text}</span></span>
-            </button>
-          ); })}
-        </div>
-      </section>
-
-      <section class="bys-step" data-step="3" aria-labelledby="bys-h3" hidden>
-        <h2 id="bys-h3" tabindex="-1">Build your <em>days.</em></h2>
-        <p class="bys-lede">Add everything that calls to you. We’ll work out the order around tides, weather and your flights.</p>
+        <h2 id="bys-h2" tabindex="-1">What would you love <em>to do?</em></h2>
+        <p class="bys-lede">Pick everything that calls to you, or choose “Not sure yet”. We’ll work out the order around tides, weather and your flights.</p>
         <div class="bys-cards">
           {experiences.map(e => { const img = optionImage(e.image, e.alt); return (
             <button type="button" class="bys-card" data-multi="exp" data-val={e.id} aria-pressed="false">
               <span class="bys-mark" aria-hidden="true"></span>
               {img ? <img src={img.src} srcset={img.srcset} sizes="(max-width: 700px) 92vw, 280px" width="640" height="440" alt={img.alt} loading="lazy" decoding="async" /> : <span class="bys-ph" aria-hidden="true"></span>}
               <span class="bys-card-body"><span class="bys-card-title">{e.name}</span><span class="bys-card-text">{e.text}</span><span class="bys-tags">{e.tags.map(t => <span>{t}</span>)}</span></span>
+            </button>
+          ); })}
+        </div>
+      </section>
+
+      <section class="bys-step" data-step="3" aria-labelledby="bys-h3" hidden>
+        <h2 id="bys-h3" tabindex="-1">Where would you like <em>to stay?</em></h2>
+        <p class="bys-lede">Choose the feel you want. We’ll find places that match and check them for your dates.</p>
+        <div class="bys-cards">
+          {bases.map(b => { const img = optionImage(b.image, b.alt); return (
+            <button type="button" class="bys-card" data-single="base" data-val={b.id} aria-pressed="false">
+              <span class="bys-mark" aria-hidden="true"></span>
+              {img ? <img src={img.src} srcset={img.srcset} sizes="(max-width: 700px) 92vw, 280px" width="640" height="440" alt={img.alt} loading="lazy" decoding="async" /> : <span class="bys-ph" aria-hidden="true"></span>}
+              <span class="bys-card-body"><span class="tg-eyebrow">{b.place}</span><span class="bys-card-title">{b.name}</span><span class="bys-card-text">{b.text}</span></span>
             </button>
           ); })}
         </div>
@@ -83,17 +83,17 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       <section class="bys-step" data-step="5" aria-labelledby="bys-h5" hidden>
         <h2 id="bys-h5" tabindex="-1" class="bys-visually-hidden">Review and send</h2>
         <div class="bys-poster" id="bys-poster"></div>
-        <p class="bys-pilot">Pilot service. We reply with a free draft plan within {replyDays} days. Nothing is booked and you don’t pay anything.</p>
+        <p class="bys-pilot">We’ll contact local guides and hosts for your dates and reply within {replyDays} days with options and prices. Nothing is booked or paid until you say yes.</p>
         <fieldset class="bys-fieldset"><legend class="bys-label">Budget per person, not counting flights</legend>
           <div class="bys-chips">{budgets.map(v => <button type="button" class="bys-chip" data-single="budget" data-val={v} aria-pressed="false">{v}</button>)}</div>
         </fieldset>
-        <fieldset class="bys-fieldset"><legend class="bys-label">Optional · What planning fee feels fair?</legend>
-          <p class="bys-help">If we arranged everything for you later (bookings, pickups, guides), what would that be worth?</p>
+        <fieldset class="bys-fieldset"><legend class="bys-label">Optional · What fee would feel fair?</legend>
+          <p class="bys-help">For us arranging the whole trip with local people (guides, boats, pickups, stays).</p>
           <div class="bys-chips">{fees.map(v => <button type="button" class="bys-chip" data-single="fee" data-optional data-val={v} aria-pressed="false">{v}</button>)}</div>
         </fieldset>
         <div class="bys-row">
           <div class="bys-field"><label for="bys-name">First name</label><input type="text" id="bys-name" data-key="name" autocomplete="given-name" maxlength="80" /></div>
-          <div class="bys-field"><label for="bys-email">Email for your draft plan</label><input type="email" id="bys-email" data-key="email" autocomplete="email" maxlength="160" placeholder="you@example.com" /></div>
+          <div class="bys-field"><label for="bys-email">Email for your plan</label><input type="email" id="bys-email" data-key="email" autocomplete="email" maxlength="160" placeholder="you@example.com" /></div>
         </div>
         <div class="bys-field"><label for="bys-heard">How did you find us?</label>
           <select id="bys-heard" data-key="heard"><option value="">Choose one</option>{sources.map(s => <option value={s}>{s}</option>)}</select>
@@ -110,8 +110,8 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       <p class="bys-error" id="bys-error" role="alert"></p>
     </form>
 
-    <aside class="bys-summary" id="bys-summary" aria-label="Your stay">
-      <button type="button" class="bys-sheetbar" id="bys-sheetbar" aria-expanded="false" aria-controls="bys-ticket"><b id="bys-sheet-title">Your stay</b><span id="bys-sheet-hint">View</span></button>
+    <aside class="bys-summary" id="bys-summary" aria-label="Your trip">
+      <button type="button" class="bys-sheetbar" id="bys-sheetbar" aria-expanded="false" aria-controls="bys-ticket"><b id="bys-sheet-title">Your trip</b><span id="bys-sheet-hint">View</span></button>
       <div class="bys-ticket" id="bys-ticket"></div>
     </aside>
   </div>
@@ -119,12 +119,11 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
   <section class="bys-done" id="bys-done" hidden aria-labelledby="bys-done-title">
     <p class="tg-eyebrow">Request received</p>
     <h2 id="bys-done-title" tabindex="-1"></h2>
-    <div class="bys-next">
-      <div><b>Within {replyDays} days</b><span id="bys-done-email"></span></div>
-      <div><b>You reply</b><span>Tell us what to change. Nothing is booked until you say so.</span></div>
-      <div><b>Meanwhile</b><span>Read the <a class="tg-link" href="/getting-here/">Getting Here</a> and <a class="tg-link" href="/travel-info/">Travel Essentials</a> guides.</span></div>
-    </div>
-    <button type="button" class="bys-btn bys-btn-ghost" id="bys-restart">Start a new stay</button>
+    <ol class="bys-next">
+      {howItWorks.map((step, i) => <li class:list={{ 'is-done': i === 0 }}><b>{i === 0 ? '✓ ' : ''}{step.title}</b><span id={i === 0 ? 'bys-done-email' : undefined}>{step.text}</span></li>)}
+    </ol>
+    <p class="bys-meanwhile">Meanwhile, read <a class="tg-link" href="/getting-here/">Getting here</a> and <a class="tg-link" href="/travel-info/">Travel essentials</a>.</p>
+    <button type="button" class="bys-btn bys-btn-ghost" id="bys-restart">Start a new trip</button>
   </section>
 </div>
 
@@ -156,6 +155,10 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
     let S: State = { ...defaults };
     try { const saved = JSON.parse(store.get(DRAFT_KEY, local) ?? 'null'); if (saved) S = { ...defaults, ...saved }; } catch { /* ignore bad draft */ }
     const save = () => store.set(DRAFT_KEY, JSON.stringify(S), local);
+
+    // Guide pages link here with ?add=<experience id> so the form starts with that experience picked.
+    const add = new URLSearchParams(location.search).get('add');
+    if (add && experiences.some(e => e.id === add) && !S.exp.includes(add)) { S.exp = [...S.exp, add]; save(); }
 
     // Anonymous per-visit id and first-touch campaign tags, for the demand funnel.
     let sessionId = store.get('bys-session', session);
@@ -196,7 +199,7 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
     const party = () => plural(S.adults, 'adult') + (S.kids ? `, ${plural(S.kids, 'kid')}` : '');
     const expName = (id: string) => experiences.find(e => e.id === id)?.name ?? id;
     const base = () => bases.find(b => b.id === S.base);
-    const stayTitle = () => nights() ? `${plural(nights(), 'night')} on Pohnpei` : 'Your stay';
+    const stayTitle = () => nights() ? `${plural(nights(), 'night')} on Pohnpei` : 'Your trip';
     const dateLine = () => nights() ? `${day(S.arrive)} – ${day(S.depart, true)}${S.flexible ? ' · flexible' : ''}` : 'Add your dates';
 
     const plannerNotes = () => {
@@ -209,7 +212,7 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       if (S.exp.includes('falls')) out.push(['Rain', 'Waterfall days get a rain-day backup.']);
       if (S.exp.includes('surf')) out.push(['Swell', 'Surf depends on the season. We’ll check your dates.']);
       if (S.exp.includes('atoll') && n && n < 5) out.push(['Time', 'Outer-island trips need permission and spare days. Consider 5 nights or more.']);
-      if (n && S.exp.length > n) out.push(['Pace', 'That’s more than one plan a day. We’ll suggest what to pair.']);
+      if (n && S.exp.filter(id => id !== 'suggest').length > n) out.push(['Pace', 'That’s more than one plan a day. We’ll suggest what to pair.']);
       return out;
     };
 
@@ -221,7 +224,7 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       `Dates     ${day(S.arrive, true)} → ${day(S.depart, true)} (${plural(nights(), 'night')})${S.flexible ? ' · flexible' : ''}`,
       `Flights   ${S.flights || '(not said)'}`,
       `Party     ${party()}${S.diver ? ' · certified diver' : ''}${S.access ? ' · access needs' : ''}`,
-      `Base      ${base()?.name ?? '(not chosen)'}`,
+      `Stay      ${base()?.name ?? '(not chosen)'}`,
       `Wants     ${S.exp.map(expName).join(', ') || '(suggest for us)'}`,
       `Extras    ${S.extras.join(', ') || 'none'}${S.diet ? ` · diet: ${S.diet}` : ''}`,
       `Budget    ${S.budget} per person, excl. flights`,
@@ -237,12 +240,12 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       const notes = plannerNotes();
       $('bys-sheet-title').textContent = stayTitle() + (S.exp.length ? ` · ${plural(S.exp.length, 'plan')}` : '');
       $('bys-ticket').innerHTML = `
-        <div class="bys-ticket-head"><p>Your stay</p><h3>${stayTitle()}</h3><span>${dateLine()}</span></div>
+        <div class="bys-ticket-head"><p>Your trip</p><h3>${stayTitle()}</h3><span>${dateLine()}</span></div>
         <dl>
           <div><dt>Who</dt><dd>${party()}${S.diver ? ' · certified diver' : ''}${S.access ? ' · access needs' : ''}</dd></div>
           <div><dt>Flights</dt><dd>${S.flights ? esc(S.flights) : empty('Not said yet')}</dd></div>
-          <div><dt>Base</dt><dd>${base() ? `${esc(base()!.name)} <small>· ${esc(base()!.place)}</small>` : empty('Pick a base')}</dd></div>
-          <div><dt>Days</dt><dd>${S.exp.length ? `<ul>${S.exp.map(id => `<li>${esc(expName(id))}</li>`).join('')}</ul>` : empty('Add what you’d love to do')}</dd></div>
+          <div><dt>To do</dt><dd>${S.exp.length ? `<ul>${S.exp.map(id => `<li>${esc(expName(id))}</li>`).join('')}</ul>` : empty('Add what you’d love to do')}</dd></div>
+          <div><dt>Stay</dt><dd>${base() ? `${esc(base()!.name)} <small>· ${esc(base()!.place)}</small>` : empty('Choose where to stay')}</dd></div>
           <div><dt>Extras</dt><dd>${S.extras.length ? esc(S.extras.join(', ')) : empty('None yet')}</dd></div>
         </dl>
         ${notes.length ? `<div class="bys-notes"><p>Planner notes</p>${notes.map(([k, v]) => `<div><b>${k}</b> ${v}</div>`).join('')}</div>` : ''}`;
@@ -252,8 +255,8 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       $('bys-poster').innerHTML = `
         <p>${nights() ? `${day(S.arrive)} – ${day(S.depart, true)}` : 'Your dates'} · ${party()}</p>
         <h3>${plural(nights(), 'night')} on <em>Pohnpei.</em></h3>
-        <span>${base() ? `${esc(base()!.name)} base` : 'Base to suggest'}${S.extras.length ? ` · ${esc(S.extras.join(', '))}` : ''}</span>
-        <div>${S.exp.map(id => `<span>${esc(expName(id))}</span>`).join('') || '<span>Days to suggest</span>'}</div>`;
+        <span>${base() ? `Stay: ${esc(base()!.name)}` : 'Stay to suggest'}${S.extras.length ? ` · ${esc(S.extras.join(', '))}` : ''}</span>
+        <div>${S.exp.map(id => `<span>${esc(expName(id))}</span>`).join('') || '<span>Activities to suggest</span>'}</div>`;
     };
 
     const syncControls = () => {
@@ -281,7 +284,7 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       });
       root.querySelector<HTMLButtonElement>('[data-back]')!.hidden = S.step === 0;
       const next = $('bys-next');
-      next.firstChild!.textContent = S.step === steps.length - 1 ? 'Send to a planner ' : S.step === 4 ? 'Review my stay ' : 'Continue ';
+      next.firstChild!.textContent = S.step === steps.length - 1 ? 'Send my trip request ' : S.step === 4 ? 'Review my trip ' : 'Continue ';
       if (S.step === steps.length - 1) renderPoster();
     };
 
@@ -289,7 +292,7 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
       if (S.step === 0 && !nights()) return S.arrive && S.depart ? 'Pick a leave date after your arrival date.' : 'Add your arrival and leave dates. Rough dates are fine.';
       if (S.step === 5) {
         if (!S.budget) return 'Choose a budget range, or pick “Not sure yet”.';
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(S.email.trim())) return 'Add an email address so we can send your draft plan.';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(S.email.trim())) return 'Add an email address so we can send your plan.';
       }
       return '';
     };
@@ -304,7 +307,7 @@ const optionImage = (file: string | undefined, alt: string | undefined) =>
 
     const finish = () => {
       $('bys-done-title').innerHTML = `Thank you${S.name ? `, ${esc(S.name)}` : ''}. <em>We’re on it.</em>`;
-      $('bys-done-email').textContent = `We’ll email a draft day-by-day plan for your dates to ${S.email}.`;
+      $('bys-done-email').textContent = `We have your request. We’ll reply to ${S.email} within ${replyDays} days.`;
       root.querySelector<HTMLElement>('.bys-grid')!.hidden = true;
       root.querySelector<HTMLElement>('.bys-rail')!.hidden = true;
       $('bys-done').hidden = false;

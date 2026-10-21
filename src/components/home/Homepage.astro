@@ -1,18 +1,14 @@
 ---
 import TattooBand from './TattooBand.astro';
 import Icon from './Icon.astro';
+import { howItWorks } from '../../data/build-your-stay';
+import { practicalGuides } from '../../data/site';
 const photo = (name: string, width: number) => `https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,w_${width}/${name}`;
 const experiences = [
   { number: '01', title: 'Into the green.', subtitle: 'Waterfalls & wild interiors', text: 'Follow the river. Take the ridge. Find a different kind of rush.', image: 'chapter-02-wild-interior.jpg', alt: 'A waterfall cascading beside a forest walkway on Pohnpei', href: '/waterfalls-and-jungle/', class: 'forest' },
   { number: '02', title: 'Beyond the blue.', subtitle: 'Reefs, diving & surf', text: 'Meet the life beneath the surface, and the waves beyond the reef.', image: 'hero-right-manta-road-pass.jpg', alt: 'A manta ray swimming through blue water', href: '/diving-and-surfing/', class: 'ocean' },
   { number: '03', title: 'Between worlds.', subtitle: 'The stone city of Nan Madol', text: 'Basalt walls. Quiet canals. A history that asks you to look closer.', image: 'chapter-01-nan-madol.jpg', alt: 'Ancient stacked basalt walls and a tidal canal at Nan Madol', href: '/nan-madol/', class: 'history' },
   { number: '04', title: 'A slower horizon.', subtitle: 'Lagoon islands & outer atolls', text: 'Let the mainland fall away. Make room for the journey.', image: 'hero-left-matnas.jpg', alt: 'Green islands and still water in Pohnpei’s lagoon at sunset', href: '/outer-atolls/', class: 'islands' },
-];
-const planning = [
-  { number: '01', title: 'Find your way here', detail: 'Flights & arrival', href: '/getting-here/' },
-  { number: '02', title: 'Somewhere to stay', detail: 'Hotels & island stays', href: '/places-to-stay/' },
-  { number: '03', title: 'Go with a local', detail: 'Guides & tour operators', href: '/tour-operators/' },
-  { number: '04', title: 'A little preparation', detail: 'Good things to know', href: '/travel-info/' },
 ];
 ---
 
@@ -28,10 +24,10 @@ const planning = [
     </nav>
     <div class="home-nav-actions">
       <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause animations" title="Pause animations" hidden><span aria-hidden="true"><Icon name="pause" /></span></button>
-      <a class="nav-plan" href="/plan-your-trip/">Plan your visit <span aria-hidden="true"><Icon name="arrow" /></span></a>
+      <a class="nav-plan" href="/plan-your-trip/">Plan my trip <span aria-hidden="true"><Icon name="arrow" /></span></a>
       <details class="home-menu">
         <summary aria-label="Open navigation"><span class="menu-label">Menu</span><span class="menu-lines" aria-hidden="true"></span></summary>
-        <nav aria-label="Mobile navigation"><a href="#about">The island <span>01</span></a><a href="#adventures">Experiences <span>02</span></a><a href="#culture">People & culture <span>03</span></a><a href="/plan-your-trip/">Plan your visit <span><Icon name="arrow" /></span></a><a href="/tour-operators/">Find a local guide <span><Icon name="arrow" /></span></a><p>Kaselehlie. You’re welcome here.</p></nav>
+        <nav aria-label="Mobile navigation"><a href="#about">The island <span>01</span></a><a href="#adventures">Experiences <span>02</span></a><a href="#culture">People & culture <span>03</span></a><a href="/plan-your-trip/">Plan my trip <span><Icon name="arrow" /></span></a><a href="/tour-operators/">Find a local guide <span><Icon name="arrow" /></span></a><p>Kaselehlie. You’re welcome here.</p></nav>
       </details>
     </div>
   </header>
@@ -92,8 +88,8 @@ const planning = [
     <section class="planning-section home-section" id="plan" aria-labelledby="planning-title">
       <div id="dispatch" class="anchor-offset"></div>
       <div class="planning-top"><span class="eyebrow">05 / Make room for a little wonder</span><span class="eyebrow">Your journey starts here <span aria-hidden="true"><Icon name="down-left" /></span></span></div>
-      <div class="planning-layout"><div class="planning-left"><h2 id="planning-title" data-enter>Far away.<br /><em>Within reach.</em></h2><p data-enter>A few good plans. Plenty of room to explore.<br />We’ll help you take the first step.</p><a href="/plan-your-trip/" class="planning-cta" data-enter>Plan your Pohnpei visit <span aria-hidden="true"><Icon name="arrow" /></span></a><figure class="arrival-postcard" data-enter><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Pohnpei_lagoon_from_plane_2.jpg" width="4032" height="2268" alt="A real aerial view of Pohnpei’s lagoon, fringing reef, airport and forested mountains" loading="lazy" decoding="async" /><figcaption><span>Your window seat, eventually.</span><a href="https://commons.wikimedia.org/wiki/File:Pohnpei_lagoon_from_plane_2.jpg" target="_blank" rel="noopener noreferrer">Photo: Zykasaa <Icon name="arrow" /></a><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0 · Display crop</a></figcaption></figure></div>
-        <div class="planning-links" data-enter>{planning.map(item => <a href={item.href}><span class="planning-number">{item.number}</span><span><span class="eyebrow">{item.detail}</span><h3>{item.title}</h3></span><span class="planning-arrow" aria-hidden="true"><Icon name="arrow" /></span></a>)}<p class="planning-note">An independent guide. Real places. A little local perspective.</p></div>
+      <div class="planning-layout"><div class="planning-left"><h2 id="planning-title" data-enter>Far away.<br /><em>Within reach.</em></h2><p data-enter>Many of Pohnpei’s best guides, boat captains and hosts aren’t online.<br class="desktop-break" /> Tell us your trip, and we’ll set it up with them for you.</p><ol class="planning-how" data-enter>{howItWorks.map(step => <li><b>{step.title}</b><span>{step.text}</span></li>)}</ol><a href="/plan-your-trip/" class="planning-cta" data-enter>Start my trip request <span aria-hidden="true"><Icon name="arrow" /></span></a><figure class="arrival-postcard" data-enter><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Pohnpei_lagoon_from_plane_2.jpg" width="4032" height="2268" alt="A real aerial view of Pohnpei’s lagoon, fringing reef, airport and forested mountains" loading="lazy" decoding="async" /><figcaption><span>Your window seat, eventually.</span><a href="https://commons.wikimedia.org/wiki/File:Pohnpei_lagoon_from_plane_2.jpg" target="_blank" rel="noopener noreferrer">Photo: Zykasaa <Icon name="arrow" /></a><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0 · Display crop</a></figcaption></figure></div>
+        <div class="planning-links" data-enter><p class="eyebrow planning-diy">Or plan it yourself</p>{practicalGuides.map((item, i) => <a href={item.href}><span class="planning-number">0{i + 1}</span><span><span class="eyebrow">{item.detail}</span><h3>{item.title}</h3></span><span class="planning-arrow" aria-hidden="true"><Icon name="arrow" /></span></a>)}<p class="planning-note">An independent guide. Real places. A little local perspective.</p></div>
       </div>
     </section>
   </main>
@@ -101,7 +97,7 @@ const planning = [
   <footer class="island-footer">
     <TattooBand class="footer-border" />
     <div class="home-footer-content">
-    <div class="footer-top"><a class="footer-tagline" href="#top">Until the island<br /><em>brings you here.</em></a><nav aria-label="Footer navigation"><a href="#about">The island</a><a href="#adventures">Experiences</a><a href="/plan-your-trip/">Plan your visit</a><a href="/tour-operators/">Local guides</a></nav><a href="#top" class="back-top" aria-label="Back to top"><Icon name="up" /></a></div>
+    <div class="footer-top"><a class="footer-tagline" href="#top">Until the island<br /><em>brings you here.</em></a><nav aria-label="Footer navigation"><a href="#about">The island</a><a href="#adventures">Experiences</a><a href="/plan-your-trip/">Plan my trip</a><a href="/tour-operators/">Local guides</a></nav><a href="#top" class="back-top" aria-label="Back to top"><Icon name="up" /></a></div>
     <div class="footer-wordmark" aria-hidden="true">POHNPEI</div>
     <div class="footer-bottom"><span>© {new Date().getFullYear()} PohnpeiIsland.com</span><span>An independent island guide · Made with care</span><a href="https://visitpohnpei.travel/" target="_blank" rel="noopener noreferrer">Pohnpei tourism information <Icon name="arrow" /></a></div>
     </div>

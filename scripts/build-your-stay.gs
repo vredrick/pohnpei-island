@@ -2,9 +2,10 @@
  * Build Your Stay request endpoint (Google Apps Script web app).
  *
  * Setup: docs/build-your-stay.md. In short, create a Google Sheet, open
- * Extensions > Apps Script, paste this file, set the OWNER_EMAIL script
- * property, deploy as a web app (Execute as: Me, Who has access: Anyone) and
- * put the /exec URL in PUBLIC_TRIP_REQUEST_ENDPOINT before building the site.
+ * Extensions > Apps Script, paste this file, optionally set the OWNER_EMAIL
+ * script property (otherwise mail goes to the deploying account), deploy as
+ * a web app (Execute as: Me, Who has access: Anyone) and put the /exec URL in
+ * PUBLIC_TRIP_REQUEST_ENDPOINT before building the site.
  *
  * The site posts two kinds of JSON body as text/plain:
  *   { type: 'step', step, stepName, session, source }   -> "Funnel" tab
@@ -45,7 +46,8 @@ function doPost(e) {
         list(data.flags), clean(data.session),
       ]);
 
-      const owner = PropertiesService.getScriptProperties().getProperty('OWNER_EMAIL');
+      // Defaults to the account that deployed the web app (Execute as: Me).
+      const owner = PropertiesService.getScriptProperties().getProperty('OWNER_EMAIL') || Session.getEffectiveUser().getEmail();
       if (owner) {
         MailApp.sendEmail({
           to: owner,

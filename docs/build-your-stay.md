@@ -6,7 +6,7 @@
 
 - **Requests tab:** one row per request. It records the trip details, budget (required), fair planning fee (optional), how the traveller found us, traffic source (UTM tags or referring site), the planner flags, and a Status column you update as you work.
 - **Funnel tab:** one row per step each visitor reaches (anonymous visit id, step, source). Counting the visits that reach step 1, step 2 and so on up to Send shows where people stop.
-- **Email:** the plain-text brief goes to `OWNER_EMAIL`, with Reply-To set to the traveller.
+- **Email:** the plain-text brief goes to `OWNER_EMAIL`, or to the deploying account if that property isn't set. Reply-To is the traveller.
 
 Nothing else is stored. An unfinished trip is saved only in the traveller's own browser.
 
@@ -14,7 +14,7 @@ Nothing else is stored. An unfinished trip is saved only in the traveller's own 
 
 1. Create a Google Sheet, for example "Build Your Stay requests".
 2. In the Sheet, open **Extensions → Apps Script**. Replace the editor contents with `scripts/build-your-stay.gs` and save.
-3. In Apps Script, open **Project Settings → Script properties** and add `OWNER_EMAIL` with the inbox that should receive requests.
+3. Optional: to send requests to a different inbox, open **Project Settings → Script properties** in Apps Script and add `OWNER_EMAIL`. Otherwise they go to the Google account that deploys the script.
 4. Choose **Deploy → New deployment → Web app**. Set *Execute as* to **Me** and *Who has access* to **Anyone**, then deploy and approve the permissions (Sheets and sending email).
 5. Copy the web app URL ending in `/exec`.
 6. In the project root, create `.env` with:

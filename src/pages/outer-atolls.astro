@@ -4,8 +4,9 @@ import Icon from '../components/home/Icon.astro';
 import TattooBand from '../components/home/TattooBand.astro';
 import ActivityOperators from '../components/ActivityOperators.astro';
 const sections = [{ id: 'nearby', label: 'Ahnd & Pakin' }, { id: 'farther', label: 'Farther islands' }, { id: 'arrangements', label: 'Arrange a visit' }];
+import { ogImage } from '../data/site';
 ---
-<ActivityGuideLayout page="outer-atolls" title="Pohnpei’s Outer Islands | Ahnd, Pakin & Planning Farther Journeys" description="Distinguish Ahnd and Pakin from Pohnpei’s farther outer islands. Read sourced context and plan permissions, transport, hosting and return arrangements." sections={sections}>
+<ActivityGuideLayout page="outer-atolls" title="Pohnpei’s Outer Islands | Ahnd, Pakin & Farther Atolls" image={ogImage('chapter-03-outer-atolls.jpg')} imageAlt="Aerial view of Pohnpei’s outer atolls" description="Distinguish Ahnd and Pakin from Pohnpei’s farther outer islands. Read sourced context and plan permissions, transport, hosting and return arrangements." sections={sections}>
   <section slot="hero" class="guide-hero guide-hero--split bg-sand"><div class="tg-wrap guide-hero-grid"><div class="guide-hero-content"><p class="tg-eyebrow">Pohnpei State / Beyond the main island</p><h1 class="guide-hero-title font-headline">Outer<br /><em class="text-ochre-deep">islands.</em></h1><p class="tg-copy">Each journey begins with the people who live there and the people who can take you. Start by distinguishing nearby atolls from farther communities, then plan the visit together.</p><a href="#nearby" class="tg-button bg-basalt text-sand hover:bg-lagoon mt-7">Get your bearings <Icon name="down" /></a></div><div class="guide-hero-media overflow-hidden bg-sand-deep"><img
               class="w-full h-full object-cover"
               src="https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,c_fill,g_auto,w_1200,h_675/chapter-03-outer-atolls.jpg"

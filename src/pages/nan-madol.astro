@@ -7,13 +7,35 @@ import TattooBand from '../components/home/TattooBand.astro';
 import '../styles/custom-guides.css';
 import NanMadolOperators from '../components/NanMadolOperators.astro';
 import { sources } from '../data/nan-madol';
+import { ogImage, pageUrl, pohnpei } from '../data/site';
 
 const image = 'https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,c_fill,g_auto,w_2000,h_900/feature-nan-madol-step-into.jpg';
+const faqs = [
+  { q: 'How much does a visit cost?', a: `Request a quote for your date, group size, and route. Check whether it includes transfers, guiding, equipment, and access fees. We don’t publish a universal price because these arrangements need to be confirmed with the provider.` },
+  { q: 'Can I visit without a guide?', a: `The tourism office recommends a guide for historical and cultural context. If you plan to travel independently, ask the tourism office about current access and local arrangements first. A map alone won’t explain permission, crossing conditions, or the significance of the places you enter.` },
+  { q: 'Is the visit suitable for children or limited mobility?', a: `Discuss your group’s needs before agreeing to a trip. Ask for specifics about uneven ground, water crossings, steps, boat boarding, seating, and assistance. We have not verified an accessible route; a boat trip should not be assumed to remove those barriers.` },
+  { q: 'Can I combine Nan Madol with another stop?', a: `Ask your operator to suggest a realistic itinerary, allowing time for transport and the tide. The tourism office describes visits that can include waterfalls or village sightseeing. Agree on each stop and its access arrangements rather than assuming extras are included.` },
+  { q: 'Does this website take bookings?', a: `No. Contact details connect you directly with the business. Confirm availability, price, and terms with the operator before making your arrangements. For wider assistance, <a href=${sources.contact} class="text-link">contact the Pohnpei Tourism Office</a>.` },
+];
+const schema = [
+  {
+    '@type': ['TouristAttraction', 'LandmarksOrHistoricalBuildings'],
+    name: 'Nan Madol',
+    description: 'A ceremonial centre of stone islets and canals built off Pohnpei’s southeast coast, inscribed on the UNESCO World Heritage List in 2016.',
+    url: pageUrl('/nan-madol/'),
+    image: ogImage('feature-nan-madol-step-into.jpg'),
+    geo: { '@type': 'GeoCoordinates', latitude: 6.8436, longitude: 158.3328 },
+    containedInPlace: { '@id': pohnpei['@id'] },
+    sameAs: [sources.unesco, 'https://en.wikipedia.org/wiki/Nan_Madol'],
+  },
+  pohnpei,
+  { '@type': 'FAQPage', mainEntity: faqs.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) },
+];
 const contents = [ ['story', 'The story'], ['visiting', 'Plan your visit'], ['prepare', 'What to bring'], ['local-guides', 'Local guides'], ['questions', 'Common questions'] ];
 ---
 <BaseLayout title="Nan Madol Visitor Guide & Local Tours | Pohnpei Island"
   description="Explore Nan Madol’s history, plan a respectful visit, and contact local tour operators. An independent Pohnpei guide with official tourism and UNESCO sources."
-  canonical="https://pohnpeiisland.com/nan-madol" image={image}>
+  canonical="/nan-madol/" image={ogImage('feature-nan-madol-step-into.jpg')} imageAlt="People beside Nan Madol’s basalt walls and waterway" schema={schema}>
   <a href="#guide" class="skip-link">Skip to visitor guide</a>
   <Nav />
   <main id="guide" tabindex="-1" class="custom-guide">
@@ -118,17 +140,13 @@ const contents = [ ['story', 'The story'], ['visiting', 'Plan your visit'], ['pr
       <div class="max-w-3xl mx-auto">
         <p class="eyebrow">05 / Common questions</p><h2 class="section-title mb-8">A few things <em>to know.</em></h2>
         <div class="divide-y divide-basalt/20 border-y border-basalt/20">
-          <details class="py-5"><summary>How much does a visit cost?</summary><p>Request a quote for your date, group size, and route. Check whether it includes transfers, guiding, equipment, and access fees. We don’t publish a universal price because these arrangements need to be confirmed with the provider.</p></details>
-          <details class="py-5"><summary>Can I visit without a guide?</summary><p>The tourism office recommends a guide for historical and cultural context. If you plan to travel independently, ask the tourism office about current access and local arrangements first. A map alone won’t explain permission, crossing conditions, or the significance of the places you enter.</p></details>
-          <details class="py-5"><summary>Is the visit suitable for children or limited mobility?</summary><p>Discuss your group’s needs before agreeing to a trip. Ask for specifics about uneven ground, water crossings, steps, boat boarding, seating, and assistance. We have not verified an accessible route; a boat trip should not be assumed to remove those barriers.</p></details>
-          <details class="py-5"><summary>Can I combine Nan Madol with another stop?</summary><p>Ask your operator to suggest a realistic itinerary, allowing time for transport and the tide. The tourism office describes visits that can include waterfalls or village sightseeing. Agree on each stop and its access arrangements rather than assuming extras are included.</p></details>
-          <details class="py-5"><summary>Does this website take bookings?</summary><p>No. Contact details connect you directly with the business. Confirm availability, price, and terms with the operator before making your arrangements. For wider assistance, <a href={sources.contact} class="text-link">contact the Pohnpei Tourism Office</a>.</p></details>
+          {faqs.map(({ q, a }) => <details class="py-5"><summary>{q}</summary><p set:html={a} /></details>)}
         </div>
       </div>
     </section>
     <section id="sources" class="guide-section bg-sand">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-        <div><p class="eyebrow">Keep exploring</p><h2 class="section-title mb-5">Make your <em>next connection.</em></h2><p class="text-basalt/80 leading-relaxed mb-6">Have dates in mind? Compare places to stay, then share your accommodation’s location with a local operator to arrange your visit.</p><div class="flex flex-wrap gap-3"><a href="/places-to-stay" class="guide-button bg-lagoon text-white hover:bg-basalt">Find a place to stay <Icon name="arrow" /></a><a href="#local-guides" class="guide-button border border-basalt/30 hover:bg-sand-bright">Find a local guide <Icon name="up" /></a></div></div>
+        <div><p class="eyebrow">Keep exploring</p><h2 class="section-title mb-5">Make your <em>next connection.</em></h2><p class="text-basalt/80 leading-relaxed mb-6">Have dates in mind? Compare places to stay, then share your accommodation’s location with a local operator to arrange your visit.</p><div class="flex flex-wrap gap-3"><a href="/places-to-stay/" class="guide-button bg-lagoon text-white hover:bg-basalt">Find a place to stay <Icon name="arrow" /></a><a href="#local-guides" class="guide-button border border-basalt/30 hover:bg-sand-bright">Find a local guide <Icon name="up" /></a></div></div>
         <div class="text-sm text-basalt/80 leading-relaxed">
           <h3 class="font-headline text-2xl text-basalt mb-4">About this guide &amp; our sources</h3>
           <p class="mb-4">PohnpeiIsland.com is an independent guide with no formal tourism-office affiliation. We write our own visitor guidance using the sources below. Source review is not an on-site inspection or a confirmation of business availability.</p>

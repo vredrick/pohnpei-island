@@ -7,13 +7,13 @@ import Footer from '../components/Footer.astro';
 import { travelFacts, travelSources } from '../data/travel';
 import '../styles/travel-guide.css';
 interface Props {
-  title: string; description: string; page: 'getting-here' | 'travel-info';
+  title: string; description: string; page: 'getting-here' | 'travel-info'; image?: string; imageAlt?: string;
   heading: string; emphasis: string; intro: string;
   sections: { id: string; label: string }[];
 }
-const { title, description, page, heading, emphasis, intro, sections } = Astro.props;
+const { title, description, page, image, imageAlt, heading, emphasis, intro, sections } = Astro.props;
 ---
-<BaseLayout title={title} description={description} canonical={`https://pohnpeiisland.com/${page}`}>
+<BaseLayout title={title} description={description} canonical={`/${page}/`} image={image} imageAlt={imageAlt}>
   <a href="#travel-guide" class="skip-link">Skip to travel guide</a>
   <Nav />
   <main id="travel-guide" tabindex="-1" class="travel-guide guide-main">
@@ -37,11 +37,11 @@ const { title, description, page, heading, emphasis, intro, sections } = Astro.p
     <div class="guide-context px-6 bg-sand-bright border-y border-basalt/15"><div class="max-w-6xl mx-auto py-4 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
       <p class="text-xs leading-relaxed">Independent guide · <a class="tg-link" href={page === 'getting-here' ? travelSources.tourismArrival : travelSources.tourismEssentials}>Official Pohnpei tourism guidance <Icon name="arrow" /></a></p>
       <nav aria-label="Travel guides" class="flex flex-wrap gap-x-6 text-sm">
-        <a class="tg-page-link" aria-current={page === 'getting-here' ? 'page' : undefined} href="/getting-here">Getting Here</a>
-        <a class="tg-page-link" aria-current={page === 'travel-info' ? 'page' : undefined} href="/travel-info">Travel Essentials</a>
-        <a class="tg-page-link" href="/places-to-stay">Places to Stay</a>
-        <a class="tg-page-link" href="/tour-operators">Guides &amp; Transport</a>
-        <a class="tg-page-link" href="/plan-your-trip">Plan Your Visit <Icon name="arrow" /></a>
+        <a class="tg-page-link" aria-current={page === 'getting-here' ? 'page' : undefined} href="/getting-here/">Getting Here</a>
+        <a class="tg-page-link" aria-current={page === 'travel-info' ? 'page' : undefined} href="/travel-info/">Travel Essentials</a>
+        <a class="tg-page-link" href="/places-to-stay/">Places to Stay</a>
+        <a class="tg-page-link" href="/tour-operators/">Guides &amp; Transport</a>
+        <a class="tg-page-link" href="/plan-your-trip/">Plan Your Visit <Icon name="arrow" /></a>
       </nav>
     </div></div>
     <nav aria-label="On this page" class="guide-toc px-6 border-b border-basalt/15"><div class="max-w-6xl mx-auto flex flex-wrap gap-x-7 py-2 text-sm">{sections.map(({ id, label }) => <a href={`#${id}`} class="tg-page-link">{label}</a>)}</div></nav>

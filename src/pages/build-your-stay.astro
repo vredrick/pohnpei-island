@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import TattooBand from '../components/home/TattooBand.astro';
+import BuildYourStay from '../components/BuildYourStay.astro';
+import '../styles/custom-guides.css';
+import '../styles/travel-guide.css';
+import '../styles/build-your-stay.css';
+import { replyDays } from '../data/build-your-stay';
+---
+<BaseLayout title="Build Your Stay on Pohnpei | Free Draft Trip Plan" description="Choose your dates, your base and the experiences you want on Pohnpei. Send it to us and get a free draft day-by-day plan. Nothing is booked." canonical="/build-your-stay/">
+  <a href="#builder" class="skip-link">Skip to the stay builder</a>
+  <Nav />
+  <main id="builder" tabindex="-1" class="travel-guide custom-guide bys-page">
+    <section class="custom-guide-hero custom-guide-hero--editorial bys-hero">
+      <div class="tg-wrap bys-hero-inner">
+        <p class="custom-guide-kicker">Pohnpei / Build your stay · Pilot</p>
+        <h1 class="custom-guide-heading">Build your stay.<br /><em>We’ll shape the days.</em></h1>
+        <p class="custom-guide-intro">Tell us when you’re coming and what you’d love to do. We’ll send a free draft plan for your dates within {replyDays} days. Nothing is booked and there’s nothing to pay.</p>
+      </div>
+      <TattooBand class="custom-guide-border-build-your-stay" variant="geometric" />
+    </section>
+    <section class="bys-section">
+      <BuildYourStay />
+    </section>
+    <div class="px-6 py-8 bg-sand-bright border-t border-basalt/15"><p class="tg-wrap text-sm text-basalt/75 leading-relaxed">Build Your Stay is a pilot from PohnpeiIsland.com, an independent guide. Draft plans are suggestions based on our published guides; they are not bookings or offers from any provider. Prefer to arrange things yourself? <a href="/plan-your-trip/" class="tg-link">Follow the planning steps</a> or browse <a href="/tour-operators/" class="tg-link">guides &amp; transport</a>.</p></div>
+  </main>
+  <Footer />
+</BaseLayout>

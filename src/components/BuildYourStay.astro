@@ -1,0 +1,390 @@
+---
+import Icon from './home/Icon.astro';
+import { bases, budgets, experiences, extras, fees, flightOptions, photo, replyDays, sources, steps } from '../data/build-your-stay';
+
+const endpoint = import.meta.env.PUBLIC_TRIP_REQUEST_ENDPOINT ?? '';
+const today = new Date().toISOString().slice(0, 10);
+const optionImage = (file: string | undefined, alt: string | undefined) =>
+  file ? { src: photo(file), srcset: `${photo(file, 480, 330)} 480w, ${photo(file)} 640w, ${photo(file, 960, 660)} 960w`, alt: alt ?? '' } : null;
+---
+<noscript>
+  <div class="bys-noscript tg-wrap">
+    <p class="tg-eyebrow">JavaScript needed</p>
+    <p>The stay builder needs JavaScript. You can still <a class="tg-link" href="/plan-your-trip/">follow the planning steps</a> and contact providers directly from the <a class="tg-link" href="/tour-operators/">guides &amp; transport directory</a>.</p>
+  </div>
+</noscript>
+
+<div class="bys" id="bys" data-endpoint={endpoint} data-reply-days={replyDays} hidden>
+  {!endpoint && <p class="bys-preview" role="note">Preview mode: requests are not sent until the request endpoint is configured.</p>}
+  <nav class="bys-rail" aria-label="Builder steps">
+    {steps.map((step, i) => <button type="button" data-go={i}><b>{i + 1}</b>{step}</button>)}
+  </nav>
+
+  <div class="bys-grid">
+    <form class="bys-stage" id="bys-form" novalidate>
+      <section class="bys-step" data-step="0" aria-labelledby="bys-h0">
+        <h2 id="bys-h0" tabindex="-1">When are you <em>coming?</em></h2>
+        <p class="bys-lede">Rough dates are fine. Flights into Pohnpei don’t run every day, so we plan around your arrival.</p>
+        <div class="bys-row">
+          <div class="bys-field"><label for="bys-arrive">Arrive</label><input type="date" id="bys-arrive" data-key="arrive" min={today} /></div>
+          <div class="bys-field"><label for="bys-depart">Leave</label><input type="date" id="bys-depart" data-key="depart" min={today} /></div>
+        </div>
+        <p class="bys-nights" id="bys-nights" aria-live="polite">Add your arrival and leave dates</p>
+        <label class="bys-toggle"><input type="checkbox" id="bys-flexible" data-key="flexible" /> My dates are flexible by a few days</label>
+        <fieldset class="bys-fieldset"><legend class="bys-label">Flights</legend>
+          <div class="bys-chips">{flightOptions.map(v => <button type="button" class="bys-chip" data-single="flights" data-val={v} aria-pressed="false">{v}</button>)}</div>
+        </fieldset>
+      </section>
+
+      <section class="bys-step" data-step="1" aria-labelledby="bys-h1" hidden>
+        <h2 id="bys-h1" tabindex="-1">Who’s <em>coming?</em></h2>
+        <p class="bys-lede">This helps us suggest the right trails, boats and rooms.</p>
+        <div class="bys-stepper"><div><b>Adults</b><small>13 and over</small></div><div class="bys-count"><button type="button" data-dec="adults" aria-label="Fewer adults">−</button><output id="bys-adults" aria-live="polite">2</output><button type="button" data-inc="adults" aria-label="More adults">+</button></div></div>
+        <div class="bys-stepper"><div><b>Kids</b><small>Under 13</small></div><div class="bys-count"><button type="button" data-dec="kids" aria-label="Fewer kids">−</button><output id="bys-kids" aria-live="polite">0</output><button type="button" data-inc="kids" aria-label="More kids">+</button></div></div>
+        <label class="bys-toggle"><input type="checkbox" id="bys-diver" data-key="diver" /> Someone in the group is a certified diver</label>
+        <label class="bys-toggle"><input type="checkbox" id="bys-access" data-key="access" /> We have mobility or access needs</label>
+      </section>
+
+      <section class="bys-step" data-step="2" aria-labelledby="bys-h2" hidden>
+        <h2 id="bys-h2" tabindex="-1">Pick your <em>base.</em></h2>
+        <p class="bys-lede">Choose the feel you want. We’ll suggest places to stay that match.</p>
+        <div class="bys-cards">
+          {bases.map(b => { const img = optionImage(b.image, b.alt); return (
+            <button type="button" class="bys-card" data-single="base" data-val={b.id} aria-pressed="false">
+              <span class="bys-mark" aria-hidden="true"></span>
+              {img ? <img src={img.src} srcset={img.srcset} sizes="(max-width: 700px) 92vw, 280px" width="640" height="440" alt={img.alt} loading="lazy" decoding="async" /> : <span class="bys-ph" aria-hidden="true"></span>}
+              <span class="bys-card-body"><span class="tg-eyebrow">{b.place}</span><span class="bys-card-title">{b.name}</span><span class="bys-card-text">{b.text}</span></span>
+            </button>
+          ); })}
+        </div>
+      </section>
+
+      <section class="bys-step" data-step="3" aria-labelledby="bys-h3" hidden>
+        <h2 id="bys-h3" tabindex="-1">Build your <em>days.</em></h2>
+        <p class="bys-lede">Add everything that calls to you. We’ll work out the order around tides, weather and your flights.</p>
+        <div class="bys-cards">
+          {experiences.map(e => { const img = optionImage(e.image, e.alt); return (
+            <button type="button" class="bys-card" data-multi="exp" data-val={e.id} aria-pressed="false">
+              <span class="bys-mark" aria-hidden="true"></span>
+              {img ? <img src={img.src} srcset={img.srcset} sizes="(max-width: 700px) 92vw, 280px" width="640" height="440" alt={img.alt} loading="lazy" decoding="async" /> : <span class="bys-ph" aria-hidden="true"></span>}
+              <span class="bys-card-body"><span class="bys-card-title">{e.name}</span><span class="bys-card-text">{e.text}</span><span class="bys-tags">{e.tags.map(t => <span>{t}</span>)}</span></span>
+            </button>
+          ); })}
+        </div>
+      </section>
+
+      <section class="bys-step" data-step="4" aria-labelledby="bys-h4" hidden>
+        <h2 id="bys-h4" tabindex="-1">Anything <em>else?</em></h2>
+        <p class="bys-lede">Optional. Add whatever would make the trip easier.</p>
+        <div class="bys-chips bys-extras">{extras.map(v => <button type="button" class="bys-chip" data-multi="extras" data-val={v} aria-pressed="false">{v}</button>)}</div>
+        <div class="bys-field"><label for="bys-diet">Food or dietary needs</label><input type="text" id="bys-diet" data-key="diet" maxlength="200" placeholder="Vegetarian, allergies, no seafood…" /></div>
+      </section>
+
+      <section class="bys-step" data-step="5" aria-labelledby="bys-h5" hidden>
+        <h2 id="bys-h5" tabindex="-1" class="bys-visually-hidden">Review and send</h2>
+        <div class="bys-poster" id="bys-poster"></div>
+        <p class="bys-pilot">Pilot service. We reply with a free draft plan within {replyDays} days. Nothing is booked and you don’t pay anything.</p>
+        <fieldset class="bys-fieldset"><legend class="bys-label">Budget per person, not counting flights</legend>
+          <div class="bys-chips">{budgets.map(v => <button type="button" class="bys-chip" data-single="budget" data-val={v} aria-pressed="false">{v}</button>)}</div>
+        </fieldset>
+        <fieldset class="bys-fieldset"><legend class="bys-label">Optional · What planning fee feels fair?</legend>
+          <p class="bys-help">If we arranged everything for you later (bookings, pickups, guides), what would that be worth?</p>
+          <div class="bys-chips">{fees.map(v => <button type="button" class="bys-chip" data-single="fee" data-optional data-val={v} aria-pressed="false">{v}</button>)}</div>
+        </fieldset>
+        <div class="bys-row">
+          <div class="bys-field"><label for="bys-name">First name</label><input type="text" id="bys-name" data-key="name" autocomplete="given-name" maxlength="80" /></div>
+          <div class="bys-field"><label for="bys-email">Email for your draft plan</label><input type="email" id="bys-email" data-key="email" autocomplete="email" maxlength="160" placeholder="you@example.com" /></div>
+        </div>
+        <div class="bys-field"><label for="bys-heard">How did you find us?</label>
+          <select id="bys-heard" data-key="heard"><option value="">Choose one</option>{sources.map(s => <option value={s}>{s}</option>)}</select>
+        </div>
+        <div class="bys-field"><label for="bys-notes">Anything we should know?</label><textarea id="bys-notes" data-key="notes" maxlength="1500" placeholder="A birthday, a WWII site you want to see, a slow pace…"></textarea></div>
+        <div class="bys-honey" aria-hidden="true"><label for="bys-website">Leave this empty</label><input type="text" id="bys-website" tabindex="-1" autocomplete="off" /></div>
+        <p class="bys-privacy">We use your details only to reply about this trip. We don’t share them or add you to a mailing list.</p>
+      </section>
+
+      <div class="bys-nav">
+        <button type="button" class="bys-btn bys-btn-ghost" data-back>Back</button>
+        <button type="submit" class="bys-btn bys-btn-primary" id="bys-next">Continue <Icon name="arrow" /></button>
+      </div>
+      <p class="bys-error" id="bys-error" role="alert"></p>
+    </form>
+
+    <aside class="bys-summary" id="bys-summary" aria-label="Your stay">
+      <button type="button" class="bys-sheetbar" id="bys-sheetbar" aria-expanded="false" aria-controls="bys-ticket"><b id="bys-sheet-title">Your stay</b><span id="bys-sheet-hint">View</span></button>
+      <div class="bys-ticket" id="bys-ticket"></div>
+    </aside>
+  </div>
+
+  <section class="bys-done" id="bys-done" hidden aria-labelledby="bys-done-title">
+    <p class="tg-eyebrow">Request received</p>
+    <h2 id="bys-done-title" tabindex="-1"></h2>
+    <div class="bys-next">
+      <div><b>Within {replyDays} days</b><span id="bys-done-email"></span></div>
+      <div><b>You reply</b><span>Tell us what to change. Nothing is booked until you say so.</span></div>
+      <div><b>Meanwhile</b><span>Read the <a class="tg-link" href="/getting-here/">Getting Here</a> and <a class="tg-link" href="/travel-info/">Travel Essentials</a> guides.</span></div>
+    </div>
+    <button type="button" class="bys-btn bys-btn-ghost" id="bys-restart">Start a new stay</button>
+  </section>
+</div>
+
+<script>
+  import { bases, experiences, steps } from '../data/build-your-stay';
+
+  type State = {
+    step: number; arrive: string; depart: string; flexible: boolean; flights: string;
+    adults: number; kids: number; diver: boolean; access: boolean; base: string;
+    exp: string[]; extras: string[]; diet: string; budget: string; fee: string;
+    name: string; email: string; heard: string; notes: string;
+  };
+
+  const root = document.getElementById('bys');
+  if (root) {
+    const endpoint = root.dataset.endpoint ?? '';
+    const replyDays = root.dataset.replyDays ?? '3';
+    const DRAFT_KEY = 'bys-draft';
+    const defaults: State = { step: 0, arrive: '', depart: '', flexible: false, flights: '', adults: 2, kids: 0, diver: false, access: false, base: '', exp: [], extras: [], diet: '', budget: '', fee: '', name: '', email: '', heard: '', notes: '' };
+
+    const store = {
+      get(k: string, s: Storage | undefined) { try { return s?.getItem(k) ?? null; } catch { return null; } },
+      set(k: string, v: string, s: Storage | undefined) { try { s?.setItem(k, v); } catch { /* storage blocked */ } },
+      del(k: string, s: Storage | undefined) { try { s?.removeItem(k); } catch { /* storage blocked */ } },
+    };
+    const local = (() => { try { return window.localStorage; } catch { return undefined; } })();
+    const session = (() => { try { return window.sessionStorage; } catch { return undefined; } })();
+
+    let S: State = { ...defaults };
+    try { const saved = JSON.parse(store.get(DRAFT_KEY, local) ?? 'null'); if (saved) S = { ...defaults, ...saved }; } catch { /* ignore bad draft */ }
+    const save = () => store.set(DRAFT_KEY, JSON.stringify(S), local);
+
+    // Anonymous per-visit id and first-touch campaign tags, for the demand funnel.
+    let sessionId = store.get('bys-session', session);
+    if (!sessionId) { sessionId = Math.random().toString(36).slice(2, 10); store.set('bys-session', sessionId, session); }
+    const params = new URLSearchParams(location.search);
+    const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map(k => params.get(k)).filter(Boolean).join(' / ');
+    if (utm && !store.get('bys-utm', session)) store.set('bys-utm', utm, session);
+    const source = store.get('bys-utm', session) || (document.referrer ? new URL(document.referrer).hostname : 'direct');
+
+    const send = (payload: object, beacon = false) => {
+      if (!endpoint) return Promise.resolve(false);
+      const body = JSON.stringify(payload);
+      if (beacon && navigator.sendBeacon) return Promise.resolve(navigator.sendBeacon(endpoint, new Blob([body], { type: 'text/plain' })));
+      return fetch(endpoint, { method: 'POST', body, redirect: 'follow' })
+        .then(r => r.ok ? r.json() : { ok: false })
+        .then(r => Boolean(r && r.ok))
+        .catch(() => false);
+    };
+    const tracked = new Set<number>();
+    const trackStep = (i: number) => {
+      const key = `bys-step-${i}`;
+      if (tracked.has(i) || store.get(key, session)) return;
+      tracked.add(i); store.set(key, '1', session);
+      send({ type: 'step', step: i + 1, stepName: steps[i], session: sessionId, source }, true);
+    };
+
+    const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+    const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+    const day = (iso: string, year = false) => {
+      const d = new Date(`${iso}T00:00:00`);
+      return isNaN(d.getTime()) ? '' : d.toLocaleDateString(undefined, year ? { day: 'numeric', month: 'short', year: 'numeric' } : { day: 'numeric', month: 'short' });
+    };
+    const nights = () => {
+      const n = Math.round((new Date(S.depart).getTime() - new Date(S.arrive).getTime()) / 864e5);
+      return Number.isFinite(n) && n > 0 ? n : 0;
+    };
+    const plural = (n: number, w: string) => `${n} ${w}${n === 1 ? '' : 's'}`;
+    const party = () => plural(S.adults, 'adult') + (S.kids ? `, ${plural(S.kids, 'kid')}` : '');
+    const expName = (id: string) => experiences.find(e => e.id === id)?.name ?? id;
+    const base = () => bases.find(b => b.id === S.base);
+    const stayTitle = () => nights() ? `${plural(nights(), 'night')} on Pohnpei` : 'Your stay';
+    const dateLine = () => nights() ? `${day(S.arrive)} – ${day(S.depart, true)}${S.flexible ? ' · flexible' : ''}` : 'Add your dates';
+
+    const plannerNotes = () => {
+      const n = nights(), out: [string, string][] = [];
+      if (S.exp.includes('nanmadol')) out.push(['Tide', 'Your Nan Madol day gets matched to the tide.']);
+      if (S.exp.includes('dive')) {
+        out.push(['Flying', 'Dives stay at least 24 hours before your flight home.']);
+        if (!S.diver) out.push(['Diving', 'Not certified? We’ll look at snorkel options instead.']);
+      }
+      if (S.exp.includes('falls')) out.push(['Rain', 'Waterfall days get a rain-day backup.']);
+      if (S.exp.includes('surf')) out.push(['Swell', 'Surf depends on the season. We’ll check your dates.']);
+      if (S.exp.includes('atoll') && n && n < 5) out.push(['Time', 'Outer-island trips need permission and spare days. Consider 5 nights or more.']);
+      if (n && S.exp.length > n) out.push(['Pace', 'That’s more than one plan a day. We’ll suggest what to pair.']);
+      return out;
+    };
+
+    const brief = () => [
+      `NEW TRIP REQUEST`,
+      ``,
+      `Name      ${S.name || '(not given)'}`,
+      `Email     ${S.email}`,
+      `Dates     ${day(S.arrive, true)} → ${day(S.depart, true)} (${plural(nights(), 'night')})${S.flexible ? ' · flexible' : ''}`,
+      `Flights   ${S.flights || '(not said)'}`,
+      `Party     ${party()}${S.diver ? ' · certified diver' : ''}${S.access ? ' · access needs' : ''}`,
+      `Base      ${base()?.name ?? '(not chosen)'}`,
+      `Wants     ${S.exp.map(expName).join(', ') || '(suggest for us)'}`,
+      `Extras    ${S.extras.join(', ') || 'none'}${S.diet ? ` · diet: ${S.diet}` : ''}`,
+      `Budget    ${S.budget} per person, excl. flights`,
+      `Fee ok    ${S.fee || '(skipped)'}`,
+      `Found us  ${S.heard || '(skipped)'} · source: ${source}`,
+      `Notes     ${S.notes || 'none'}`,
+      ``,
+      `Flags     ${plannerNotes().map(([k, v]) => `${k}: ${v}`).join(' | ') || 'none'}`,
+    ].join('\n');
+
+    const renderTicket = () => {
+      const empty = (t: string) => `<span class="bys-empty">${t}</span>`;
+      const notes = plannerNotes();
+      $('bys-sheet-title').textContent = stayTitle() + (S.exp.length ? ` · ${plural(S.exp.length, 'plan')}` : '');
+      $('bys-ticket').innerHTML = `
+        <div class="bys-ticket-head"><p>Your stay</p><h3>${stayTitle()}</h3><span>${dateLine()}</span></div>
+        <dl>
+          <div><dt>Who</dt><dd>${party()}${S.diver ? ' · certified diver' : ''}${S.access ? ' · access needs' : ''}</dd></div>
+          <div><dt>Flights</dt><dd>${S.flights ? esc(S.flights) : empty('Not said yet')}</dd></div>
+          <div><dt>Base</dt><dd>${base() ? `${esc(base()!.name)} <small>· ${esc(base()!.place)}</small>` : empty('Pick a base')}</dd></div>
+          <div><dt>Days</dt><dd>${S.exp.length ? `<ul>${S.exp.map(id => `<li>${esc(expName(id))}</li>`).join('')}</ul>` : empty('Add what you’d love to do')}</dd></div>
+          <div><dt>Extras</dt><dd>${S.extras.length ? esc(S.extras.join(', ')) : empty('None yet')}</dd></div>
+        </dl>
+        ${notes.length ? `<div class="bys-notes"><p>Planner notes</p>${notes.map(([k, v]) => `<div><b>${k}</b> ${v}</div>`).join('')}</div>` : ''}`;
+    };
+
+    const renderPoster = () => {
+      $('bys-poster').innerHTML = `
+        <p>${nights() ? `${day(S.arrive)} – ${day(S.depart, true)}` : 'Your dates'} · ${party()}</p>
+        <h3>${plural(nights(), 'night')} on <em>Pohnpei.</em></h3>
+        <span>${base() ? `${esc(base()!.name)} base` : 'Base to suggest'}${S.extras.length ? ` · ${esc(S.extras.join(', '))}` : ''}</span>
+        <div>${S.exp.map(id => `<span>${esc(expName(id))}</span>`).join('') || '<span>Days to suggest</span>'}</div>`;
+    };
+
+    const syncControls = () => {
+      root.querySelectorAll<HTMLButtonElement>('[data-single]').forEach(b => b.setAttribute('aria-pressed', String(S[b.dataset.single as keyof State] === b.dataset.val)));
+      root.querySelectorAll<HTMLButtonElement>('[data-multi]').forEach(b => b.setAttribute('aria-pressed', String((S[b.dataset.multi as 'exp' | 'extras']).includes(b.dataset.val!))));
+      root.querySelectorAll<HTMLInputElement>('[data-key]').forEach(el => {
+        const v = S[el.dataset.key as keyof State];
+        if (el.type === 'checkbox') el.checked = Boolean(v); else if (el.value !== String(v)) el.value = String(v);
+      });
+      $('bys-adults').textContent = String(S.adults);
+      $('bys-kids').textContent = String(S.kids);
+      const n = nights();
+      $('bys-nights').innerHTML = n ? `<strong>${n}</strong> ${n === 1 ? 'night' : 'nights'} on the island` : (S.arrive && S.depart ? 'Pick a leave date after you arrive' : 'Add your arrival and leave dates');
+      const departInput = $<HTMLInputElement>('bys-depart');
+      departInput.min = S.arrive || departInput.min;
+    };
+
+    const render = () => {
+      syncControls();
+      renderTicket();
+      root.querySelectorAll<HTMLElement>('.bys-step').forEach(sec => { sec.hidden = Number(sec.dataset.step) !== S.step; });
+      root.querySelectorAll<HTMLButtonElement>('.bys-rail button').forEach((b, i) => {
+        if (i === S.step) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+        b.classList.toggle('is-done', i < S.step);
+      });
+      root.querySelector<HTMLButtonElement>('[data-back]')!.hidden = S.step === 0;
+      const next = $('bys-next');
+      next.firstChild!.textContent = S.step === steps.length - 1 ? 'Send to a planner ' : S.step === 4 ? 'Review my stay ' : 'Continue ';
+      if (S.step === steps.length - 1) renderPoster();
+    };
+
+    const problem = () => {
+      if (S.step === 0 && !nights()) return S.arrive && S.depart ? 'Pick a leave date after your arrival date.' : 'Add your arrival and leave dates. Rough dates are fine.';
+      if (S.step === 5) {
+        if (!S.budget) return 'Choose a budget range, or pick “Not sure yet”.';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(S.email.trim())) return 'Add an email address so we can send your draft plan.';
+      }
+      return '';
+    };
+    const showError = (m: string) => { $('bys-error').textContent = m; };
+
+    const go = (i: number) => {
+      S.step = Math.max(0, Math.min(steps.length - 1, i));
+      showError(''); save(); render(); trackStep(S.step);
+      root.querySelector('.bys-rail')!.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      $(`bys-h${S.step}`).focus({ preventScroll: true });
+    };
+
+    const finish = () => {
+      $('bys-done-title').innerHTML = `Thank you${S.name ? `, ${esc(S.name)}` : ''}. <em>We’re on it.</em>`;
+      $('bys-done-email').textContent = `We’ll email a draft day-by-day plan for your dates to ${S.email}.`;
+      root.querySelector<HTMLElement>('.bys-grid')!.hidden = true;
+      root.querySelector<HTMLElement>('.bys-rail')!.hidden = true;
+      $('bys-done').hidden = false;
+      store.del(DRAFT_KEY, local);
+      root.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      $('bys-done-title').focus({ preventScroll: true });
+    };
+
+    let sending = false;
+    $('bys-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const m = problem();
+      if (m) { showError(m); return; }
+      if (S.step < steps.length - 1) { go(S.step + 1); return; }
+      if (sending) return;
+      if ($<HTMLInputElement>('bys-website').value) { finish(); return; }
+      if (!endpoint) { showError('Preview mode: this request was not sent. Configure the request endpoint before launch.'); return; }
+      sending = true;
+      const next = $<HTMLButtonElement>('bys-next');
+      next.disabled = true; next.firstChild!.textContent = 'Sending… ';
+      const ok = await send({
+        type: 'request', session: sessionId, source, page: location.pathname,
+        arrive: S.arrive, depart: S.depart, nights: nights(), flexible: S.flexible, flights: S.flights,
+        adults: S.adults, kids: S.kids, diver: S.diver, access: S.access,
+        base: base()?.name ?? '', experiences: S.exp.map(expName), extras: S.extras, diet: S.diet,
+        budget: S.budget, fee: S.fee, name: S.name.trim(), email: S.email.trim(), heard: S.heard, notes: S.notes,
+        flags: plannerNotes().map(([k, v]) => `${k}: ${v}`), brief: brief(),
+      });
+      sending = false; next.disabled = false; render();
+      if (ok) finish();
+      else showError('Your request didn’t go through. Check your connection and try again. Your choices are saved on this device.');
+    });
+
+    root.addEventListener('click', e => {
+      const t = (e.target as HTMLElement).closest('button');
+      if (!t) return;
+      if (t.dataset.go !== undefined) {
+        const i = Number(t.dataset.go);
+        if (i <= S.step) { go(i); return; }
+        const m = problem(); if (m) { showError(m); return; }
+        go(i); return;
+      }
+      if (t.hasAttribute('data-back')) { go(S.step - 1); return; }
+      if (t.dataset.inc || t.dataset.dec) {
+        const k = (t.dataset.inc || t.dataset.dec) as 'adults' | 'kids';
+        const min = k === 'adults' ? 1 : 0, max = k === 'adults' ? 20 : 12;
+        S[k] = Math.max(min, Math.min(max, S[k] + (t.dataset.inc ? 1 : -1)));
+      } else if (t.dataset.single) {
+        const k = t.dataset.single as 'flights' | 'base' | 'budget' | 'fee';
+        S[k] = S[k] === t.dataset.val && (t.hasAttribute('data-optional') || k === 'base') ? '' : t.dataset.val!;
+      } else if (t.dataset.multi) {
+        const k = t.dataset.multi as 'exp' | 'extras', v = t.dataset.val!;
+        S[k] = S[k].includes(v) ? S[k].filter(x => x !== v) : [...S[k], v];
+      } else if (t.id === 'bys-sheetbar') {
+        const open = $('bys-summary').classList.toggle('is-open');
+        t.setAttribute('aria-expanded', String(open));
+        $('bys-sheet-hint').textContent = open ? 'Close' : 'View';
+        return;
+      } else if (t.id === 'bys-restart') {
+        S = { ...defaults }; save();
+        $('bys-done').hidden = true;
+        root.querySelector<HTMLElement>('.bys-grid')!.hidden = false;
+        root.querySelector<HTMLElement>('.bys-rail')!.hidden = false;
+        go(0); return;
+      } else return;
+      showError(''); save(); render();
+    });
+
+    root.addEventListener('input', e => {
+      const el = e.target as HTMLInputElement;
+      const k = el.dataset.key as keyof State | undefined;
+      if (!k) return;
+      (S as Record<string, unknown>)[k] = el.type === 'checkbox' ? el.checked : el.value;
+      save();
+      if (k === 'arrive' || k === 'depart') syncControls();
+      renderTicket();
+    });
+
+    root.hidden = false;
+    render();
+    trackStep(S.step);
+  }
+</script>

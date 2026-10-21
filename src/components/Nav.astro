@@ -1,9 +1,9 @@
 ---
 import Icon from './home/Icon.astro';
-const current = Astro.url.pathname.replace(/\/$/, '');
+const current = Astro.url.pathname.replace(/\/?$/, '/');
 const groups = [
-  { label: 'Explore the island', links: [ ['/#about', 'About Pohnpei'], ['/nan-madol', 'Nan Madol'], ['/waterfalls-and-jungle', 'Waterfalls & jungle'], ['/diving-and-surfing', 'Diving & surfing'], ['/outer-atolls', 'Outer islands'], ['/#culture', 'People & culture'] ] },
-  { label: 'Plan your journey', links: [ ['/getting-here', 'Getting here'], ['/places-to-stay', 'Places to stay'], ['/tour-operators', 'Guides & transport'], ['/travel-info', 'Travel essentials'], ['/plan-your-trip', 'Plan your visit'] ] },
+  { label: 'Explore the island', links: [ ['/#about', 'About Pohnpei'], ['/nan-madol/', 'Nan Madol'], ['/waterfalls-and-jungle/', 'Waterfalls & jungle'], ['/diving-and-surfing/', 'Diving & surfing'], ['/outer-atolls/', 'Outer islands'], ['/#culture', 'People & culture'] ] },
+  { label: 'Plan your journey', links: [ ['/getting-here/', 'Getting here'], ['/places-to-stay/', 'Places to stay'], ['/tour-operators/', 'Guides & transport'], ['/travel-info/', 'Travel essentials'], ['/plan-your-trip/', 'Plan your visit'] ] },
 ];
 ---
 <header class="guide-nav" id="island-nav">
@@ -11,7 +11,7 @@ const groups = [
     <svg viewBox="0 0 48 36" fill="none" aria-hidden="true"><path d="M3 25h42M8 29h32M14 33h20M5 21 24 3l19 18M12 21 24 10l12 11M18 21l6-5 6 5" stroke="currentColor" stroke-width="1.1"/><path d="M24 3v18" stroke="currentColor" stroke-width=".7"/></svg>
     <span>POHNPEI<small>ISLAND · MICRONESIA</small></span>
   </a>
-  <nav class="guide-desktop-links" aria-label="Main navigation"><a href="/#adventures">Experiences</a><a href="/tour-operators" aria-current={current === '/tour-operators' ? 'page' : undefined}>Local guides</a><a href="/plan-your-trip" aria-current={current === '/plan-your-trip' ? 'page' : undefined}>Plan your visit <Icon name="arrow" /></a></nav>
+  <nav class="guide-desktop-links" aria-label="Main navigation"><a href="/#adventures">Experiences</a><a href="/tour-operators/" aria-current={current === '/tour-operators/' ? 'page' : undefined}>Local guides</a><a href="/plan-your-trip/" aria-current={current === '/plan-your-trip/' ? 'page' : undefined}>Plan your visit <Icon name="arrow" /></a></nav>
   <div class="guide-nav-actions">
     <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause animations" title="Pause animations" hidden><Icon name="pause" /></button>
     <details class="home-menu guide-menu">

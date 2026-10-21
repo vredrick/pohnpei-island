@@ -20,9 +20,9 @@ export const serviceCategories = {
 } as const;
 export type ServiceCategory = keyof typeof serviceCategories;
 export const relatedPlaceGuides = {
-  'nan-madol': { label: 'Nan Madol visitor guide', href: '/nan-madol#visiting' },
-  'p-pass': { label: 'Surfing guide', href: '/diving-and-surfing#surfing' },
-  'ahnd': { label: 'Ahnd visiting guide', href: '/outer-atolls#nearby' },
+  'nan-madol': { label: 'Nan Madol visitor guide', href: '/nan-madol/#visiting' },
+  'p-pass': { label: 'Surfing guide', href: '/diving-and-surfing/#surfing' },
+  'ahnd': { label: 'Ahnd visiting guide', href: '/outer-atolls/#nearby' },
 } as const;
 export type RelatedPlace = keyof typeof relatedPlaceGuides;
 export interface Operator {

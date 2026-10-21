@@ -190,7 +190,8 @@ Source content for all planned pages exists in `content/raw/` HTML files and `co
 - A backup of the previously deployed site is at `/var/www/pohnpeiisland.com/index.html.bak` on the VPS.
 - The `DispatchForm` currently has a client-side-only submit handler (shows confirmation, resets after 5 seconds). There is no backend for form submissions yet.
 - The `StatusStrip` shows a live PONT timezone clock (UTC+11) updated every 30 seconds.
-- The `public/` directory is currently empty.
+- `public/` holds only `robots.txt` and `favicon.svg`. Images still go on Cloudinary.
+- SEO conventions (trailing-slash URLs, canonical, social images, structured data, sitemap) are in [docs/seo.md](docs/seo.md).
 
 ## Navigation Guide
 

@@ -1,21 +1,44 @@
 ---
 import '../styles/global.css';
 import '../styles/guide-theme.css';
+import { site, pageUrl, ogImage, organization } from '../data/site';
 
 interface Props {
   title?: string;
   description?: string;
   canonical?: string;
   image?: string;
+  imageAlt?: string;
+  /** Breadcrumb name; defaults to the title before " | ". */
+  crumb?: string;
+  /** Extra JSON-LD nodes for this page, merged into one @graph. */
+  schema?: Record<string, unknown>[];
+  noindex?: boolean;
 }
 
 const {
-  title = 'Pohnpei Island — The Garden Island of Micronesia',
+  title = 'Pohnpei Island Travel Guide | Micronesia’s Garden Island',
   description = 'Pohnpei Island, Micronesia — rainforest, reef, waterfalls, and a living culture that hasn\'t been packaged for anyone. Plan your trip to the Garden Island.',
   canonical,
-  image,
+  image = ogImage('hero-left-matnas.jpg'),
+  imageAlt = 'Green islands and still water in Pohnpei’s lagoon',
+  crumb = title.split(' | ')[0],
+  schema = [],
+  noindex = false,
 } = Astro.props;
 const isGuide = Astro.url.pathname !== '/';
+const url = pageUrl(canonical ?? Astro.url.pathname);
+const graph = [
+  { '@type': 'WebSite', '@id': `${site.url}/#website`, name: site.name, url: `${site.url}/`, inLanguage: 'en', publisher: { '@id': organization['@id'] } },
+  organization,
+  { '@type': 'WebPage', '@id': `${url}#webpage`, url, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${site.url}/#website` }, primaryImageOfPage: { '@type': 'ImageObject', url: image } },
+  ...(isGuide ? [{ '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+    { '@type': 'ListItem', position: 2, name: crumb, item: url },
+  ] }] : []),
+  ...schema,
+];
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
 ---
 
 <!doctype html>
@@ -25,21 +48,25 @@ const isGuide = Astro.url.pathname !== '/';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta
-      property="og:description"
-      content={description}
-    />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+    {!noindex && <link rel="canonical" href={url} />}
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
     <meta property="og:type" content="website" />
-    {canonical && <link rel="canonical" href={canonical} />}
-    {canonical && <meta property="og:url" content={canonical} />}
-    {image && <meta property="og:image" content={image} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     <meta name="theme-color" content="#233e3c" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232A1F18'/><text x='50' y='72' font-family='Newsreader,Georgia,serif' font-size='70' font-weight='600' text-anchor='middle' fill='%23F4E9D4'>P</text></svg>"
-    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {!noindex && <script type="application/ld+json" set:html={jsonLd} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />

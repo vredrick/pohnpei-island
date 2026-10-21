@@ -6,6 +6,7 @@ import Icon from '../components/home/Icon.astro';
 import TattooBand from '../components/home/TattooBand.astro';
 import '../styles/custom-guides.css';
 import NanMadolOperators from '../components/NanMadolOperators.astro';
+import TripCta from '../components/TripCta.astro';
 import { sources } from '../data/nan-madol';
 import { ogImage, pageUrl, pohnpei } from '../data/site';
 
@@ -136,6 +137,7 @@ const contents = [ ['story', 'The story'], ['visiting', 'Plan your visit'], ['pr
       </div>
     </section>
     <NanMadolOperators />
+    <section class="guide-section bg-basalt" aria-label="Plan my trip"><TripCta add="nanmadol" /></section>
     <section id="questions" class="guide-section bg-sand-bright">
       <div class="max-w-3xl mx-auto">
         <p class="eyebrow">05 / Common questions</p><h2 class="section-title mb-8">A few things <em>to know.</em></h2>

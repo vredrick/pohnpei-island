@@ -1,12 +1,37 @@
-/* Build Your Stay pilot: one step at a time on the left, a "Your stay" ticket on the right
-   that becomes a bottom sheet on phones. Colours follow tailwind.config.mjs. */
+/* Trip request pilot (/plan-your-trip): one step at a time on the left, a "Your trip" ticket on
+   the right that becomes a bottom sheet on phones. Colours follow tailwind.config.mjs. */
 .bys-page { --bys-ink: #233e3c; --bys-soft: #4c615b; --bys-accent: #a4472e; --bys-lagoon: #365e57; --bys-sand: #f2f0e5; --bys-paper: #f8f7f0; --bys-deep: #e8e9dd; --bys-line: rgba(35, 62, 60, .16); --bys-note: #f3e3d6; }
-.bys-hero-inner { padding: 64px max(24px, 5vw) 48px; }
-.bys-hero .custom-guide-heading { font-size: clamp(44px, 7vw, 92px); }
-.bys-section { padding: 48px max(16px, 5vw) 120px; background: var(--bys-sand); }
+.bys-hero-inner { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px; align-items: end; max-width: 72rem; margin: 0 auto; padding: 36px max(16px, 5vw) 28px; }
+.bys-hero .custom-guide-kicker { margin-bottom: 16px; }
+.bys-hero .custom-guide-heading { margin-bottom: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.04; letter-spacing: -.035em; }
+.bys-hero-line { max-width: 52ch; margin-top: 14px; color: var(--bys-soft); line-height: 1.7; }
+
+/* How it works: three short steps beside the heading, titles only on phones */
+.bys-how { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: how; }
+.bys-how li { counter-increment: how; display: grid; grid-template-columns: 30px minmax(0, 1fr); column-gap: 10px; padding-top: 10px; border-top: 1px solid var(--bys-line); }
+.bys-how li::before { content: '0' counter(how); grid-row: span 2; font: 400 17px 'Newsreader', Georgia, serif; color: var(--bys-accent); }
+.bys-how b { font: 400 20px/1.2 'Newsreader', Georgia, serif; }
+.bys-how span { font-size: 13px; line-height: 1.55; color: var(--bys-soft); }
+
+/* Do it yourself */
+.bys-diy { padding: 72px max(16px, 5vw); background: var(--bys-deep); }
+.bys-diy-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 48px; max-width: 72rem; margin: 0 auto; }
+.bys-diy h2 { margin-bottom: 14px; font: 400 clamp(34px, 4vw, 48px)/1.05 'Newsreader', Georgia, serif; letter-spacing: -.02em; }
+.bys-diy h2 em { color: var(--bys-accent); }
+.bys-diy-inner > div > p { color: var(--bys-soft); line-height: 1.75; }
+.bys-diy ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--bys-line); }
+.bys-diy li a { display: flex; align-items: center; gap: 20px; min-height: 48px; padding: 18px 0; border-bottom: 1px solid var(--bys-line); transition: padding .25s, color .25s; }
+.bys-diy li a:hover { padding-left: 6px; color: var(--bys-accent); }
+.bys-diy li a > span:first-child { font: 400 16px 'Newsreader', Georgia, serif; color: var(--bys-accent); }
+.bys-diy li a b { display: block; font: 400 26px/1.15 'Newsreader', Georgia, serif; }
+.bys-diy li a small { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--bys-soft); }
+.bys-diy li a svg { margin-left: auto; flex: none; }
+.bys-section { padding: 36px max(16px, 5vw) 96px; background: var(--bys-sand); border-top: 1px solid var(--bys-line); }
 .bys { max-width: 72rem; margin-inline: auto; }
 .bys-noscript { padding: 48px max(16px, 5vw); }
 .bys-preview { margin: 0 0 20px; padding: 10px 14px; border: 1px dashed var(--bys-accent); color: var(--bys-accent); font-size: 13px; }
+/* The grid and rail set their own display, so [hidden] needs help to win. */
+.bys [hidden] { display: none !important; }
 .bys-visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Step rail */
@@ -114,13 +139,22 @@
 /* Done */
 .bys-done { max-width: 44rem; }
 .bys-done h2 { margin-bottom: 18px; font: 400 clamp(34px, 5vw, 52px)/1.04 'Newsreader', Georgia, serif; outline: none; }
-.bys-next { margin: 8px 0 30px; border-top: 1px solid var(--bys-line); }
-.bys-next div { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--bys-line); }
+.bys-next { margin: 8px 0 18px; padding: 0; list-style: none; border-top: 1px solid var(--bys-line); }
+.bys-next li { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--bys-line); }
 .bys-next b { font: 400 19px 'Newsreader', Georgia, serif; color: var(--bys-accent); }
+.bys-next li.is-done b { color: var(--bys-lagoon); }
+.bys-meanwhile { margin-bottom: 26px; color: var(--bys-soft); font-size: 14px; }
 
 @media (max-width: 900px) {
-  .bys-hero-inner { padding-top: 40px; padding-bottom: 32px; }
-  .bys-section { padding-top: 32px; }
+  .bys-hero-inner { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-top: 26px; padding-bottom: 20px; }
+  .bys-hero-line { margin-top: 10px; font-size: 14px; }
+  .bys-how { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .bys-how li { display: block; padding-top: 8px; }
+  .bys-how li::before { display: block; font-size: 14px; }
+  .bys-how b { font-size: 15px; }
+  .bys-how span { display: none; }
+  .bys-section { padding-top: 24px; }
+  .bys-diy { padding-top: 44px; padding-bottom: 44px; }
   .bys-grid { grid-template-columns: minmax(0, 1fr); }
   .bys-rail { scroll-margin-top: 90px; }
   .bys-summary { position: fixed; top: auto; inset: auto 0 0; z-index: 70; max-height: 78vh; overflow: auto; background: var(--bys-paper); box-shadow: 0 -10px 30px rgba(35, 62, 60, .2); transform: translateY(calc(100% - 64px - env(safe-area-inset-bottom, 0px))); transition: transform .3s ease; }
@@ -130,6 +164,8 @@
   .bys-sheetbar span { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
   .bys-ticket { position: static; border: 0; padding-bottom: env(safe-area-inset-bottom, 0px); }
   .bys-ticket-head { display: none; }
-  .bys-next div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .bys-next li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .bys-diy-inner { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .bys-diy li a b { font-size: 23px; }
 }
 @media (prefers-reduced-motion: reduce) { .bys *, .bys-summary { transition: none !important; } }

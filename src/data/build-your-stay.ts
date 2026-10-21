@@ -1,8 +1,15 @@
-// Options for the Build Your Stay pilot (/build-your-stay).
-// The pilot tests demand before any provider agreements exist, so nothing here
-// names a business, quotes a price or promises availability.
+// Options for the trip request pilot (/plan-your-trip). The owner reads each request and
+// arranges it with local guides, boats and hosts by hand, so nothing here names a business,
+// quotes a price or promises availability.
 
 export const replyDays = 3;
+
+// "How it works", shown on /plan-your-trip, the homepage and the confirmation screen.
+export const howItWorks = [
+  { title: 'Tell us your trip', text: 'Dates, who’s coming, what you’d love to do and your budget. About three minutes.' },
+  { title: 'We reach the locals', text: 'We contact the guides, boat captains and hosts who fit, including the many who aren’t online.' },
+  { title: 'You choose', text: `Within ${replyDays} days you get a plan with real options and prices. Nothing is booked or paid until you say yes.` },
+];
 
 export const photo = (file: string, width = 640, height = 440) =>
   `https://res.cloudinary.com/doruy2kdr/image/upload/f_auto,q_auto,c_fill,g_auto,w_${width},h_${height}/${file}`;
@@ -23,13 +30,14 @@ export interface Experience extends Option {
   tags: string[];
 }
 
-export const steps = ['Dates', 'Travellers', 'Your base', 'Your days', 'Extras', 'Send'];
+export const steps = ['When', 'Who', 'What to do', 'Where to stay', 'Extras', 'Budget & send'];
 
 export const bases: Base[] = [
   { id: 'town', name: 'In town', place: 'Kolonia', text: 'Walk to cafés, shops and the harbour. Easy for a first visit.' },
   { id: 'water', name: 'Quiet waterfront', place: 'Lagoon & mangroves', text: 'Slow mornings and water views, a little further from town.', image: 'hero-left-matnas.jpg', alt: 'Green islands and still water in Pohnpei’s lagoon' },
   { id: 'dive', name: 'Dive-ready', place: 'Close to the boats', text: 'Early starts and somewhere to rinse and store gear.', image: 'hero-right-manta-road-pass.jpg', alt: 'A manta ray swimming through blue water' },
-  { id: 'any', name: 'Surprise me', place: 'Planner’s pick', text: 'Tell us what matters and we’ll suggest a match.', image: 'feature-nan-madol-step-into.jpg', alt: 'Basalt walls at Nan Madol' },
+  { id: 'any', name: 'Help me choose', place: 'Our pick', text: 'We’ll suggest a place that fits your days and budget.', image: 'feature-nan-madol-step-into.jpg', alt: 'Basalt walls at Nan Madol' },
+  { id: 'booked', name: 'Already booked', place: 'You have a place', text: 'Tell us where in the notes and we’ll plan around it.' },
 ];
 
 export const experiences: Experience[] = [
@@ -41,6 +49,7 @@ export const experiences: Experience[] = [
   { id: 'atoll', name: 'Outer island trip', text: 'Pakin or a further atoll. Its own adventure.', tags: ['Permission', 'Extra days'], image: 'chapter-03-outer-atolls.jpg', alt: 'A forested atoll ringed by reef' },
   { id: 'culture', name: 'Culture & sakau', text: 'Time with local hosts and a sakau evening.', tags: ['Ask before photos'], image: 'chapter-04-living-culture.jpg', alt: 'A Pohnpeian cultural demonstration beneath a thatched shelter' },
   { id: 'town', name: 'Kolonia & local food', text: 'Markets, history stops and island cooking.', tags: ['Easy day'] },
+  { id: 'suggest', name: 'Not sure yet', text: 'Suggest a mix that suits our group and dates.', tags: ['We’ll suggest'] },
 ];
 
 export const extras = ['Airport pickup', 'Rental car', 'Driver or guide for the stay', 'Celebrating an occasion', 'Photographer', 'Accessible options'];

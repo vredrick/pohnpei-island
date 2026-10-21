@@ -1,0 +1,27 @@
+---
+// The closing "Plan my trip" box on guide pages. `add` preselects that experience in the form.
+import Icon from './home/Icon.astro';
+import { experiences } from '../data/build-your-stay';
+import '../styles/travel-guide.css';
+interface Props { add?: string }
+const { add } = Astro.props;
+const experience = experiences.find(e => e.id === add);
+---
+<div class="trip-cta">
+  <div>
+    <p class="tg-eyebrow">Plan my trip</p>
+    <h2 class="font-headline">{experience ? <>Want {experience.name}{' '}<em>in your trip?</em></> : <>Want this <em>in your trip?</em></>}</h2>
+    <p>Tell us your dates and who’s coming. We’ll arrange it with local guides and hosts, including the ones who aren’t online, and reply with real options. Nothing is booked until you say yes.</p>
+  </div>
+  <a href={experience ? `/plan-your-trip/?add=${experience.id}#trip-request` : '/plan-your-trip/#trip-request'} class="tg-button">Start my trip request <Icon name="arrow" /></a>
+</div>
+
+<style>
+  .trip-cta { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; max-width: 72rem; margin: 0 auto; padding: 36px clamp(20px, 4vw, 48px); background: #f2f0e5; color: #233e3c; border-top: 3px solid #a4472e; }
+  .trip-cta h2 { margin-bottom: 12px; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.08; letter-spacing: -.02em; }
+  .trip-cta h2 em { color: #a4472e; }
+  .trip-cta p:not(.tg-eyebrow) { max-width: 60ch; color: #4c615b; line-height: 1.75; font-size: .95rem; }
+  .trip-cta .tg-button { gap: 14px; background: #a4472e; color: #fff; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: 12px; white-space: nowrap; transition: background .2s; }
+  .trip-cta .tg-button:hover { background: #8a3b26; }
+  @media (max-width: 760px) { .trip-cta { grid-template-columns: minmax(0, 1fr); } .trip-cta .tg-button { white-space: normal; } }
+</style>
